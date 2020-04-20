@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class User {
 
-    public final int ID; //TODO generate an ID
-    private String name, FirstName, Address, Picture, Password;
+    public final String ID; //TODO generate an ID
+    private String name, firstName, address, picture, password;
     private String[] Preferences;
     private Date Birthday;
 
     // Constructeur à faire
     public User() {
-        this.ID = 0;
+        this.ID = "";
     }
 
     public String getName() {
@@ -23,35 +23,35 @@ public class User {
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
     public String getPicture() {
-        return Picture;
+        return picture;
     }
 
     public void setPicture(String picture) {
-        Picture = picture;
+        this.picture = picture;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String[] getPreferences() {
