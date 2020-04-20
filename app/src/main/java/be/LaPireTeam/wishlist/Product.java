@@ -10,6 +10,7 @@ public class Product {
     public Product() {
     }
 
+
     public void updateNote(){
     }
 }
