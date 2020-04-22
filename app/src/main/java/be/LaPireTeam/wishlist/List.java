@@ -24,7 +24,7 @@ public class List {
     }
 
     public void setCreationDate(Date creationDate) {
-        creationDate = creationDate;
+        this.creationDate = creationDate;
     }
 
     public Wish addNewWish(Wish w){
