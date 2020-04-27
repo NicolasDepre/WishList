@@ -6,8 +6,8 @@ import be.LaPireTeam.wishlist.Product;
 
 public class ProductDAO extends DAO<Product> {
 
-   public ProductDAO(Connection conn){
-       super(conn);
+   public ProductDAO(){
+       super();
    }
 
     @Override

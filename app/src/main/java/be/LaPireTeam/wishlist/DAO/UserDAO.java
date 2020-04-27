@@ -6,8 +6,8 @@ import be.LaPireTeam.wishlist.User;
 
 public class UserDAO extends DAO<User> {
 
-    public UserDAO(Connection conn){
-        super(conn);
+    public UserDAO(){
+        super();
     }
 
     @Override

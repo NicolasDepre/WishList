@@ -6,21 +6,19 @@ import be.LaPireTeam.wishlist.Group;
 
 public class DAOFactory {
 
-    protected final static Connection conn = null;
-
     public static GroupDAO getGroupDAO(){
-        return new GroupDAO(conn);
+        return new GroupDAO();
     }
 
     public static ListDAO getListDAO(){
-        return new ListDAO(conn);
+        return new ListDAO();
     }
 
     public static ProductDAO getProductDAO(){
-        return new ProductDAO(conn);
+        return new ProductDAO();
     }
 
     public static UserDAO getUserDAO(){
-        return new UserDAO(conn);
+        return new UserDAO();
     }
 }

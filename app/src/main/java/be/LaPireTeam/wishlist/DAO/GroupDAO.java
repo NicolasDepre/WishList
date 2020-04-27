@@ -1,22 +1,38 @@
 package be.LaPireTeam.wishlist.DAO;
 
-import java.sql.Connection;
+import android.database.sqlite.SQLiteDatabase;
+
+
 
 import be.LaPireTeam.wishlist.Group;
 
 public class GroupDAO extends DAO<Group> {
 
-    public GroupDAO(Connection conn){
-        super(conn);
+    public GroupDAO(){
+        super();
+
     }
+
     @Override
     public boolean create(Group obj) {
         return false;
     }
 
+
+    public boolean addGroup(Group g) {
+        String request = "INSERT";
+        int couou = 2;
+        this.dbHelper.getReadableDatabase().execSQL(request);
+        return true;
+    }
+
     @Override
     public boolean delete(Group obj) {
-        return false;
+
+        String request = "";
+
+        this.dbHelper.getWritableDatabase().execSQL(request);
+        return true;
     }
 
     @Override
@@ -28,4 +44,6 @@ public class GroupDAO extends DAO<Group> {
     public Group find(int id) {
         return null;
     }
+
+
 }
