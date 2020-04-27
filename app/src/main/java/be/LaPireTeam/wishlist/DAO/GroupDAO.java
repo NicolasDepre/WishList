@@ -20,9 +20,8 @@ public class GroupDAO extends DAO<Group> {
 
 
     public boolean addGroup(Group g) {
-        String request = "INSERT";
-        int couou = 2;
-        this.dbHelper.getReadableDatabase().execSQL(request);
+        String myRequest = "";
+        this.dbHelper.getReadableDatabase().execSQL(myRequest);
         return true;
     }
 
