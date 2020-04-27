@@ -4,4 +4,7 @@
     <string name="password">Password</string>
     <string name="log_in">Log in</string>
     <string name="sign_in">Sign in</string>
+    <string name="lists">Lists</string>
+    <string name="amis">Amis</string>
+    <string name="profil">Profil</string>
 </resources>
