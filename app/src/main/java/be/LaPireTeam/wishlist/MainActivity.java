@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
         listeBoutons[Connexion] = ((Button) this.findViewById(R.id.Connexion)) ;
-        listeBoutons[Inscription] = ((Button) this.findViewById(R.id.Inscription) ;
+        listeBoutons[Inscription] = ((Button) this.findViewById(R.id.Inscription));
         for (int i = 0 ; i < listeBoutons.length ; i ++){
             listeBoutons[i].setOnClickListener(this);
         }
