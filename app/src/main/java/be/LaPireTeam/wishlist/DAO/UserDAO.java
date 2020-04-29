@@ -1,33 +1,71 @@
 package be.LaPireTeam.wishlist.DAO;
 
-import java.sql.Connection;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.Date;
 
 import be.LaPireTeam.wishlist.User;
 
-public class UserDAO extends DAO<User> {
+public class UserDAO{
 
-    public UserDAO(){
-        super();
+    public DAO dao;
+
+    public UserDAO(Context c){
+        dao = DAO.getInstance(c);
     }
 
-    @Override
-    public boolean create(User obj) {
-        return false;
+    public User login(String username, String password){
+
+        SQLiteDatabase db = dao.getDB();
+        String query = "SELECT * FROM User WHERE User.Pseudo == '" + username + "' AND User.Password == '" + password +"'";
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+        return cursor_to_user(c);
+
+
     }
 
-    @Override
-    public boolean delete(User obj) {
-        return false;
+    public User cursor_to_user(Cursor c){
+        User u = new User();
+
+        try {
+            u.setLastName(c.getString(c.getColumnIndex("FirstName")));
+            u.setFirstName(c.getString(c.getColumnIndex("FirstName")));
+            u.setID(c.getString(c.getColumnIndex("Pseudo")));
+            u.setPassword(c.getString(c.getColumnIndex("Password")));
+            //u.setBirthday((Date) c.getString(c.getColumnIndex("DateOfBirth"))); TODO Gestion de la date
+            u.setAddress(c.getString(c.getColumnIndex("Address")));
+            u.setPicture(c.getColumnName(c.getColumnIndex("ProfilePicture")));
+            u.setPreferences(c.getString(c.getColumnIndex("Preferences")).split(" "));
+        }catch(Exception e){ return null;}
+        return u;
     }
 
-    @Override
-    public boolean update(User obj) {
-        return false;
+    public boolean addUserToDB(User u){
+
+        SQLiteDatabase db = dao.getDB();
+        ContentValues vals = new ContentValues();
+
+        vals.put("FirstName", u.getFirstName());
+        vals.put("LastName", u.getLastName());
+        vals.put("Pseudo",u.getID());
+        vals.put("Password",u.getPassword());
+        vals.put("Address", u.getAddress());
+        vals.put("ProfilePicture",u.getPicture());
+        vals.put("Preferences",u.getPreferences().toString());
+
+        try {
+            db.insert("User", null, vals);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
     }
 
-    @Override
-    public User find(int id) {
-        return null;
-    }
 
 }

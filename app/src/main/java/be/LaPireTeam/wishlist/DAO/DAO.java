@@ -4,22 +4,32 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.sql.Connection;
+public class DAO {
 
-public abstract class DAO<T>{
+    public SQLiteOpenHelper openHelper;
+    public SQLiteDatabase db;
+    private static DAO instance;
 
-    private static final String DB_NAME = "WishList.db";
-    public DBHelper dbHelper;
+    protected DAO(Context c){
 
+        this.openHelper = new DataBaseOpenHelper(c);
+        this.db = openHelper.getWritableDatabase();
+    }
+    public SQLiteDatabase getDB(){
+        return this.db;
+    }
 
-    public DAO(){
-        dbHelper = new DBHelper(null, DB_NAME, null, 1);
+    public void close(){
+        if(this.db != null){
+            this.db.close();
+        }
+    }
+
+    public static DAO getInstance(Context c) {
+        if(instance == null) instance = new DAO(c);
+        return instance;
     }
 
 
-    public abstract boolean create(T obj);
-    public abstract boolean delete(T obj);
 
-    public abstract boolean update(T obj);
-    public abstract T find(int id);
 }

@@ -56,7 +56,7 @@ public class Group {
     public String strMembers(){
         String str = "";
         for(User u : this.members){
-            str +=  u.ID;
+            str +=  u.getID();
         }
         return str;
     }

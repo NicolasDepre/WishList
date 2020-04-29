@@ -4,22 +4,30 @@ import java.util.Date;
 
 public class User {
 
-    public final String ID; //TODO generate an ID
-    private String name, firstName, address, picture, password;
+    //TODO generate an ID
+    private String LastName, ID,firstName, address, picture, password;
     private String[] Preferences;
     private Date Birthday;
 
     // Constructeur à faire
     public User() {
-        this.ID = "";
+
     }
 
-    public String getName() {
-        return name;
+    public String getID() {
+        return ID;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String name) {
+        this.LastName = name;
     }
 
     public String getFirstName() {
