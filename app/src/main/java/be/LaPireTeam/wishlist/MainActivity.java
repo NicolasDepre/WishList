@@ -4,33 +4,45 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
 
-import be.LaPireTeam.wishlist.DAO.DAOFactory;
-import be.LaPireTeam.wishlist.DAO.UserDAO;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class MainActivity extends AppCompatActivity {
 
+    private static final int Connexion = 0 ;
+    private static final int Inscription = 1 ;
+    private static final int Wishlist = 2 ;
+    private static final int Amis = 3 ;
+    private static final int Profile = 4 ;
+
+
+    public Button[] listeBoutons = new Button[50] ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        Log.i("INFO", "STARTUP");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-        TextView v = (TextView) findViewById(R.id.username_field_loginpage);
-        User u = new User();
-        u.setID("Test2");
-        u.setPreferences(new String[]{"Test", "Test"});
-        u.setFirstName("Test");
-        u.setLastName("Test");
-        u.setAddress("Rue de la gare 10");
-        u.setPicture("Test");
-        u.setPassword("Test");
-        if(DAOFactory.userDAO(this).addUserToDB(u)) v.setText("CA A MARCHE");
-        else v.setText("ECHEC");
+        listeBoutons[Connexion] = ((Button) this.findViewById(R.id.Connexion)) ;
+        listeBoutons[Inscription] = ((Button) this.findViewById(R.id.Inscription));
+        for (int i = 0 ; i < listeBoutons.length ; i ++){
+            listeBoutons[i].setOnClickListener(this);
+        }
 
-        User u2 = DAOFactory.userDAO(this).login("Test2","Test");
-        v.setText(u2.getAddress());
+    }
 
+
+
+    int activite ;
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.Connexion :
+                activite = Connexion ;
+                break ;
+            case R.id.Inscription :
+                activite = Inscription ;
+                break ;
+        }
     }
 }

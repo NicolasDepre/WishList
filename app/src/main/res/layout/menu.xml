@@ -7,62 +7,63 @@
     android:background = "@drawable/background"
     >
 
-
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="99dp"
-        android:layout_marginBottom="33dp"
-        android:text="WISHLIST"
-        android:textAlignment="center"
+        android:id="@+id/title_menu"
+        android:layout_width="139dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/app_name"
         android:textSize="36sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/editText8"
+        app:layout_constraintBottom_toTopOf="@+id/lists_button_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="129dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="141dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="120dp"
-        android:text="Wishlist"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        android:id="@+id/lists_button_menu"
+        android:layout_width="160dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/lists"
+        app:layout_constraintBottom_toTopOf="@+id/amis_button_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_menu" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="328dp"
-        android:layout_marginEnd="141dp"
-        android:text="Profil"
+        android:id="@+id/amis_button_menu"
+        android:layout_width="160dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/amis"
+        app:layout_constraintBottom_toTopOf="@+id/profile_button_menu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/lists_button_menu" />
+
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="256dp"
-        android:layout_marginEnd="141dp"
-        android:text="Amis"
+        android:id="@+id/profile_button_menu"
+        android:layout_width="160dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="195dp"
+        android:text="@string/profil"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/amis_button_menu" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
