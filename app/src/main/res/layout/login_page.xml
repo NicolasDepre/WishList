@@ -79,4 +79,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_button_loginpage" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="111dp"
+        android:text="login_succes / Login_failed"
+        app:layout_constraintBottom_toTopOf="@+id/signup_button_loginpage"
+        app:layout_constraintTop_toBottomOf="@+id/login_button_loginpage"
+        tools:layout_editor_absoluteX="118dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
