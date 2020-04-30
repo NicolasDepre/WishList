@@ -19,6 +19,8 @@ public class UserDAO{
         dao = DAO.getInstance(c);
     }
 
+
+
     public User login(String username, String password){
 
         SQLiteDatabase db = dao.getDB();
