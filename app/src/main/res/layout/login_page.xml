@@ -61,12 +61,12 @@
         android:layout_marginStart="141dp"
         android:layout_marginEnd="141dp"
         android:layout_marginBottom="100dp"
+        android:onClick="loginButton"
         android:text="@string/log_in"
-        android:onClick="loginUser"
         app:layout_constraintBottom_toTopOf="@+id/signup_button_loginpage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_field_loginpage"/>
+        app:layout_constraintTop_toBottomOf="@+id/password_field_loginpage" />
 
     <Button
         android:id="@+id/signup_button_loginpage"
@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_button_loginpage" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/alerteTextLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
