@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="Connexion" type="id">1</item>
-    <item name="Inscription" type="id">2</item>
-    <item name="Amis" type="id">3</item>
-    <item name="Profile" type="id">4</item>
-    <item name="Wishlist" type="id">2</item>
-    <item name="ValidInscription" type="id">5</item>
+    <item name="Connexion" type="id"></item>
+    <item name="Inscription" type="id"></item>
+    <item name="Amis" type="id"></item>
+    <item name="Profile" type="id"></item>
+    <item name="Wishlist" type="id"></item>
+    <item name="ValidInscription" type="id"></item>
 </resources>

@@ -22,28 +22,38 @@ public class UserDAO{
     public User login(String username, String password){
 
         SQLiteDatabase db = dao.getDB();
+        Log.i("INFO",username+password);
         String query = "SELECT * FROM User WHERE User.Pseudo == '" + username + "' AND User.Password == '" + password +"'";
         Cursor c = db.rawQuery(query, null);
-        c.moveToFirst();
-        return cursor_to_user(c);
-
+        User[] users = cursor_to_user(c);
+        if(users.length == 0) return null;
+        return users[0];
 
     }
 
-    public User cursor_to_user(Cursor c){
-        User u = new User();
-
+    public User[] cursor_to_user(Cursor c){
+        User[] users = new User[c.getCount()];
+        int index = 0;
+        Log.i("INFO",String.format("SIZE REQUEST %d",users.length));
         try {
-            u.setLastName(c.getString(c.getColumnIndex("FirstName")));
-            u.setFirstName(c.getString(c.getColumnIndex("FirstName")));
-            u.setID(c.getString(c.getColumnIndex("Pseudo")));
-            u.setPassword(c.getString(c.getColumnIndex("Password")));
-            //u.setBirthday((Date) c.getString(c.getColumnIndex("DateOfBirth"))); TODO Gestion de la date
-            u.setAddress(c.getString(c.getColumnIndex("Address")));
-            u.setPicture(c.getColumnName(c.getColumnIndex("ProfilePicture")));
-            u.setPreferences(c.getString(c.getColumnIndex("Preferences")).split(" "));
+            while(c.moveToNext()) {
+                User u = new User();
+                u.setLastName(c.getString(c.getColumnIndex("FirstName")));
+                u.setFirstName(c.getString(c.getColumnIndex("FirstName")));
+                u.setID(c.getString(c.getColumnIndex("Pseudo")));
+                u.setPassword(c.getString(c.getColumnIndex("Password")));
+                //u.setBirthday((Date) c.getString(c.getColumnIndex("DateOfBirth"))); TODO Gestion de la date
+                u.setAddress(c.getString(c.getColumnIndex("Address")));
+                u.setPicture(c.getColumnName(c.getColumnIndex("ProfilePicture")));
+                u.setPreferences(c.getString(c.getColumnIndex("Preferences")).split(" "));
+                users[index] = u;
+                index ++;
+            }
         }catch(Exception e){ return null;}
-        return u;
+        finally {
+            c.close();
+        }
+        return users;
     }
 
     public boolean addUserToDB(User u){
