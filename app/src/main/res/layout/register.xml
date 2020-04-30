@@ -78,6 +78,7 @@
         android:layout_marginStart="141dp"
         android:layout_marginEnd="141dp"
         android:layout_marginBottom="80dp"
+        android:onClick="gotoLoginView"
         android:text="@string/sign_up"
         app:layout_constraintBottom_toTopOf="@+id/login_button_registerpage"
         app:layout_constraintEnd_toEndOf="parent"
