@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import be.LaPireTeam.wishlist.DAO.DAOFactory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,14 +25,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.login_page);
 
         // Pour l'instant, afin de compiler, j'ai alloué des ints à R.id.X dans la main. Il faudra évidemment syncroniser ça avec leur valeur réelle.
-        listeBoutons[Connexion] = ((Button) this.findViewById(R.id.Connexion));
+        /*listeBoutons[Connexion] = ((Button) this.findViewById(R.id.Connexion));
         listeBoutons[Inscription] = ((Button) this.findViewById(R.id.Inscription));
         for (int i = 0; i < listeBoutons.length; i++) {
             listeBoutons[i].setOnClickListener(this);
-        }
+        }*/
 
     }
 
+    public void loginUser(View view){
+        EditText usernameTxt = (EditText) findViewById(R.id.username_field_loginpage);
+        String username = usernameTxt.getText().toString();
+        EditText passwordTxt = (EditText) findViewById(R.id.password_field_loginpage);
+        String password = passwordTxt.getText().toString();
+        User login = DAOFactory.userDAO(this).login(username,password);
+        if(login == null) usernameTxt.setText("ERREUR UTILISATEUR INVALIDE");
+        else usernameTxt.setText("UTILISATEUR LOGIN");
+
+    }
 
     int activite;
 
@@ -38,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.Connexion:
                 activite = Connexion;
-                break;
+
             case R.id.Inscription:
                 activite = Inscription;
                 break;
