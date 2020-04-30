@@ -16,7 +16,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MyLists extends AppCompatActivity {
+public class MyListsActivity extends AppCompatActivity {
 
     ListView listView;
     @Override
@@ -50,6 +50,7 @@ public class MyLists extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //i représente l'index de l'élément clické dans la view
                 //lancer activité see_list particulière
+
                 continue;
             }
         });
