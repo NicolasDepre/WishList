@@ -44,9 +44,12 @@ public class MyListsActivity extends AppCompatActivity {
         User user = Session.getInstance().getU();
 
         List[] lists = user.getLists();
-        ArrayList<List> myLists = new ArrayList<>(Arrays.asList(lists));
+        ArrayList<String> myListsNames = new ArrayList<>();
+        for(List l : lists){
+            myListsNames.add(l.getName());
+        }
         //récupérer un arraylist de la base de données
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myListsNames);
 
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
