@@ -7,6 +7,8 @@ public class List {
     private Date creationDate;
     public final int ID;
 
+    //TODO generate other ID than 0
+    //le ID ne peut pas être final car quand on va récupérer les listes dasn la bdd alors on doit pouvoir mettre le bon ID dans l'objet
     public List() {
         this.ID = 0;
     }

@@ -36,6 +36,7 @@ public class ListDao {
             List l = new List();
             //l.setCreationDate(); //TODO Gestion la date
             l.setName(c.getString(c.getColumnIndex("Name")));
+            //TODO ajouter le bon ID a la liste
             lists[counter]  = l;
             counter++;
         }

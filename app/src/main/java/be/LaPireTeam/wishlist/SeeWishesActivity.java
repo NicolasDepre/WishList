@@ -44,12 +44,16 @@ public class SeeWishesActivity extends AppCompatActivity {
         int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
 
         Wish[] wishes = List.getWishesFromListID(list_id);
-        
+
 
         ArrayList<String> myWishesNames = new ArrayList<>();
+        /*
         for(Wish w : wishes){
             myWishesNames.add(w.getName());
         }
+
+         */
+        myWishesNames.add("Mon cadeau idéal");
         //récupérer un arraylist de la base de données
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myWishesNames);
 
