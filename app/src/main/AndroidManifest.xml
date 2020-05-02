@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,19 +19,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MenuActivity">
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_menu">
         </activity>
         <activity
-            android:name=".MyListsActivity">
+            android:name=".MyListsActivity"
+            android:label="@string/title_activity_my_lists">
         </activity>
         <activity
-            android:name=".AmisActivity">
+            android:name=".AmisActivity"
+            android:label="@string/title_activity_amis">
         </activity>
         <activity
-            android:name=".SeeWishesActivity">
+            android:name=".SeeWishesActivity"
+            android:label="@string/title_activity_see_wishes_in_list">
         </activity>
         <activity
-            android:name=".ProfilActivity">
+            android:name=".ProfilActivity"
+            android:label="@string/title_activity_profil">
         </activity>
     </application>
 
