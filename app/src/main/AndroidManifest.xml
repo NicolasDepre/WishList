@@ -16,6 +16,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MenuActivity">
+        </activity>
+        <activity
+            android:name=".MyListsActivity">
+        </activity>
+        <activity
+            android:name=".AmisActivity">
+        </activity>
+        <activity
+            android:name=".SeeWishesActivity">
+        </activity>
+        <activity
+            android:name=".ProfilActivity">
+        </activity>
     </application>
 
 </manifest>
