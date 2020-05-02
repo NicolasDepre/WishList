@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
-        android:textSize="18"
+        android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="256dp" />
 
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Adress"
-        android:textSize="18"
+        android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="331dp" />
 
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Préférences"
-        android:textSize="18"
+        android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="400dp" />
 

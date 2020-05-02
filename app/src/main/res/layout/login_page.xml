@@ -76,6 +76,7 @@
         android:layout_marginBottom="30dp"
         android:onClick="gotoRegisterView"
         android:text="@string/sign_up"
+        android:onClick="openActivityInscription"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

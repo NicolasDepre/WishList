@@ -1,5 +1,6 @@
 package be.LaPireTeam.wishlist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,6 +24,7 @@ public class SeeWishesActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         FloatingActionButton fab = findViewById(R.id.addNewWishButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,10 +40,12 @@ public class SeeWishesActivity extends AppCompatActivity {
 
         listView = (ListView)findViewById(R.id.see_my_wishes);
 
-        List l; //Liste passée en argument depuis l'activité MyListsActivity
+        Intent intent = getIntent();
+        int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
 
-        Wish[] wishes;
-        wishes = l.getWishes();
+        Wish[] wishes = List.getWishesFromListID(list_id);
+        
+
         ArrayList<String> myWishesNames = new ArrayList<>();
         for(Wish w : wishes){
             myWishesNames.add(w.getName());
@@ -55,6 +59,7 @@ public class SeeWishesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //i représente l'index de l'élément clické dans la view
                 //lancer activité see_wish particulière
+
                 return;
             }
         });
