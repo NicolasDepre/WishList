@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         // Doit définir l'activity parent en menu.
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void loginButton(View view) {
@@ -53,9 +52,8 @@ public class MainActivity extends AppCompatActivity {
         }
         alerteText.setText("UTILISATEUR LOGIN");
         Session.getInstance().setU(user);
-        Intent intent = new Intent(this, MenuActivity.class);
+        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
         startActivity(intent);
-        finish();
     }
 
     private User loginUser(View view){
