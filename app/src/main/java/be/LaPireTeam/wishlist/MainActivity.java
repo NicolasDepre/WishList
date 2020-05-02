@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void registerButton(View view) {
         /*
-        *   Lance l'activity profil si il y l'utilisateur est bien créé.
-        *   Et termine l'activity en cour.
+         *   Lance l'activity profil si il y l'utilisateur est bien créé.
+         *   Et termine l'activity en cour.
          */
         User user = registerUser(view);
         if (user == null) {return;}
@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void loginButton(View view) {
         /*
-        *   Lance l'activity menu si il y un user, sinon met un message d'erreur.
-        *   Et termine l'activity en cour;
+         *   Lance l'activity menu si il y un user, sinon met un message d'erreur.
+         *   Et termine l'activity en cour;
          */
         TextView alerteText = (TextView) findViewById(R.id.alerteTextLogin);
         User user = loginUser(view);
@@ -69,44 +69,7 @@ public class MainActivity extends AppCompatActivity {
         String password = passwordTxt.getText().toString();
 
         User login = DAOFactory.userDAO(this).login(username,password);
-        if(login == null) usernameTxt.setText("ERREUR UTILISATEUR INVALIDE");
-        else usernameTxt.setText("UTILISATEUR LOGIN");
-
-    }
-
-    int activite;
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.Connexion:
-                activite = Connexion;
-
-            case R.id.Inscription:
-                activite = Inscription;
-                break;
-        }
-    }
-
-    public class InscriptionActivity extends AppCompatActivity implements View.OnClickListener {
-
-        private static final int ValidInscription = 5;
-        public Button[] listeBoutons = new Button[1];
-
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.register);
-            listeBoutons[ValidInscription] = ((Button) this.findViewById(R.id.ValidInscription));
-            for (int i = 0; i < listeBoutons.length; i++) {
-                listeBoutons[i].setOnClickListener(this);
-            }
-        }
-
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-            }
-        }
+        return login;
     }
 
     private User registerUser(View view){
