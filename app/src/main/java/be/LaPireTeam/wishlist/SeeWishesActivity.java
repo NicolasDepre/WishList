@@ -1,32 +1,29 @@
 package be.LaPireTeam.wishlist;
 
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-public class MyListsActivity extends AppCompatActivity {
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+
+public class SeeWishesActivity extends AppCompatActivity {
 
     ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_lists);
+        setContentView(R.layout.activity_see_wishes_in_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.addNewListButton);
+        FloatingActionButton fab = findViewById(R.id.addNewWishButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,26 +36,26 @@ public class MyListsActivity extends AppCompatActivity {
             }
         });
 
-        listView = (ListView)findViewById(R.id.mylists);
+        listView = (ListView)findViewById(R.id.see_my_wishes);
 
-        User user = Session.getInstance().getU();
+        List l; //Liste passée en argument depuis l'activité MyListsActivity
 
-        List[] lists = user.getLists();
-        ArrayList<String> myListsNames = new ArrayList<>();
-        for(List l : lists){
-            myListsNames.add(l.getName());
+        Wish[] wishes;
+        wishes = l.getWishes();
+        ArrayList<String> myWishesNames = new ArrayList<>();
+        for(Wish w : wishes){
+            myWishesNames.add(w.getName());
         }
         //récupérer un arraylist de la base de données
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myListsNames);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myWishesNames);
 
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //i représente l'index de l'élément clické dans la view
-                //lancer activité see_list particulière
-
-                continue;
+                //lancer activité see_wish particulière
+                return;
             }
         });
     }

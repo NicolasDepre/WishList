@@ -9,6 +9,7 @@
     <string name="amis">Amis</string>
     <string name="profil">Profil</string>
     <string name="title_activity_my_lists">MyLists</string>
+    <string name="title_activity_see_wishes_in_list">My Wishes</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

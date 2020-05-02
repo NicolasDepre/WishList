@@ -51,5 +51,10 @@ public class List {
         return false;
     }
 
+    public Wish[] getWishes(){
+        //retourne la liste des wish dans la liste
+        //fait appel au DAO qui récupère les donnée dans la base de données
+        return new Wish[1];
+    }
 
 }
