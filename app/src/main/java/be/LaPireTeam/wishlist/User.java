@@ -2,6 +2,8 @@ package be.LaPireTeam.wishlist;
 
 import java.util.Date;
 
+import be.LaPireTeam.wishlist.DAO.DAOFactory;
+
 public class User {
 
     //TODO generate an ID
@@ -101,9 +103,4 @@ public class User {
         return null;
     }
 
-    public List[] getLists(){
-        //doit retourner une liste des listes de l'utilisateur en appelant la bonne fonction dans le DAO
-
-        return new List[]{};
-    }
 }

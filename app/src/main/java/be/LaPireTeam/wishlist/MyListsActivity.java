@@ -18,6 +18,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import be.LaPireTeam.wishlist.DAO.DAOFactory;
+
 public class MyListsActivity extends AppCompatActivity {
 
     public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST";
@@ -27,8 +29,8 @@ public class MyListsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_lists);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.addNewListButton);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -45,10 +47,12 @@ public class MyListsActivity extends AppCompatActivity {
 
         User user = Session.getInstance().getU();
 
-        final List[] lists = user.getLists();
+        final List[] lists = DAOFactory.listDAO(this).getLists(user);
         ArrayList<String> myListsNames = new ArrayList<>();
-        for(List l : lists){
-            myListsNames.add(l.getName());
+        if(lists != null) {
+            for (List l : lists) {
+                myListsNames.add(l.getName());
+            }
         }
         //récupérer un arraylist de la base de données
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myListsNames);
