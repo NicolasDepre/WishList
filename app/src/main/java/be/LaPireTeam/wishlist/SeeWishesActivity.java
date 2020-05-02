@@ -40,11 +40,13 @@ public class SeeWishesActivity extends AppCompatActivity {
 
         listView = (ListView)findViewById(R.id.see_my_wishes);
 
+        /*
         Intent intent = getIntent();
         int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
 
         Wish[] wishes = List.getWishesFromListID(list_id);
 
+         */
 
         ArrayList<String> myWishesNames = new ArrayList<>();
         /*
