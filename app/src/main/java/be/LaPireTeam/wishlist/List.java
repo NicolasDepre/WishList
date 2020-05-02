@@ -56,5 +56,11 @@ public class List {
         //fait appel au DAO qui récupère les donnée dans la base de données
         return new Wish[1];
     }
+    public static List getListFromID(int id){
+        return new List();
+    }
+    public static Wish[] getWishesFromListID(int id){
+        return getListFromID(id).getWishes();
+    }
 
 }

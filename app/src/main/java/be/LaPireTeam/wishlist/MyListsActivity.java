@@ -1,5 +1,6 @@
 package be.LaPireTeam.wishlist;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -17,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MyListsActivity extends AppCompatActivity {
+
+    public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST";
 
     ListView listView;
     @Override
@@ -39,11 +42,12 @@ public class MyListsActivity extends AppCompatActivity {
             }
         });
 
+
         listView = (ListView)findViewById(R.id.mylists);
 
         User user = Session.getInstance().getU();
 
-        List[] lists = user.getLists();
+        final List[] lists = user.getLists();
         ArrayList<String> myListsNames = new ArrayList<>();
         for(List l : lists){
             myListsNames.add(l.getName());
@@ -53,14 +57,24 @@ public class MyListsActivity extends AppCompatActivity {
 
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //i représente l'index de l'élément clické dans la view
                 //lancer activité see_list particulière
+                int list_id = lists[position].ID;
+                openSeeWishesActivity(list_id);
+            }
 
-                continue;
+            public void openSeeWishesActivity(int id){
+                Intent intent = new Intent(this, SeeWishesActivity.class);
+                intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
+                startActivity(intent);
             }
         });
+
+
     }
 
 }
