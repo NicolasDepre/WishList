@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,56 +17,37 @@
         android:layout_marginBottom="30dp"
         android:text="@string/app_name"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/lists_button_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/lists_button_menu"
         android:layout_width="160dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="125dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/title_menu"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="125dp"
-        android:layout_marginBottom="30dp"
         android:onClick="openListButton"
-        android:text="@string/lists"
-        app:layout_constraintBottom_toTopOf="@+id/amis_button_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_menu" />
+        android:text="@string/lists" />
 
     <Button
         android:id="@+id/amis_button_menu"
         android:layout_width="160dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="125dp"
-        android:layout_marginEnd="125dp"
-        android:layout_marginBottom="30dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
         android:onClick="openAmisButton"
         android:text="@string/amis"
-        app:layout_constraintBottom_toTopOf="@+id/profile_button_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lists_button_menu" />
+        android:layout_below="@id/lists_button_menu"
+         />
 
 
     <Button
         android:id="@+id/profile_button_menu"
         android:layout_width="160dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="125dp"
-        android:layout_marginEnd="125dp"
-        android:layout_marginBottom="195dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
         android:onClick="openProfilButton"
         android:text="@string/profil"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amis_button_menu" />
+        android:layout_below="@id/amis_button_menu"
+        />
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

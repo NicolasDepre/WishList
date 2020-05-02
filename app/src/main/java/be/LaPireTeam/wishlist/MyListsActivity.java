@@ -64,11 +64,11 @@ public class MyListsActivity extends AppCompatActivity {
                 //i représente l'index de l'élément clické dans la view
                 //lancer activité see_list particulière
                 int list_id = lists[position].ID;
-                openSeeWishesActivity(list_id);
+                openSeeWishesActivity(view, list_id);
             }
         });
     }
-    public void openSeeWishesActivity(int id){
+    public void openSeeWishesActivity(View view, int id){
         Intent intent = new Intent(this, SeeWishesActivity.class);
         intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
         startActivity(intent);
