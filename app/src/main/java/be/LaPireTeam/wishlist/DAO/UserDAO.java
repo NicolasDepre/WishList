@@ -33,6 +33,7 @@ public class UserDAO{
 
     }
 
+
     public User[] cursor_to_user(Cursor c){
         User[] users = new User[c.getCount()];
         int index = 0;

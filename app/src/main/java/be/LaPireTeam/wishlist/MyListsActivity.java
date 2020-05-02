@@ -9,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import be.LaPireTeam.wishlist.DAO.DAOFactory;
 
 public class MyListsActivity extends AppCompatActivity {
 
@@ -26,19 +29,16 @@ public class MyListsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_lists);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.addNewListButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                //create action for new list button
-                /*
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
 
-                 */
+                Log.i("INFO","CREATION NOUVELLE LIST");
+
             }
         });
 
@@ -47,10 +47,12 @@ public class MyListsActivity extends AppCompatActivity {
 
         User user = Session.getInstance().getU();
 
-        final List[] lists = user.getLists();
+        final List[] lists = DAOFactory.listDAO(this).getLists(user);
         ArrayList<String> myListsNames = new ArrayList<>();
-        for(List l : lists){
-            myListsNames.add(l.getName());
+        if(lists != null) {
+            for (List l : lists) {
+                myListsNames.add(l.getName());
+            }
         }
         //récupérer un arraylist de la base de données
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myListsNames);
