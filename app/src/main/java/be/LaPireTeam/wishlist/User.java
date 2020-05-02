@@ -103,6 +103,6 @@ public class User {
 
     public List[] getLists(){
         //doit retourner une liste des listes de l'utilisateur en appelant la bonne fonction dans le DAO
-        return new List[];
+        return new List[2];
     }
 }

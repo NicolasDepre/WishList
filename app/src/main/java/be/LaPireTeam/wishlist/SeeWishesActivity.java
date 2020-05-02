@@ -24,12 +24,6 @@ public class SeeWishesActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent intent = getIntent();
-        int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
-
-        Wish[] wishes = List.getWishesFromListID(list_id);
-
-
 
         FloatingActionButton fab = findViewById(R.id.addNewWishButton);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +40,11 @@ public class SeeWishesActivity extends AppCompatActivity {
 
         listView = (ListView)findViewById(R.id.see_my_wishes);
 
-        List l; //Liste passée en argument depuis l'activité MyListsActivity
+        Intent intent = getIntent();
+        int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
+
+        Wish[] wishes = List.getWishesFromListID(list_id);
+        
 
         ArrayList<String> myWishesNames = new ArrayList<>();
         for(Wish w : wishes){

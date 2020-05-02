@@ -66,15 +66,12 @@ public class MyListsActivity extends AppCompatActivity {
                 int list_id = lists[position].ID;
                 openSeeWishesActivity(list_id);
             }
-
-            public void openSeeWishesActivity(int id){
-                Intent intent = new Intent(this, SeeWishesActivity.class);
-                intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
-                startActivity(intent);
-            }
         });
-
-
+    }
+    public void openSeeWishesActivity(int id){
+        Intent intent = new Intent(this, SeeWishesActivity.class);
+        intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
+        startActivity(intent);
     }
 
 }
