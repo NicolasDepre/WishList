@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,7 +21,9 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         app:srcCompat="@drawable/ic_launcher_foreground"
+        android:layout_centerHorizontal="true"
         tools:layout_editor_absoluteX="151dp"
         tools:layout_editor_absoluteY="88dp" />
 
@@ -29,6 +31,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imageView2"
         android:text="Name"
         android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
@@ -38,6 +42,8 @@
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView2"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
@@ -48,6 +54,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editText"
         android:text="Adress"
         android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
@@ -57,6 +65,8 @@
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Adress"
@@ -67,6 +77,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editText2"
         android:text="Préférences"
         android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
@@ -76,10 +88,12 @@
         android:id="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView3"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Préférences"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="424dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
