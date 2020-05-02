@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,14 +17,12 @@
         android:layout_marginBottom="80dp"
         android:hint="@string/app_name"
         android:textAlignment="center"
+        android:layout_centerHorizontal="true"
         android:textSize="36sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/username_field_loginpage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        />
 
     <EditText
         android:id="@+id/username_field_loginpage"
@@ -35,10 +33,8 @@
         android:ems="10"
         android:hint="@string/username"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/password_field_loginpage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_loginpage" />
+        android:layout_below="@id/title_loginpage"
+        />
 
     <EditText
         android:id="@+id/password_field_loginpage"
@@ -49,47 +45,41 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/login_button_loginpage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_field_loginpage" />
+        android:layout_below="@id/username_field_loginpage"
+        />
 
     <Button
         android:id="@+id/login_button_loginpage"
         android:layout_width="129dp"
         android:layout_height="48dp"
-        android:layout_marginStart="141dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:onClick="loginButton"
         android:text="@string/log_in"
-        app:layout_constraintBottom_toTopOf="@+id/signup_button_loginpage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_field_loginpage" />
-
-    <Button
-        android:id="@+id/signup_button_loginpage"
-        android:layout_width="129dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
-        android:onClick="gotoRegisterView"
-        android:text="@string/sign_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button_loginpage" />
-
+        android:layout_below="@id/password_field_loginpage"
+        />
     <TextView
         android:id="@+id/alerteTextLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="111dp"
+        android:layout_marginBottom="160dp"
         android:text="login_succes / Login_failed"
-        app:layout_constraintBottom_toTopOf="@+id/signup_button_loginpage"
-        app:layout_constraintTop_toBottomOf="@+id/login_button_loginpage"
-        tools:layout_editor_absoluteX="118dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/login_button_loginpage"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/signup_button_loginpage"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:onClick="gotoRegisterView"
+        android:text="@string/sign_up"
+        android:layout_below="@id/alerteTextLogin"
+        />
+
+
+
+</RelativeLayout>
