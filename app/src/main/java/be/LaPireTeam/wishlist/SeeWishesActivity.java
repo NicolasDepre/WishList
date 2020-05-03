@@ -18,6 +18,7 @@ import be.LaPireTeam.wishlist.DAO.DAOFactory;
 
 public class SeeWishesActivity extends AppCompatActivity {
 
+    public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
     ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,21 +27,22 @@ public class SeeWishesActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Intent intent = getIntent();
+        //int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
+        final int list_id = intent.getIntExtra(EXTRA_ARGUMENT_LIST_ID, -1);
 
         FloatingActionButton fab = findViewById(R.id.addNewWishButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openNewWishActivity();
+                openNewWishActivity(list_id);
             }
         });
 
         listView = (ListView)findViewById(R.id.see_my_wishes);
 
 
-        Intent intent = getIntent();
-        //int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
-        int list_id = intent.getIntExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID, -1);
+
         //Wish[] wishes = List.getWishesFromListID(this, list_id);
         Wish[] wishes;
         if(list_id != -1) {
@@ -71,8 +73,9 @@ public class SeeWishesActivity extends AppCompatActivity {
         });
     }
 
-    private void openNewWishActivity(){
+    private void openNewWishActivity(int list_id){
         Intent newWishIntent = new Intent(this, NewWishActivity.class);
+        newWishIntent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(newWishIntent);
     }
 
