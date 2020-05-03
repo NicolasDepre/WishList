@@ -1,6 +1,11 @@
 package be.LaPireTeam.wishlist;
 
+import android.content.Context;
+
 import java.util.Date;
+
+import be.LaPireTeam.wishlist.DAO.DAOFactory;
+import be.LaPireTeam.wishlist.DAO.ListDao;
 
 public class List {
     private String name;
@@ -9,7 +14,7 @@ public class List {
 
     //TODO generate other ID than 0
     public List(int id) {
-        if (id == 0){
+        if (id == -1){
             this.ID = 0;
             return;
         }
@@ -57,16 +62,18 @@ public class List {
         return false;
     }
 
-    public Wish[] getWishes(){
+    public Wish[] getWishes(Context context){
         //retourne la liste des wish dans la liste
         //fait appel au DAO qui récupère les donnée dans la base de données
-        return new Wish[1];
+        return DAOFactory.WishDAO(context).getWishes(this);
     }
-    public static List getListFromID(int id){
-        return new List();
+
+    public static List getListFromID(Context context, int id){
+        return DAOFactory.listDAO(context).getListFromListID(id);
     }
-    public static Wish[] getWishesFromListID(int id){
-        return getListFromID(id).getWishes();
+
+    public static Wish[] getWishesFromListID(Context context, int id){
+        return getListFromID(context, id).getWishes(context);
     }
 
 }

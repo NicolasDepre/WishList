@@ -8,8 +8,12 @@ public class Wish {
     private User bookingStatus;
     private Product product;
 
-    public Wish(String name, int priority, String[] commentary, Product product) {
-        this.ID = 0; //TODO generate number
+    public Wish(int id, String name, int priority, String[] commentary, Product product) {
+        if(id == -1){
+            this.ID = -1; //TODO generate number
+        }else{
+            this.ID = id;
+        }
         this.name = name;
         this.priority = priority;
         this.commentary = commentary;

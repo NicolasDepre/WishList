@@ -14,4 +14,8 @@ public class DAOFactory {
     public static ListDao listDAO(Context c){
         return new ListDao(c);
     }
+
+    public static WishDAO WishDAO(Context c){
+        return new WishDAO(c);
+    }
 }

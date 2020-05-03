@@ -22,7 +22,7 @@ import be.LaPireTeam.wishlist.DAO.DAOFactory;
 
 public class MyListsActivity extends AppCompatActivity {
 
-    public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST";
+    public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
 
     ListView listView;
     @Override

@@ -14,6 +14,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import be.LaPireTeam.wishlist.DAO.DAOFactory;
+
 public class SeeWishesActivity extends AppCompatActivity {
 
     ListView listView;
@@ -40,22 +42,25 @@ public class SeeWishesActivity extends AppCompatActivity {
 
         listView = (ListView)findViewById(R.id.see_my_wishes);
 
-        /*
+
         Intent intent = getIntent();
-        int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
-
-        Wish[] wishes = List.getWishesFromListID(list_id);
-
-         */
-
+        //int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
+        int list_id = intent.getIntExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID, -1);
+        //Wish[] wishes = List.getWishesFromListID(this, list_id);
+        Wish[] wishes;
+        if(list_id != -1) {
+            List l = List.getListFromID(this, list_id);
+            wishes = DAOFactory.WishDAO(this).getWishes(l);
+        }else {
+            wishes = null;
+        }
         ArrayList<String> myWishesNames = new ArrayList<>();
-        /*
-        for(Wish w : wishes){
-            myWishesNames.add(w.getName());
+        if(wishes != null) {
+            for (Wish w : wishes) {
+                myWishesNames.add(w.getName());
+            }
         }
 
-         */
-        myWishesNames.add("Mon cadeau idéal");
         //récupérer un arraylist de la base de données
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myWishesNames);
 

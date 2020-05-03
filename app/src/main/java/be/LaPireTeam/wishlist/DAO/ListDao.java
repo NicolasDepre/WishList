@@ -29,11 +29,22 @@ public class ListDao {
 
     }
 
+    public List getListFromListID(int id){
+        SQLiteDatabase db = dao.getDB();
+        String request = "SELECT * FROM List WHERE List.ListID = " + id ;
+        Cursor c = db.rawQuery(request,null);
+        if(c.getCount() ==0){
+            return null;
+        }
+        List[] lists = cursorToList(c);
+        return lists[0];
+    }
+
     private List[] cursorToList(Cursor c){
         List[] lists = new List[c.getCount()];
         int counter = 0;
         while(c.moveToNext()){
-            List l = new List(c.getInt(c.getColumnIndex("ID")));
+            List l = new List(c.getInt(c.getColumnIndex("ListID")));
             //l.setCreationDate(); //TODO Gestion la date
             l.setName(c.getString(c.getColumnIndex("Name")));
             //TODO ajouter le bon ID a la liste
