@@ -9,32 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewWishActivity"></activity>
-        <activity android:name=".NewListActivity" />
+
+        <!-- Activity -->
+        <activity android:name=".NewWishActivity"/>
+        <activity android:name=".NewListActivity"/>
+        <activity android:name=".MenuActivity"/>
+        <activity android:name=".MyListsActivity"/>
+        <activity android:name=".AmisActivity"/>
+        <activity android:name=".SeeWishesActivity"/>
+        <activity android:name=".ProfilActivity"/>
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main">
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MenuActivity"
-            android:label="@string/title_activity_menu" />
-        <activity
-            android:name=".MyListsActivity"
-            android:label="@string/title_activity_my_lists" />
-        <activity
-            android:name=".AmisActivity"
-            android:label="@string/title_activity_amis" />
-        <activity
-            android:name=".SeeWishesActivity"
-            android:label="@string/title_activity_see_wishes_in_list" />
-        <activity
-            android:name=".ProfilActivity"
-            android:label="@string/title_activity_profil" />
+
     </application>
 
 </manifest>
