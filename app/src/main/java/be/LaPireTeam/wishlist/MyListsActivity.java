@@ -36,9 +36,8 @@ public class MyListsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Log.i("INFO","CREATION NOUVELLE LIST");
-
+                openNewListActivity();
             }
         });
 
@@ -74,6 +73,10 @@ public class MyListsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SeeWishesActivity.class);
         intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
         startActivity(intent);
+    }
+    public void openNewListActivity(){
+        Intent newListIntent = new Intent(this, NewListActivity.class);
+        startActivity(newListIntent);
     }
 
 }

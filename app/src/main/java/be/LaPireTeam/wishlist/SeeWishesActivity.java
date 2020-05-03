@@ -31,12 +31,7 @@ public class SeeWishesActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //create action for new list button
-                /*
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-                 */
+                openNewWishActivity();
             }
         });
 
@@ -74,6 +69,11 @@ public class SeeWishesActivity extends AppCompatActivity {
                 return;
             }
         });
+    }
+
+    private void openNewWishActivity(){
+        Intent newWishIntent = new Intent(this, NewWishActivity.class);
+        startActivity(newWishIntent);
     }
 
 }

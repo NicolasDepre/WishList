@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".NewWishActivity"></activity>
+        <activity android:name=".NewListActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main">
@@ -20,24 +22,19 @@
         </activity>
         <activity
             android:name=".MenuActivity"
-            android:label="@string/title_activity_menu">
-        </activity>
+            android:label="@string/title_activity_menu" />
         <activity
             android:name=".MyListsActivity"
-            android:label="@string/title_activity_my_lists">
-        </activity>
+            android:label="@string/title_activity_my_lists" />
         <activity
             android:name=".AmisActivity"
-            android:label="@string/title_activity_amis">
-        </activity>
+            android:label="@string/title_activity_amis" />
         <activity
             android:name=".SeeWishesActivity"
-            android:label="@string/title_activity_see_wishes_in_list">
-        </activity>
+            android:label="@string/title_activity_see_wishes_in_list" />
         <activity
             android:name=".ProfilActivity"
-            android:label="@string/title_activity_profil">
-        </activity>
+            android:label="@string/title_activity_profil" />
     </application>
 
 </manifest>
