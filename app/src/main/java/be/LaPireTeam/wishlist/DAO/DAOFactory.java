@@ -16,4 +16,6 @@ public class DAOFactory {
     public static WishDAO WishDAO(Context c){
         return new WishDAO(c);
     }
+
+
 }

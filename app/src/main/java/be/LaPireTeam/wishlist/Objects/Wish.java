@@ -5,7 +5,7 @@ public class Wish {
     private String name;
     private int priority;
     private String[] commentary;
-    private User bookingStatus;
+    private boolean bookingStatus;
     private Product product;
 
     public Wish(int id, String name, int priority, String[] commentary, Product product) {
@@ -18,7 +18,7 @@ public class Wish {
         this.priority = priority;
         this.commentary = commentary;
         this.product = product;
-        this.bookingStatus = null;
+        this.bookingStatus = false;
     }
 
     public String getName() {
@@ -45,11 +45,11 @@ public class Wish {
         this.commentary = commentary;
     }
 
-    public User getBookingStatus() {
+    public boolean getBookingStatus() {
         return bookingStatus;
     }
 
-    public void setBookingStatus(User bookingStatus) {
+    public void setBookingStatus(boolean bookingStatus) {
         this.bookingStatus = bookingStatus;
     }
 

@@ -1,8 +1,11 @@
 package be.LaPireTeam.wishlist.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.Arrays;
 
 import be.LaPireTeam.wishlist.Objects.List;
 import be.LaPireTeam.wishlist.Objects.Wish;
@@ -25,6 +28,32 @@ public class WishDAO {
         }
         return cursorToList(c);
 
+    }
+
+    public boolean insert_wish(Wish w, int listID){
+
+        SQLiteDatabase db = dao.getDB();
+        ContentValues wishValues = new ContentValues();
+
+        wishValues.put("WishID",w.ID);
+        wishValues.put("ProductID",w.getProduct().ID);
+        wishValues.put("Name",w.getName());
+        wishValues.put("Priority", w.getPriority());
+        wishValues.put("Comments", Arrays.toString(w.getCommentary()));
+        wishValues.put("Status",w.getBookingStatus());
+
+
+
+        ContentValues listValues = new ContentValues();
+        listValues.put("ListID",listID);
+        listValues.put("WishID",w.ID);
+
+        try{
+            db.insert("Wishs",null, wishValues);
+            db.insert("ListWish", null,listValues);
+        }catch (Exception e) {return false;}
+
+        return true;
     }
 
     public Wish getWishFromWishID(int id){
