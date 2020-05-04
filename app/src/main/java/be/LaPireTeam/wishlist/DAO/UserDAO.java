@@ -39,10 +39,9 @@ public class UserDAO{
         Log.i("INFO",String.format("SIZE REQUEST %d",users.length));
         try {
             while(c.moveToNext()) {
-                User u = new User();
+                User u = new User(c.getString(c.getColumnIndex("Pseudo")));
                 u.setLastName(c.getString(c.getColumnIndex("LastName")));
                 u.setFirstName(c.getString(c.getColumnIndex("FirstName")));
-                u.setID(c.getString(c.getColumnIndex("Pseudo")));
                 u.setPassword(c.getString(c.getColumnIndex("Password")));
                 //u.setBirthday((Date) c.getString(c.getColumnIndex("DateOfBirth"))); TODO Gestion de la date
                 u.setAddress(c.getString(c.getColumnIndex("Address")));
@@ -77,6 +76,13 @@ public class UserDAO{
             return false;
         }
         return true;
+    }
+
+    public boolean idAlreadyExists(String pseudo){
+        SQLiteDatabase db = dao.getDB();
+        String query = "SELECT * FROM User WHERE User.Pseudo == '" + pseudo + "'";
+        Cursor c = db.rawQuery(query, null);
+        return c.getCount() > 0;
     }
 
 

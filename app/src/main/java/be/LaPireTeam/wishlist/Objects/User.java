@@ -10,8 +10,8 @@ public class User {
     private Date Birthday;
 
     // Constructeur à faire
-    public User() {
-
+    public User(String pseudo) {
+        this.ID = pseudo;
     }
 
     public String getID() {

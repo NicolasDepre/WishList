@@ -37,7 +37,7 @@ public class NewWishActivity extends AppCompatActivity {
         Product p = new Product();
         p.ID = 200;
         Wish w = new Wish(-1, name, priority, comments.split(" "), new Product());
-        DAOFactory.WishDAO(this).insert_wish(w,list_id)
+        DAOFactory.WishDAO(this).insert_wish(w,list_id);
         //TODO add wish to database when created
         Intent intent = new Intent(this, SeeWishesActivity.class);
         intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);

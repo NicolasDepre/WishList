@@ -73,6 +73,31 @@ public class MainActivity extends AppCompatActivity {
         return login;
     }
 
+    public void registerNewUser(View view){
+        EditText usernameInput = (EditText) findViewById(R.id.username_field_registerpage);
+        String username = usernameInput.getText().toString();
+        EditText password1Input = (EditText) findViewById(R.id.password_field1_registerpage);
+        String password1 = password1Input.getText().toString();
+        EditText password2Input = (EditText) findViewById(R.id.password_field2_registerpage);
+        String password2 = password2Input.getText().toString();
+        TextView msgAlert = (TextView) findViewById(R.id.alerteTextRegister);
+        if(DAOFactory.userDAO(this).idAlreadyExists(username)){
+            //TODO rester sur la vue et mettre un msg d'alerte que le pseudo est deja pris
+            msgAlert.setText("Username already in use");
+            return;
+        }
+        if(password1 != password2){
+            //TODO rester sur la vue et mettre un msg d'alerte que les 2 mot de passes correspondent pas
+            msgAlert.setText("2 passwords aren't the same");
+            return;
+        }
+        User user = new User(username);
+        user.setPassword(password1);
+        DAOFactory.userDAO(this).addUserToDB(user);
+        Session.getInstance().setU(user);
+        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+        startActivity(intent);
+    }
     private User registerUser(View view){
         /*
          *   Retourne l'utilisateur si il a bien été créé.
@@ -80,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
          *   et voit comme il affiche les messages d'erreurs dans la fonction registerButton
          */
         // TODO
+
         return null;
     }
 }
