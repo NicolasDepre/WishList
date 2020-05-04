@@ -30,8 +30,6 @@ public class MyListsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_lists);
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.addNewListButton);
         fab.setOnClickListener(new View.OnClickListener() {

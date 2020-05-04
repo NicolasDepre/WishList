@@ -17,6 +17,8 @@ public class ProfilActivity extends AppCompatActivity {
 
         User u = Session.getInstance().getU();
 
+        //TODO permettre de venir avec un nouveau compte
+        /*
         EditText name = (EditText) findViewById(R.id.profile_name);
         name.setText(u.getFirstName() + " " + u.getLastName());
         EditText adress = (EditText) findViewById(R.id.profile_adress);
@@ -25,7 +27,7 @@ public class ProfilActivity extends AppCompatActivity {
         String s = "";
         for(String string : u.getPreferences()) s += string + " ";
         preferences.setText(s);
-
+        */
     }
 
     public void changePictureProfile () {}

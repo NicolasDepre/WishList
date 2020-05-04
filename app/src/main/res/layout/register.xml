@@ -76,11 +76,10 @@
         android:id="@+id/signup_button_registerpage"
         android:layout_width="129dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:onClick="registerNewUser"
-        android:text="@string/sign_up"
         android:layout_below="@id/alerteTextRegister"
-        />
+        android:layout_centerHorizontal="true"
+        android:onClick="registerButton"
+        android:text="@string/sign_up" />
 
     <Button
         android:id="@+id/login_button_registerpage"

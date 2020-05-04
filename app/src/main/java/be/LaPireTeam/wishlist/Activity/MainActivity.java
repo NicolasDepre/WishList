@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
          */
         User user = registerUser(view);
         if (user == null) {return;}
-        Session.getInstance().setU(user);
-        // Doit définir l'activity parent en menu.
-        Intent intent = new Intent(this, MenuActivity.class);
+        Intent intent = new Intent(this, ProfilActivity.class);
+        Intent intentParent = new Intent(this, MenuActivity.class);
+        startActivity(intentParent);
         startActivity(intent);
         finish();
     }
@@ -46,13 +46,8 @@ public class MainActivity extends AppCompatActivity {
          *   Lance l'activity menu si il y un user, sinon met un message d'erreur.
          *   Et termine l'activity en cour;
          */
-        TextView alerteText = (TextView) findViewById(R.id.alerteTextLogin);
         User user = loginUser(view);
-        if (user == null) {
-            alerteText.setText("ERREUR UTILISATEUR INVALIDE");
-            return;
-        }
-        alerteText.setText("UTILISATEUR LOGIN");
+        if (user == null) {return;}
         Session.getInstance().setU(user);
         Intent intent = new Intent(MainActivity.this, MenuActivity.class);
         startActivity(intent);
@@ -69,44 +64,46 @@ public class MainActivity extends AppCompatActivity {
         String username = usernameTxt.getText().toString();
         String password = passwordTxt.getText().toString();
 
-        User login = DAOFactory.userDAO(this).login(username,password);
-        return login;
+        User user = DAOFactory.userDAO(this).login(username,password);
+
+        TextView alerteText = (TextView) findViewById(R.id.alerteTextLogin);
+        if (user == null) {
+            alerteText.setText("ERREUR UTILISATEUR INVALIDE");
+            return null;
+        }
+        alerteText.setText("UTILISATEUR LOGIN");
+        return user;
     }
 
-    public void registerNewUser(View view){
+    private User registerUser(View view){
+        /*
+        *   Enregistre le nouvelle utilisateur si tout les paremetres sont exactes
+        *   sinon retourne null et affiche une erreur.
+         */
         EditText usernameInput = (EditText) findViewById(R.id.username_field_registerpage);
-        String username = usernameInput.getText().toString();
         EditText password1Input = (EditText) findViewById(R.id.password_field1_registerpage);
-        String password1 = password1Input.getText().toString();
         EditText password2Input = (EditText) findViewById(R.id.password_field2_registerpage);
+        String username = usernameInput.getText().toString();
+        String password1 = password1Input.getText().toString();
         String password2 = password2Input.getText().toString();
         TextView msgAlert = (TextView) findViewById(R.id.alerteTextRegister);
+
         if(DAOFactory.userDAO(this).idAlreadyExists(username)){
             //TODO rester sur la vue et mettre un msg d'alerte que le pseudo est deja pris
             msgAlert.setText("Username already in use");
-            return;
+            return null;
         }
         if(!password1.equals(password2)){
             //TODO rester sur la vue et mettre un msg d'alerte que les 2 mot de passes correspondent pas
             msgAlert.setText("2 passwords aren't the same");
-            return;
+            return null;
         }
+
         User user = new User(username);
         user.setPassword(password1);
         DAOFactory.userDAO(this).addUserToDB(user);
         Session.getInstance().setU(user);
-        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-        startActivity(intent);
-        finish();
+        return user;
     }
-    private User registerUser(View view){
-        /*
-         *   Retourne l'utilisateur si il a bien été créé.
-         *   Dans les autres cas celui qui ecrit la fonction voit les cas possibles
-         *   et voit comme il affiche les messages d'erreurs dans la fonction registerButton
-         */
-        // TODO
 
-        return null;
-    }
 }
