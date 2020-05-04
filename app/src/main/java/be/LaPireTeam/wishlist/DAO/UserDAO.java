@@ -41,7 +41,7 @@ public class UserDAO{
         try {
             while(c.moveToNext()) {
                 User u = new User();
-                u.setLastName(c.getString(c.getColumnIndex("FirstName")));
+                u.setLastName(c.getString(c.getColumnIndex("LastName")));
                 u.setFirstName(c.getString(c.getColumnIndex("FirstName")));
                 u.setID(c.getString(c.getColumnIndex("Pseudo")));
                 u.setPassword(c.getString(c.getColumnIndex("Password")));

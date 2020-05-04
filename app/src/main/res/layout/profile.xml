@@ -39,7 +39,7 @@
         tools:layout_editor_absoluteY="256dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -56,14 +56,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/editText"
+        android:layout_below="@id/profile_name"
         android:text="Adress"
         android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="331dp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/profile_adress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -80,14 +80,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/editText2"
+        android:layout_below="@id/profile_adress"
         android:text="Préférences"
         android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="400dp" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/profile_preferences"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
