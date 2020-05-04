@@ -62,13 +62,13 @@ public class UserDAO{
         SQLiteDatabase db = dao.getDB();
         ContentValues vals = new ContentValues();
 
-        vals.put("FirstName", u.getFirstName());
-        vals.put("LastName", u.getLastName());
+        //vals.put("FirstName", u.getFirstName());
+        //vals.put("LastName", u.getLastName());
         vals.put("Pseudo",u.getID());
         vals.put("Password",u.getPassword());
-        vals.put("Address", u.getAddress());
-        vals.put("ProfilePicture",u.getPicture());
-        vals.put("Preferences",u.getPreferences().toString());
+        //vals.put("Address", u.getAddress());
+        //vals.put("ProfilePicture",u.getPicture());
+        //vals.put("Preferences",u.getPreferences().toString());
 
         try {
             db.insert("User", null, vals);
@@ -84,6 +84,5 @@ public class UserDAO{
         Cursor c = db.rawQuery(query, null);
         return c.getCount() > 0;
     }
-
 
 }

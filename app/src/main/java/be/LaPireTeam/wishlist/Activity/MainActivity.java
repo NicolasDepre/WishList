@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             msgAlert.setText("Username already in use");
             return;
         }
-        if(password1 != password2){
+        if(!password1.equals(password2)){
             //TODO rester sur la vue et mettre un msg d'alerte que les 2 mot de passes correspondent pas
             msgAlert.setText("2 passwords aren't the same");
             return;
@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         Session.getInstance().setU(user);
         Intent intent = new Intent(MainActivity.this, MenuActivity.class);
         startActivity(intent);
+        finish();
     }
     private User registerUser(View view){
         /*
