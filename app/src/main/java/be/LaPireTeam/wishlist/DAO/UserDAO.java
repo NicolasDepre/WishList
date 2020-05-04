@@ -21,6 +21,8 @@ public class UserDAO{
     public User login(String username, String password){
 
         SQLiteDatabase db = dao.getDB();
+        username = username.trim();
+        password = password.trim();
         Log.i("INFO",username+password);
         String query = "SELECT * FROM User WHERE User.Pseudo == '" + username + "' AND User.Password == '" + password +"'";
         Cursor c = db.rawQuery(query, null);
