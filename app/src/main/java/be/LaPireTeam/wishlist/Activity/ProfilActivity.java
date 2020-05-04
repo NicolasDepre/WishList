@@ -1,10 +1,13 @@
-package be.LaPireTeam.wishlist;
+package be.LaPireTeam.wishlist.Activity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import be.LaPireTeam.wishlist.R;
+import be.LaPireTeam.wishlist.Objects.Session;
+import be.LaPireTeam.wishlist.Objects.User;
 
 public class ProfilActivity extends AppCompatActivity {
     @Override

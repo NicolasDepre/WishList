@@ -1,16 +1,17 @@
-package be.LaPireTeam.wishlist;
+package be.LaPireTeam.wishlist.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
+import be.LaPireTeam.wishlist.R;
+import be.LaPireTeam.wishlist.Objects.Session;
+import be.LaPireTeam.wishlist.Objects.User;
 
 public class MainActivity extends AppCompatActivity {
 

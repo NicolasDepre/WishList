@@ -1,13 +1,11 @@
-package be.LaPireTeam.wishlist;
+package be.LaPireTeam.wishlist.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
 import android.view.View;
@@ -16,9 +14,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
+import be.LaPireTeam.wishlist.Objects.List;
+import be.LaPireTeam.wishlist.R;
+import be.LaPireTeam.wishlist.Objects.Session;
+import be.LaPireTeam.wishlist.Objects.User;
 
 public class MyListsActivity extends AppCompatActivity {
 

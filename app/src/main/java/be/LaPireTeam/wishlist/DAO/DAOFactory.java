@@ -2,8 +2,6 @@ package be.LaPireTeam.wishlist.DAO;
 
 import android.content.Context;
 
-import be.LaPireTeam.wishlist.User;
-
 public class DAOFactory {
 
 

@@ -1,11 +1,10 @@
-package be.LaPireTeam.wishlist;
+package be.LaPireTeam.wishlist.Objects;
 
 import android.content.Context;
 
 import java.util.Date;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
-import be.LaPireTeam.wishlist.DAO.ListDao;
 
 public class List {
     private String name;

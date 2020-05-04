@@ -4,12 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.util.Date;
-
-import be.LaPireTeam.wishlist.User;
+import be.LaPireTeam.wishlist.Objects.User;
 
 public class UserDAO{
 

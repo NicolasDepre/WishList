@@ -1,9 +1,11 @@
-package be.LaPireTeam.wishlist;
+package be.LaPireTeam.wishlist.Activity;
 
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import be.LaPireTeam.wishlist.R;
 
 public class AmisActivity extends AppCompatActivity {
     @Override

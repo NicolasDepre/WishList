@@ -4,8 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import be.LaPireTeam.wishlist.List;
-import be.LaPireTeam.wishlist.User;
+import be.LaPireTeam.wishlist.Objects.List;
+import be.LaPireTeam.wishlist.Objects.User;
 
 public class ListDao {
 

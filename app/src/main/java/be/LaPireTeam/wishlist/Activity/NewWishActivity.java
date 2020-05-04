@@ -1,4 +1,4 @@
-package be.LaPireTeam.wishlist;
+package be.LaPireTeam.wishlist.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import be.LaPireTeam.wishlist.R;
 
 public class NewWishActivity extends AppCompatActivity {
     public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";

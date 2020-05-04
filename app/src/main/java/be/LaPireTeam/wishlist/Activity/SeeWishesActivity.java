@@ -1,4 +1,4 @@
-package be.LaPireTeam.wishlist;
+package be.LaPireTeam.wishlist.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
+import be.LaPireTeam.wishlist.Objects.List;
+import be.LaPireTeam.wishlist.R;
+import be.LaPireTeam.wishlist.Objects.Wish;
 
 public class SeeWishesActivity extends AppCompatActivity {
 

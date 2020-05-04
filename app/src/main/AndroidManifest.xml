@@ -11,15 +11,15 @@
         android:theme="@style/AppTheme">
 
         <!-- Activity -->
-        <activity android:name=".NewWishActivity"/>
-        <activity android:name=".NewListActivity"/>
-        <activity android:name=".MenuActivity"/>
-        <activity android:name=".MyListsActivity"/>
-        <activity android:name=".AmisActivity"/>
-        <activity android:name=".SeeWishesActivity"/>
-        <activity android:name=".ProfilActivity"/>
+        <activity android:name=".Activity.NewWishActivity"/>
+        <activity android:name=".Activity.NewListActivity"/>
+        <activity android:name=".Activity.MenuActivity"/>
+        <activity android:name=".Activity.MyListsActivity"/>
+        <activity android:name=".Activity.AmisActivity"/>
+        <activity android:name=".Activity.SeeWishesActivity"/>
+        <activity android:name=".Activity.ProfilActivity"/>
         <activity
-            android:name=".MainActivity">
+            android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,8 +1,6 @@
-package be.LaPireTeam.wishlist;
+package be.LaPireTeam.wishlist.Objects;
 
 import java.util.Date;
-
-import be.LaPireTeam.wishlist.DAO.DAOFactory;
 
 public class User {
 

@@ -1,4 +1,4 @@
-package be.LaPireTeam.wishlist;
+package be.LaPireTeam.wishlist.Objects;
 
 public class Wish {
     public final int ID;
