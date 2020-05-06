@@ -4,9 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import be.LaPireTeam.wishlist.DAO.DAOFactory;
+import be.LaPireTeam.wishlist.Objects.List;
+import be.LaPireTeam.wishlist.Objects.Session;
+import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.R;
 
 public class NewListActivity extends AppCompatActivity {
@@ -21,9 +26,21 @@ public class NewListActivity extends AppCompatActivity {
         EditText inputName = (EditText) findViewById(R.id.new_list_name_inputfield);
         String name = inputName.getText().toString();
         EditText inputFriends = (EditText) findViewById(R.id.new_list_share_inputfield);
-        String friends = inputFriends.getText().toString();
-        //List l = new List(-1);
-        //l.setName(name);
+        String friendsInput = inputFriends.getText().toString();
+        String[] friendsUsernames = friendsInput.split(" ");
+        List l = new List(-1);
+        l.setName(name);
+        User user = Session.getInstance().getU();
+        DAOFactory.listDAO(this).insert_list(l);
+        for (String username : friendsUsernames) {
+            User friend = DAOFactory.userDAO(this).getUserFromID(username);
+            if(friend != null) {
+                Log.i("ADD USER", "ADD user with username " + friend.getID());
+                if (DAOFactory.userDAO(this).areFriends(user, friend)) {
+                    DAOFactory.listDAO(this).shareListWithUser(l, friend, 1);
+                }
+            }
+        }
         //TODO récupérer les friends et users to share et les ajouter
         //TODO add list to database when created
         Intent intent = new Intent(this, MyListsActivity.class);

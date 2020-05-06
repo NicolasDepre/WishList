@@ -26,6 +26,18 @@
         app:rippleColor="@color/colorAccent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:tint="#FFFFFF"
+        app:backgroundTint="@color/colorPrimary"
+        app:rippleColor="@color/colorAccent"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+
     <TextView
         android:id="@+id/title_see_wishes_in_list"
         android:layout_width="match_parent"

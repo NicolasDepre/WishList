@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import be.LaPireTeam.wishlist.Objects.List;
 import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
+import be.LaPireTeam.wishlist.Objects.Wish;
 
 public class ListDao {
 
@@ -75,6 +76,67 @@ public class ListDao {
             counter++;
         }
         return lists;
+    }
+
+    public boolean shareListWithUser(List list, User user, int acces){
+        SQLiteDatabase db = dao.getDB();
+        ContentValues values = new ContentValues();
+        values.put("Pseudo", user.getID());
+        values.put("ListID", list.ID);
+        values.put("Access", acces);
+        try{
+            db.insert("UserList", null, values);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    private boolean is_proprietaire(List list, User user){
+        SQLiteDatabase db = dao.getDB();
+        String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+        return c.getInt(c.getColumnIndex("Access")) == 0;
+    }
+
+    private boolean can_edit(List list, User user){
+        SQLiteDatabase db = dao.getDB();
+        String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+        return c.getInt(c.getColumnIndex("Access")) <= 1;
+    }
+
+    private boolean can_see(List list, User user){
+        SQLiteDatabase db = dao.getDB();
+        String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+        return c.getInt(c.getColumnIndex("Access")) <= 2;
+    }
+
+    public boolean removeList(Context c, List list){
+        SQLiteDatabase db = dao.getDB();
+        User user = Session.getInstance().getU();
+        if (!is_proprietaire(list, user)){
+            try {
+                db.delete("UserList", "ListID = " + list.ID, null);
+                return true;
+            }catch (Exception e){
+                return false;
+            }
+        }
+        try{
+            db.delete("UserList", "ListID = " + list.ID, null);
+            for (Wish wish : DAOFactory.WishDAO(c).getWishes(list)){
+                DAOFactory.WishDAO(c).removeWish(wish);
+            }
+            db.delete("List", "ListID = " + list.ID, null);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
 }

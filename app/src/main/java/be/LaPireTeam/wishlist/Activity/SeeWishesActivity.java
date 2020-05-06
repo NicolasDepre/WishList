@@ -24,6 +24,7 @@ public class SeeWishesActivity extends AppCompatActivity {
     public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
     public static final String EXTRA_ARGUMENT_WISH_ID = "be.LaPireTeam.wishlist.EXTRA_WISH_ID";
     ListView listView;
+    int list_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +32,21 @@ public class SeeWishesActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         //int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
-        final int list_id = intent.getIntExtra(EXTRA_ARGUMENT_LIST_ID, -1);
+        list_id = intent.getIntExtra(EXTRA_ARGUMENT_LIST_ID, -1);
 
         FloatingActionButton fab = findViewById(R.id.addNewWishButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openNewWishActivity(list_id);
+            }
+        });
+
+        FloatingActionButton deleteListButton = findViewById(R.id.deleteListButton);
+        deleteListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteList();
             }
         });
 
@@ -83,6 +92,14 @@ public class SeeWishesActivity extends AppCompatActivity {
     private void openSeeDetailsWishActivity(int wish_id, int list_id){
         Intent intent = new Intent(this, SeeDetailsWish.class);
         intent.putExtra(EXTRA_ARGUMENT_WISH_ID, wish_id);
+        intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
+        startActivity(intent);
+    }
+
+    private void deleteList(){
+        List l = DAOFactory.listDAO(this).getListFromListID(list_id);
+        DAOFactory.listDAO(this).removeList(this, l);
+        Intent intent = new Intent(this, MyListsActivity.class);
         intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(intent);
     }
