@@ -1,16 +1,13 @@
 package be.LaPireTeam.wishlist.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import androidx.appcompat.app.AppCompatActivity;
 
-import be.LaPireTeam.wishlist.DAO.DAO;
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
 import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
@@ -43,6 +40,5 @@ public class NewFriendActivity extends AppCompatActivity {
             }
         }
     }
-
 
 }

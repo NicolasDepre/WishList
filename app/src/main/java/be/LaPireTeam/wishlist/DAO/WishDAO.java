@@ -108,4 +108,15 @@ public class WishDAO {
             return false;
         }
     }
+
+    public boolean removeWish(Wish wish){
+        SQLiteDatabase db = dao.getDB();
+        try {
+            db.delete("ListWish", "WishID = " + wish.ID, null);
+            db.delete("Wishs", "WishID = " + wish.ID, null);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
 }

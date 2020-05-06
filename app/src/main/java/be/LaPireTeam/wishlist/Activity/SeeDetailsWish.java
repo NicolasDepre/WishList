@@ -83,4 +83,13 @@ public class SeeDetailsWish extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void deleteWish(View view){
+        Wish wish = DAOFactory.WishDAO(this).getWishFromWishID(wish_id);
+        DAOFactory.WishDAO(this).removeWish(wish);
+
+        Intent intent = new Intent(this, SeeWishesActivity.class);
+        intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
+        startActivity(intent);
+    }
+
 }
