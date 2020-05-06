@@ -69,7 +69,7 @@ public class SeeWishesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //i représente l'index de l'élément clické dans la view
                 //lancer activité see_wish particulière
-                openSeeDetailsWishActivity(wishes[position].ID);
+                openSeeDetailsWishActivity(wishes[position].ID, list_id);
             }
         });
     }
@@ -80,9 +80,10 @@ public class SeeWishesActivity extends AppCompatActivity {
         startActivity(newWishIntent);
     }
 
-    private void openSeeDetailsWishActivity(int wish_id){
+    private void openSeeDetailsWishActivity(int wish_id, int list_id){
         Intent intent = new Intent(this, SeeDetailsWish.class);
         intent.putExtra(EXTRA_ARGUMENT_WISH_ID, wish_id);
+        intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(intent);
     }
 }

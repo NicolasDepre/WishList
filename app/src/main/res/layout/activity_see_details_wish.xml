@@ -103,6 +103,39 @@
         android:textStyle="bold"
         />
 
+    <TextView
+        android:id="@+id/wish_status_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reservation"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/wish_product_detail_textview" />
+
+    <TextView
+        android:id="@+id/wish_status_detail_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="Not yet reserved"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/wish_status_textview"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/bookingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book wish"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/wish_status_detail_textview"
+        android:onClick="bookingButton"
+        />
+
+
 
 
 

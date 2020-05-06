@@ -105,7 +105,7 @@ public class UserDAO{
                 vals.put("Preferences",user.getPreferences());
             }catch (Exception e){
             }
-            String whereString = "WHERE Pseudo = '" + user.getID() + "'";
+            String whereString = "Pseudo = '" + user.getID() + "'";
             try {
                 db.update("User", vals, whereString, null);
             } catch (Exception e){
