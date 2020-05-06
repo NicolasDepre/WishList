@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 
 public class UserDAO{
@@ -108,6 +109,26 @@ public class UserDAO{
         }
     }
 
+    public boolean addNewFriend(User friend){
+        SQLiteDatabase db = dao.getDB();
+        ContentValues vals1 = new ContentValues();
+        ContentValues vals2 = new ContentValues();
+        User u = Session.getInstance().getU();
+
+        vals1.put("PseudoFriend", friend.getID());
+        vals1.put("Pseudo", u.getID());
+        vals2.put("PseudoFriend", u.getID());
+        vals2.put("Pseudo", friend.getID());
+
+        try {
+            db.insert("Friends", null, vals1);
+            db.insert("Friends", null, vals2);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
     public User[] getFriends(User u){
         SQLiteDatabase db = dao.getDB();
 
@@ -118,6 +139,13 @@ public class UserDAO{
         User[] friends = cursor_to_user(c);
         if(friends.length == 0) return null;
         return friends;
+    }
+
+    public boolean areFriends(User u, User friend){
+        SQLiteDatabase db = dao.getDB();
+        String query = "SELECT * FROM Friends WHERE Pseudo = '" + u.getID() + "' and PseudoFriend = '" + friend.getID() + "'";
+        Cursor c = db.rawQuery(query, null);
+        return c.getCount() > 0;
     }
 
 }

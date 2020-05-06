@@ -1,5 +1,6 @@
 package be.LaPireTeam.wishlist.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,7 +33,7 @@ public class AmisActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                addNewFriendButton();
             }
         });
 
@@ -63,6 +64,9 @@ public class AmisActivity extends AppCompatActivity {
 
     }
 
-    public void addNewFriendButton(View view) {}
+    public void addNewFriendButton() {
+        Intent newFriendIntent = new Intent(this,NewFriendActivity.class);
+        startActivity(newFriendIntent);
+    }
 
 }
