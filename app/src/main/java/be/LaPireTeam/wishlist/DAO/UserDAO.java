@@ -46,7 +46,7 @@ public class UserDAO{
                 //u.setBirthday((Date) c.getString(c.getColumnIndex("DateOfBirth"))); TODO Gestion de la date
                 u.setAddress(c.getString(c.getColumnIndex("Address")));
                 u.setPicture(c.getColumnName(c.getColumnIndex("ProfilePicture")));
-                u.setPreferences(c.getString(c.getColumnIndex("Preferences")).split(" "));
+                u.setPreferences(c.getString(c.getColumnIndex("Preferences")));
                 users[index] = u;
                 index ++;
             }
@@ -83,6 +83,39 @@ public class UserDAO{
         String query = "SELECT * FROM User WHERE User.Pseudo == '" + pseudo + "'";
         Cursor c = db.rawQuery(query, null);
         return c.getCount() > 0;
+    }
+
+    public boolean updateUserInDB(User user){
+        if(idAlreadyExists(user.getID())){
+            SQLiteDatabase db = dao.getDB();
+            ContentValues vals = new ContentValues();
+            try {
+                vals.put("FirstName", user.getFirstName());
+            }catch (Exception e){
+            }
+            try {
+                vals.put("LastName", user.getLastName());
+            }catch (Exception e){
+            }
+            try{
+                vals.put("Address", user.getAddress());
+            }catch (Exception e){
+            }
+            try{
+                vals.put("Preferences",user.getPreferences());
+            }catch (Exception e){
+            }
+            String whereString = "WHERE Pseudo = '" + user.getID() + "'";
+            try {
+                db.update("User", vals, whereString, null);
+            } catch (Exception e){
+                return false;
+            }
+            return true;
+        }else{
+            addUserToDB(user);
+            return true;
+        }
     }
 
 }

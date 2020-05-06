@@ -5,8 +5,7 @@ import java.util.Date;
 public class User {
 
     //TODO generate an ID
-    private String LastName, ID,firstName, address, picture, password;
-    private String[] Preferences;
+    private String lastName, ID,firstName, address, picture, password, preferences;
     private Date Birthday;
 
     // Constructeur à faire
@@ -23,11 +22,11 @@ public class User {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String name) {
-        this.LastName = name;
+        this.lastName = name;
     }
 
     public String getFirstName() {
@@ -62,12 +61,12 @@ public class User {
         this.password = password;
     }
 
-    public String[] getPreferences() {
-        return Preferences;
+    public String getPreferences() {
+        return preferences;
     }
 
-    public void setPreferences(String[] preferences) {
-        Preferences = preferences;
+    public void setPreferences(String preferences) {
+        this.preferences = preferences;
     }
 
     public Date getBirthday() {
