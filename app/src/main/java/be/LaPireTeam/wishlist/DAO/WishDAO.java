@@ -36,10 +36,10 @@ public class WishDAO {
         ContentValues wishValues = new ContentValues();
 
         wishValues.put("WishID",w.ID);
-        wishValues.put("ProductID",w.getProduct().ID);
+        wishValues.put("ProductID",w.getProduct());
         wishValues.put("Name",w.getName());
         wishValues.put("Priority", w.getPriority());
-        wishValues.put("Comments", Arrays.toString(w.getCommentary()));
+        wishValues.put("Comments", w.getCommentary());
         wishValues.put("Status",w.getBookingStatus());
 
 
@@ -58,7 +58,7 @@ public class WishDAO {
 
     public Wish getWishFromWishID(int id){
         SQLiteDatabase db = dao.getDB();
-        String request = "SELECT * FROM Whishs WHERE Whishs.WishID = " + id ;
+        String request = "SELECT * FROM Wishs WHERE Wishs.WishID = " + id ;
         Cursor c = db.rawQuery(request,null);
         if(c.getCount() ==0){
             return null;
@@ -74,9 +74,9 @@ public class WishDAO {
             Wish w = new Wish(
                     c.getInt(c.getColumnIndex("WishID")),
                     c.getString(c.getColumnIndex("Name")),
-                    c.getColumnIndex("Priority"),
-                    null,
-                    null
+                    c.getInt(c.getColumnIndex("Priority")),
+                    c.getString(c.getColumnIndex("Comments")),
+                    c.getString(c.getColumnIndex("ProductID"))
                     );
             //w.setName(c.getString(c.getColumnIndex("Name")));
 

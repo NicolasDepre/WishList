@@ -1,9 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.SeeDetailsWish">
+    tools:context=".Activity.NewListActivity"
+    android:background="@drawable/background">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/title_see_wish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:text="Details about the wish"
+        android:textAlignment="center"
+        android:textSize="28dp" />
+
+    <TextView
+        android:id="@+id/wish_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name of the wish"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/title_see_wish"/>
+
+    <TextView
+        android:id="@+id/wish_name_detail_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/wish_name_textview"
+        android:layout_centerHorizontal="true"
+        android:text="Name of the wish"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/wish_priority_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Priority of the wish"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/wish_name_detail_textview"/>
+
+    <TextView
+        android:id="@+id/new_wish_priority_detail_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="Priority of the wish"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/wish_priority_textview"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+
+
+    <TextView
+        android:id="@+id/wish_comments_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comments about the wish"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/new_wish_priority_detail_textview"
+        />
+
+    <TextView
+        android:id="@+id/wish_comments_detail_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="Comments about the wish"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/wish_comments_textview"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+
+
+    <TextView
+        android:id="@+id/wish_product_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/wish_comments_detail_textview" />
+
+    <TextView
+        android:id="@+id/wish_product_detail_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="Product"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/wish_product_textview"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+
+
+
+
+
+
+</RelativeLayout>

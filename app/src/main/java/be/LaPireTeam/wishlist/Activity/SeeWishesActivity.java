@@ -22,6 +22,7 @@ import be.LaPireTeam.wishlist.Objects.Wish;
 public class SeeWishesActivity extends AppCompatActivity {
 
     public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
+    public static final String EXTRA_ARGUMENT_WISH_ID = "be.LaPireTeam.wishlist.EXTRA_WISH_ID";
     ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class SeeWishesActivity extends AppCompatActivity {
 
 
         //Wish[] wishes = List.getWishesFromListID(this, list_id);
-        Wish[] wishes;
+        final Wish[] wishes;
         if(list_id != -1) {
             List l = List.getListFromID(this, list_id);
             wishes = DAOFactory.WishDAO(this).getWishes(l);
@@ -68,8 +69,7 @@ public class SeeWishesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //i représente l'index de l'élément clické dans la view
                 //lancer activité see_wish particulière
-
-                return;
+                openSeeDetailsWishActivity(wishes[position].ID);
             }
         });
     }
@@ -80,4 +80,9 @@ public class SeeWishesActivity extends AppCompatActivity {
         startActivity(newWishIntent);
     }
 
+    private void openSeeDetailsWishActivity(int wish_id){
+        Intent intent = new Intent(this, SeeDetailsWish.class);
+        intent.putExtra(EXTRA_ARGUMENT_WISH_ID, wish_id);
+        startActivity(intent);
+    }
 }

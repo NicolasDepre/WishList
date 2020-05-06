@@ -4,11 +4,11 @@ public class Wish {
     public final int ID;
     private String name;
     private int priority;
-    private String[] commentary;
+    private String commentary;
     private boolean bookingStatus;
-    private Product product;
+    private String product;
 
-    public Wish(int id, String name, int priority, String[] commentary, Product product) {
+    public Wish(int id, String name, int priority, String commentary, String product) {
         if(id == -1){
             this.ID = -1; //TODO generate number
         }else{
@@ -37,11 +37,11 @@ public class Wish {
         this.priority = priority;
     }
 
-    public String[] getCommentary() {
+    public String getCommentary() {
         return commentary;
     }
 
-    public void setCommentary(String[] commentary) {
+    public void setCommentary(String commentary) {
         this.commentary = commentary;
     }
 
@@ -53,11 +53,11 @@ public class Wish {
         this.bookingStatus = bookingStatus;
     }
 
-    public Product getProduct() {
+    public String getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(String product) {
         this.product = product;
     }
 }
