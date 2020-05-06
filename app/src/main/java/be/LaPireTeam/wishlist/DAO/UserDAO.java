@@ -16,7 +16,14 @@ public class UserDAO{
         dao = DAO.getInstance(c);
     }
 
-
+    public User getUserFromID(String pseudo){
+        SQLiteDatabase db = dao.getDB();
+        String query = "SELECT * FROM User WHERE User.Pseudo == '" + pseudo +"'";
+        Cursor c = db.rawQuery(query, null);
+        User[] users = cursor_to_user(c);
+        if(users.length == 0) return null;
+        return users[0];
+    }
 
     public User login(String username, String password){
 
@@ -62,13 +69,12 @@ public class UserDAO{
         SQLiteDatabase db = dao.getDB();
         ContentValues vals = new ContentValues();
 
-        //vals.put("FirstName", u.getFirstName());
-        //vals.put("LastName", u.getLastName());
+        vals.put("FirstName", u.getFirstName());
+        vals.put("LastName", u.getLastName());
         vals.put("Pseudo",u.getID());
         vals.put("Password",u.getPassword());
-        //vals.put("Address", u.getAddress());
-        //vals.put("ProfilePicture",u.getPicture());
-        //vals.put("Preferences",u.getPreferences().toString());
+        vals.put("Address", u.getAddress());
+        vals.put("Preferences",u.getPreferences().toString());
 
         try {
             db.insert("User", null, vals);
@@ -89,33 +95,29 @@ public class UserDAO{
         if(idAlreadyExists(user.getID())){
             SQLiteDatabase db = dao.getDB();
             ContentValues vals = new ContentValues();
-            try {
-                vals.put("FirstName", user.getFirstName());
-            }catch (Exception e){
-            }
-            try {
-                vals.put("LastName", user.getLastName());
-            }catch (Exception e){
-            }
-            try{
-                vals.put("Address", user.getAddress());
-            }catch (Exception e){
-            }
-            try{
-                vals.put("Preferences",user.getPreferences());
-            }catch (Exception e){
-            }
+            try { vals.put("FirstName", user.getFirstName());}catch (Exception e){ }
+            try { vals.put("LastName", user.getLastName()); }catch (Exception e){ }
+            try{ vals.put("Address", user.getAddress()); }catch (Exception e){ }
+            try{ vals.put("Preferences",user.getPreferences()); }catch (Exception e){ }
             String whereString = "Pseudo = '" + user.getID() + "'";
-            try {
-                db.update("User", vals, whereString, null);
-            } catch (Exception e){
-                return false;
-            }
+            try { db.update("User", vals, whereString, null); } catch (Exception e){ return false; }
             return true;
         }else{
             addUserToDB(user);
             return true;
         }
+    }
+
+    public User[] getFriends(User u){
+        SQLiteDatabase db = dao.getDB();
+
+        String query = "SELECT * FROM User " +
+                "WHERE User.Pseudo in " +
+                "(SELECT PseudoFriend FROM Friends WHERE Friends.Pseudo = '" + u.getID() + "')";
+        Cursor c = db.rawQuery(query, null);
+        User[] friends = cursor_to_user(c);
+        if(friends.length == 0) return null;
+        return friends;
     }
 
 }

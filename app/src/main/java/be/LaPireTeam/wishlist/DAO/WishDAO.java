@@ -42,11 +42,7 @@ public class WishDAO {
         wishValues.put("Name",w.getName());
         wishValues.put("Priority", w.getPriority());
         wishValues.put("Comments", w.getCommentary());
-        if(w.getBookingStatus()){
-            wishValues.put("Status",1);
-        }else{
-            wishValues.put("Status",0);
-        }
+        wishValues.put("Status",w.getBookingStatus());
 
         ContentValues listValues = new ContentValues();
         listValues.put("ListID",listID);

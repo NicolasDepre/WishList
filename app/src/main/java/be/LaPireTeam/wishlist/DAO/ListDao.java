@@ -1,10 +1,12 @@
 package be.LaPireTeam.wishlist.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import be.LaPireTeam.wishlist.Objects.List;
+import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 
 public class ListDao {
@@ -13,6 +15,27 @@ public class ListDao {
 
     public ListDao(Context c){
         dao = DAO.getInstance(c);
+    }
+
+    public boolean insert_list(List l){
+
+        SQLiteDatabase db = dao.getDB();
+        ContentValues wishValues = new ContentValues();
+
+        wishValues.put("ListID",l.ID);
+        wishValues.put("Name",l.getName());
+
+        ContentValues userList = new ContentValues();
+        User u = Session.getInstance().getU();
+        userList.put("Pseudo", u.getID());
+        userList.put("ListID", l.ID);
+
+        try{
+            db.insert("List",null, wishValues);
+            db.insert("UserList", null,userList);
+        }catch (Exception e) {return false;}
+
+        return true;
     }
 
 
