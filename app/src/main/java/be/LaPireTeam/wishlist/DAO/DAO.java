@@ -10,7 +10,7 @@ public class DAO {
     public SQLiteDatabase db;
     private static DAO instance;
 
-    protected DAO(Context c){
+    public DAO(Context c){
 
         this.openHelper = new DataBaseOpenHelper(c);
         this.db = openHelper.getWritableDatabase();

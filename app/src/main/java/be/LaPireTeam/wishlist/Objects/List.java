@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.Date;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
+import be.LaPireTeam.wishlist.DAO.IDUtility;
 
 public class List {
     private String name;
@@ -13,12 +14,7 @@ public class List {
 
     //TODO generate other ID than 0
     public List(int id) {
-        if (id == -1){
-            this.ID = 0;
-            return;
-        }
         this.ID = id;
-        return;
     }
 
     public String getName() {

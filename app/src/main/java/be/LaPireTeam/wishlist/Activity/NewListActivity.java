@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import be.LaPireTeam.wishlist.DAO.DAO;
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
+import be.LaPireTeam.wishlist.DAO.IDUtility;
 import be.LaPireTeam.wishlist.Objects.List;
 import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
@@ -28,7 +30,7 @@ public class NewListActivity extends AppCompatActivity {
         EditText inputFriends = (EditText) findViewById(R.id.new_list_share_inputfield);
         String friendsInput = inputFriends.getText().toString();
         String[] friendsUsernames = friendsInput.split(" ");
-        List l = new List(-1);
+        List l = new List(IDUtility.getNewListID(new DAO(this)));
         l.setName(name);
         User user = Session.getInstance().getU();
         DAOFactory.listDAO(this).insert_list(l);
