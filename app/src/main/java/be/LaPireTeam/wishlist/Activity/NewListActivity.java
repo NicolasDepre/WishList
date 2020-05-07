@@ -43,8 +43,6 @@ public class NewListActivity extends AppCompatActivity {
                 }
             }
         }
-        //TODO récupérer les friends et users to share et les ajouter
-        //TODO add list to database when created
         Intent intent = new Intent(this, MyListsActivity.class);
         startActivity(intent);
     }
