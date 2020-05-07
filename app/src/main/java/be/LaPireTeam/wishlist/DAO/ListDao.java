@@ -30,6 +30,7 @@ public class ListDao {
         User u = Session.getInstance().getU();
         userList.put("Pseudo", u.getID());
         userList.put("ListID", l.ID);
+        userList.put("Access", 0);
 
         try{
             db.insert("List",null, wishValues);
@@ -44,7 +45,7 @@ public class ListDao {
 
         SQLiteDatabase db = dao.getDB();
 
-        String request = "SELECT * FROM UserList, List WHERE UserList.Pseudo == '"+u.getID()+"' and List.ListID = UserList.ListID";
+        String request = "SELECT * FROM UserList, List WHERE UserList.Pseudo == '"+ u.getID() +"' and List.ListID = UserList.ListID";
         Cursor c = db.rawQuery(request,null);
         if(c.getCount() ==0){
             return null;
@@ -92,7 +93,7 @@ public class ListDao {
         }
     }
 
-    private boolean owns_list(List list, User user){
+    public boolean owns_list(List list, User user){
         SQLiteDatabase db = dao.getDB();
         String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
         Cursor c = db.rawQuery(query, null);
@@ -100,7 +101,7 @@ public class ListDao {
         return c.getInt(c.getColumnIndex("Access")) == 0;
     }
 
-    private boolean can_edit(List list, User user){
+    public boolean can_edit(List list, User user){
         SQLiteDatabase db = dao.getDB();
         String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
         Cursor c = db.rawQuery(query, null);
@@ -108,12 +109,16 @@ public class ListDao {
         return c.getInt(c.getColumnIndex("Access")) <= 1;
     }
 
-    private boolean can_see(List list, User user){
+    public boolean can_see(List list, User user){
         SQLiteDatabase db = dao.getDB();
         String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
         Cursor c = db.rawQuery(query, null);
-        c.moveToFirst();
-        return c.getInt(c.getColumnIndex("Access")) <= 2;
+        try {
+            c.moveToFirst();
+            return c.getInt(c.getColumnIndex("Access")) <= 2;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     public boolean removeList(Context c, List list){

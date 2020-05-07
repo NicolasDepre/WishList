@@ -23,6 +23,8 @@ import be.LaPireTeam.wishlist.R;
 public class AmisActivity extends AppCompatActivity {
 
     ListView listView;
+    public static final String EXTRA_ARGUMENT_FRIEND_ID = "be.LaPireTeam.wishlist.EXTRA_FRIEND_ID";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,7 @@ public class AmisActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.listview_friends);
         User user = Session.getInstance().getU();
 
-        User[] friends = DAOFactory.userDAO(this).getFriends(user);
+        final User[] friends = DAOFactory.userDAO(this).getFriends(user);
 
         ArrayList<String> myFriendsNames = new ArrayList<>();
         if(friends != null) {
@@ -58,9 +60,9 @@ public class AmisActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //position représente l'index de l'élément clické dans la view
+                openSeeListsFriend(friends[position].getID());
             }
         });
-
 
     }
 
@@ -68,5 +70,13 @@ public class AmisActivity extends AppCompatActivity {
         Intent newFriendIntent = new Intent(this,NewFriendActivity.class);
         startActivity(newFriendIntent);
     }
+
+    private void openSeeListsFriend(String pseudoFriend){
+        Intent intent = new Intent(this, FriendsListsActivity.class);
+        intent.putExtra(EXTRA_ARGUMENT_FRIEND_ID, pseudoFriend);
+        startActivity(intent);
+    }
+
+
 
 }

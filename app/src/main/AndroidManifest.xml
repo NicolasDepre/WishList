@@ -34,6 +34,10 @@
             android:label="@string/title_activity_my_lists"
             android:parentActivityName=".Activity.MenuActivity" />
         <activity
+            android:name=".Activity.FriendsListsActivity"
+            android:label="Friends Lists"
+            android:parentActivityName=".Activity.AmisActivity" />
+        <activity
             android:name=".Activity.AmisActivity"
             android:label="@string/title_activity_amis"
             android:parentActivityName=".Activity.MenuActivity" />
