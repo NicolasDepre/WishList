@@ -10,7 +10,6 @@ import android.widget.EditText;
 import be.LaPireTeam.wishlist.DAO.DAO;
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
 import be.LaPireTeam.wishlist.DAO.IDUtility;
-import be.LaPireTeam.wishlist.Objects.Product;
 import be.LaPireTeam.wishlist.Objects.Wish;
 import be.LaPireTeam.wishlist.R;
 

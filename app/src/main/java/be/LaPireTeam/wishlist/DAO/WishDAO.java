@@ -2,12 +2,9 @@ package be.LaPireTeam.wishlist.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-
-import java.util.Arrays;
 
 import be.LaPireTeam.wishlist.Objects.List;
 import be.LaPireTeam.wishlist.Objects.Wish;
@@ -42,7 +39,7 @@ public class WishDAO {
         wishValues.put("ProductID", w.getProduct());
         wishValues.put("Name", w.getName());
         wishValues.put("Priority", w.getPriority());
-        wishValues.put("Comments", w.getCommentary());
+        wishValues.put("Comments", w.getComment());
         wishValues.put("Status", w.getBookingStatus());
 
         ContentValues listValues = new ContentValues();

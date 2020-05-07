@@ -2,7 +2,7 @@ package be.LaPireTeam.wishlist.Objects;
 
 import java.util.Date;
 
-public class Group {
+public class Group_Unused { //unused class in final version
 
 
     private int ID;
@@ -10,7 +10,7 @@ public class Group {
     private User[] members;
     private Date creationDate;
 
-    public Group(int ID, String name, String description, String picture, User[] members, Date creationDate) {
+    public Group_Unused(int ID, String name, String description, String picture, User[] members, Date creationDate) {
         this.ID = ID;
         this.name = name;
         this.description = description;

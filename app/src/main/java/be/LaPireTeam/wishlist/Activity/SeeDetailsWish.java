@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
-import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.Objects.Wish;
 import be.LaPireTeam.wishlist.R;
 
@@ -44,7 +43,7 @@ public class SeeDetailsWish extends AppCompatActivity {
         TextView priority = (TextView) findViewById(R.id.new_wish_priority_detail_textview);
         priority.setText(String.valueOf(wish.getPriority()));
         TextView com = (TextView) findViewById(R.id.wish_comments_detail_textview);
-        com.setText(wish.getCommentary());
+        com.setText(wish.getComment());
         TextView product = (TextView) findViewById(R.id.wish_product_detail_textview);
         product.setText(wish.getProduct());
         TextView status = (TextView) findViewById(R.id.wish_status_detail_textview);
