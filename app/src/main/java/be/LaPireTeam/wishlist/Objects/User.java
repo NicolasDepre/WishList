@@ -5,7 +5,7 @@ import java.util.Date;
 public class User {
 
     private String lastName, ID, firstName, address, picture, password, preferences;
-    private Date Birthday;
+    private Date birthday;
 
     // Constructeur à faire
     public User(String pseudo) {
@@ -69,11 +69,11 @@ public class User {
     }
 
     public Date getBirthday() {
-        return Birthday;
+        return birthday;
     }
 
     public void setBirthday(Date birthday) {
-        Birthday = birthday;
+        this.birthday = birthday;
     }
 
     //TODO Changer dans le diagramme de Classe le return value de la fonction
