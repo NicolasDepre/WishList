@@ -92,7 +92,7 @@ public class ListDao {
         }
     }
 
-    private boolean is_proprietaire(List list, User user){
+    private boolean owns_list(List list, User user){
         SQLiteDatabase db = dao.getDB();
         String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
         Cursor c = db.rawQuery(query, null);
@@ -119,9 +119,9 @@ public class ListDao {
     public boolean removeList(Context c, List list){
         SQLiteDatabase db = dao.getDB();
         User user = Session.getInstance().getU();
-        if (!is_proprietaire(list, user)){
+        if (!owns_list(list, user)){
             try {
-                db.delete("UserList", "ListID = " + list.ID, null);
+                db.delete("UserList", "ListID = " + list.ID + " and Pseudo = '" + user.getID() + "'", null);
                 return true;
             }catch (Exception e){
                 return false;

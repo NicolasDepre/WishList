@@ -100,7 +100,6 @@ public class SeeWishesActivity extends AppCompatActivity {
         List l = DAOFactory.listDAO(this).getListFromListID(list_id);
         DAOFactory.listDAO(this).removeList(this, l);
         Intent intent = new Intent(this, MyListsActivity.class);
-        intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(intent);
     }
 }
