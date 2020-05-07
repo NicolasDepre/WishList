@@ -66,6 +66,7 @@ public class ProfilActivity extends AppCompatActivity {
         DAOFactory.userDAO(this).updateUserInDB(user);
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void changePictureProfile() {
