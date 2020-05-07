@@ -20,8 +20,6 @@ public class ProfilActivity extends AppCompatActivity {
 
         User u = Session.getInstance().getU();
 
-        //TODO permettre de venir avec un nouveau compte
-
         EditText firstName = (EditText) findViewById(R.id.profile_first_name);
         if(u.getFirstName() != null){
             firstName.setText(u.getFirstName());

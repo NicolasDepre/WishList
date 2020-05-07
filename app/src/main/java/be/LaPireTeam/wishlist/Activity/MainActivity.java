@@ -89,12 +89,10 @@ public class MainActivity extends AppCompatActivity {
         TextView msgAlert = (TextView) findViewById(R.id.alerteTextRegister);
 
         if(DAOFactory.userDAO(this).idAlreadyExists(username)){
-            //TODO rester sur la vue et mettre un msg d'alerte que le pseudo est deja pris
             msgAlert.setText("Username already in use");
             return null;
         }
         if(!password1.equals(password2)){
-            //TODO rester sur la vue et mettre un msg d'alerte que les 2 mot de passes correspondent pas
             msgAlert.setText("2 passwords aren't the same");
             return null;
         }

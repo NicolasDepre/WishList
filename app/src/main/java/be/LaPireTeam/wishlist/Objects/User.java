@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class User {
 
-    //TODO generate an ID
     private String lastName, ID,firstName, address, picture, password, preferences;
     private Date Birthday;
 
