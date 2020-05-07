@@ -23,7 +23,7 @@ import be.LaPireTeam.wishlist.R;
 public class AmisActivity extends AppCompatActivity {
 
     ListView listView;
-    public static final String EXTRA_ARGUMENT_FRIEND_ID = "be.LaPireTeam.wishlist.EXTRA_FRIEND_ID";
+    //public static final String EXTRA_ARGUMENT_FRIEND_ID = "be.LaPireTeam.wishlist.EXTRA_FRIEND_ID";
 
 
     @Override
@@ -60,7 +60,8 @@ public class AmisActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //position représente l'index de l'élément clické dans la view
-                openSeeListsFriend(friends[position].getID());
+                Session.getInstance().setLastClickedFriend( friends[position] );
+                openSeeListsFriend();
             }
         });
 
@@ -71,9 +72,9 @@ public class AmisActivity extends AppCompatActivity {
         startActivity(newFriendIntent);
     }
 
-    private void openSeeListsFriend(String pseudoFriend){
+    private void openSeeListsFriend(){
         Intent intent = new Intent(this, FriendsListsActivity.class);
-        intent.putExtra(EXTRA_ARGUMENT_FRIEND_ID, pseudoFriend);
+        //intent.putExtra(EXTRA_ARGUMENT_FRIEND_ID, pseudoFriend);
         startActivity(intent);
     }
 

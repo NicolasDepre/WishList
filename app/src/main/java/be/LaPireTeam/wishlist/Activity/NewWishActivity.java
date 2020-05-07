@@ -10,19 +10,24 @@ import android.widget.EditText;
 import be.LaPireTeam.wishlist.DAO.DAO;
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
 import be.LaPireTeam.wishlist.DAO.IDUtility;
+import be.LaPireTeam.wishlist.Objects.List;
+import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.Wish;
 import be.LaPireTeam.wishlist.R;
 
 public class NewWishActivity extends AppCompatActivity {
-    public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
-    int list_id;
-
+    //public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
+    //int list_id;
+    List currentList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_wish);
+        /*
         Intent intent = getIntent();
         list_id = intent.getIntExtra(SeeWishesActivity.EXTRA_ARGUMENT_LIST_ID, -1);
+         */
+        currentList = Session.getInstance().getLastClickedList();
 
     }
 
@@ -36,9 +41,9 @@ public class NewWishActivity extends AppCompatActivity {
         EditText inputProduct = (EditText) findViewById(R.id.new_wish_product_inputfield);
         String product = inputName.getText().toString();
         Wish w = new Wish(IDUtility.getNewWishID(new DAO(this)), name, priority, comments, product);
-        DAOFactory.WishDAO(this).insert_wish(w, list_id);
+        DAOFactory.WishDAO(this).insert_wish(w, currentList.ID);
         Intent intent = new Intent(this, SeeWishesActivity.class);
-        intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
+        //intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(intent);
     }
 }

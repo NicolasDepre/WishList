@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -22,9 +23,9 @@ public class FriendsListsActivity extends AppCompatActivity {
     ListView listView;
     List[] lists;
     String pseudoFriend;
-    ArrayList<Integer> listIDs;
+    ArrayList<List> showedLists;
 
-    public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
+    //public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +35,24 @@ public class FriendsListsActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.listViewFriendsLists);
         User user = Session.getInstance().getU();
 
+        /*
         Intent intent = getIntent();
         pseudoFriend = intent.getStringExtra(AmisActivity.EXTRA_ARGUMENT_FRIEND_ID);
         User friend = DAOFactory.userDAO(this).getUserFromID(pseudoFriend);
+         */
+        User friend = Session.getInstance().getLastClickedFriend();
+        TextView title = (TextView) findViewById(R.id.title_friends_lists);
+        title.setText("Lists of " + friend.getID());
 
         lists = DAOFactory.listDAO(this).getLists(friend);
 
         ArrayList<String> listsNames = new ArrayList<>();
-        listIDs = new ArrayList<>();
+        showedLists = new ArrayList<>();
         if(lists != null) {
             for (List l : lists) {
                 if(DAOFactory.listDAO(this).can_see(l, user)) {
                     listsNames.add(l.getName());
-                    listIDs.add(l.ID);
+                    showedLists.add(l);
                 }
             }
         }
@@ -61,15 +67,16 @@ public class FriendsListsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //i représente l'index de l'élément clické dans la view
                 //lancer activité see_list particulière
-                int list_id = listIDs.get(position);
-                openSeeWishesActivity(view, list_id);
+                //int list_id = listIDs.get(position);
+                Session.getInstance().setLastClickedList(showedLists.get(position));
+                openSeeWishesActivity();
             }
         });
     }
 
-    public void openSeeWishesActivity(View view, int id){
+    public void openSeeWishesActivity(){
         Intent intent = new Intent(this, SeeWishesActivity.class);
-        intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
+        //intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
         startActivity(intent);
     }
 }

@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.R;
 
 public class MenuActivity extends AppCompatActivity {
@@ -35,6 +36,7 @@ public class MenuActivity extends AppCompatActivity {
         /*
          *   Lance l'activity Mylists.
          */
+        Session.getInstance().setLastClickedFriend(null);
         Intent intent = new Intent(this, MyListsActivity.class);
         startActivity(intent);
     }
