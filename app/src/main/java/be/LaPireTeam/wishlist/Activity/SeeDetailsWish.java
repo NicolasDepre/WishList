@@ -30,12 +30,12 @@ public class SeeDetailsWish extends AppCompatActivity {
         wish_id = intent.getIntExtra(SeeWishesActivity.EXTRA_ARGUMENT_WISH_ID, -1);
         Log.i("INFO", "wishID = " + wish_id);
         Wish wish = DAOFactory.WishDAO(this).getWishFromWishID(wish_id);
-        if(wish == null){
+        if (wish == null) {
             Log.i("INFO", "wish is null");
         }
-        if(wish.getBookingStatus()) {
+        if (wish.getBookingStatus()) {
             Log.i("INFOOOOOOOOOOOOOO", "wish created with bookingstatus true");
-        }else{
+        } else {
             Log.i("INFOOOOOOOOOOOOOO", "wish created with bookingstatus false");
         }
 
@@ -50,28 +50,28 @@ public class SeeDetailsWish extends AppCompatActivity {
         TextView status = (TextView) findViewById(R.id.wish_status_detail_textview);
         Button booking = (Button) findViewById(R.id.bookingButton);
 
-        if(wish.getBookingStatus()){
+        if (wish.getBookingStatus()) {
             status.setText("Wish already booked by someone");
             booking.setText("Remove Reservation Wish");
             //booking.setVisibility(View.INVISIBLE);
-        }else {
+        } else {
             status.setText("Not yet reserved");
             booking.setText("Book wish");
             //booking.setVisibility(View.VISIBLE);
         }
     }
 
-    public void bookingButton(View view){
+    public void bookingButton(View view) {
 
         Wish w = DAOFactory.WishDAO(this).getWishFromWishID(wish_id);
-        if(w.getBookingStatus()){
-            if(DAOFactory.WishDAO(this).changeBookingStatus(wish_id, false)){
+        if (w.getBookingStatus()) {
+            if (DAOFactory.WishDAO(this).changeBookingStatus(wish_id, false)) {
                 Log.i("INFOOO", "c'est passséééé");
             }
             w.setBookingStatus(false);
             Log.i("INFO", "status changed to false");
-        }else{
-            if(DAOFactory.WishDAO(this).changeBookingStatus(wish_id, true)){
+        } else {
+            if (DAOFactory.WishDAO(this).changeBookingStatus(wish_id, true)) {
                 Log.i("INFOOO", "c'est passséééé");
             }
             w.setBookingStatus(true);
@@ -83,7 +83,7 @@ public class SeeDetailsWish extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void deleteWish(View view){
+    public void deleteWish(View view) {
         Wish wish = DAOFactory.WishDAO(this).getWishFromWishID(wish_id);
         DAOFactory.WishDAO(this).removeWish(wish);
 

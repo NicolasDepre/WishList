@@ -26,6 +26,7 @@ public class MyListsActivity extends AppCompatActivity {
     public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
 
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,19 +36,19 @@ public class MyListsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("INFO","CREATION NOUVELLE LIST");
+                Log.i("INFO", "CREATION NOUVELLE LIST");
                 openNewListActivity();
             }
         });
 
 
-        listView = (ListView)findViewById(R.id.mylists);
+        listView = (ListView) findViewById(R.id.mylists);
 
         User user = Session.getInstance().getU();
 
         final List[] lists = DAOFactory.listDAO(this).getLists(user);
         ArrayList<String> myListsNames = new ArrayList<>();
-        if(lists != null) {
+        if (lists != null) {
             for (List l : lists) {
                 myListsNames.add(l.getName());
             }
@@ -68,12 +69,14 @@ public class MyListsActivity extends AppCompatActivity {
             }
         });
     }
-    public void openSeeWishesActivity(View view, int id){
+
+    public void openSeeWishesActivity(View view, int id) {
         Intent intent = new Intent(this, SeeWishesActivity.class);
         intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
         startActivity(intent);
     }
-    public void openNewListActivity(){
+
+    public void openNewListActivity() {
         Intent newListIntent = new Intent(this, NewListActivity.class);
         startActivity(newListIntent);
     }

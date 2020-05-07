@@ -21,26 +21,34 @@ public class ProfilActivity extends AppCompatActivity {
         User u = Session.getInstance().getU();
 
         EditText firstName = (EditText) findViewById(R.id.profile_first_name);
-        if(u.getFirstName() != null){
+        if (u.getFirstName() != null) {
             firstName.setText(u.getFirstName());
-        }else{firstName.setHint("First name");}
+        } else {
+            firstName.setHint("First name");
+        }
         EditText lastName = (EditText) findViewById(R.id.profile_last_name);
-        if(u.getLastName() != null){
+        if (u.getLastName() != null) {
             lastName.setText(u.getLastName());
-        }else{lastName.setHint("Last name");}
+        } else {
+            lastName.setHint("Last name");
+        }
         EditText adress = (EditText) findViewById(R.id.profile_adress);
-        if(u.getAddress() != null){
+        if (u.getAddress() != null) {
             adress.setText(u.getAddress());
-        }else{adress.setHint("Adress");}
+        } else {
+            adress.setHint("Adress");
+        }
         EditText prefs = (EditText) findViewById(R.id.profile_preferences);
-        if(u.getPreferences() != null){
+        if (u.getPreferences() != null) {
             prefs.setText(u.getPreferences());
-        }else{prefs.setHint("Preferences");}
+        } else {
+            prefs.setHint("Preferences");
+        }
 
 
     }
 
-    public void saveButton(View view){
+    public void saveButton(View view) {
         EditText first_name = (EditText) findViewById(R.id.profile_first_name);
         String fn = first_name.getText().toString();
         EditText last_name = (EditText) findViewById(R.id.profile_last_name);
@@ -60,7 +68,9 @@ public class ProfilActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void changePictureProfile () {}
+    public void changePictureProfile() {
+    }
 
-    public void changeAdresse () {}
+    public void changeAdresse() {
+    }
 }

@@ -9,9 +9,9 @@ public class Wish {
     private String product;
 
     public Wish(int id, String name, int priority, String commentary, String product) {
-        if(id == -1){
+        if (id == -1) {
             this.ID = -1; //TODO generate number
-        }else{
+        } else {
             this.ID = id;
         }
         this.name = name;

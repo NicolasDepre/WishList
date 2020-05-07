@@ -5,12 +5,12 @@ import java.util.Date;
 public class Group {
 
 
-    private  int ID;
+    private int ID;
     private String name, description, picture;
     private User[] members;
     private Date creationDate;
 
-    public Group(int ID, String name, String description, String picture, User[] members, Date creationDate){
+    public Group(int ID, String name, String description, String picture, User[] members, Date creationDate) {
         this.ID = ID;
         this.name = name;
         this.description = description;
@@ -19,7 +19,9 @@ public class Group {
         this.creationDate = creationDate;
     }
 
-    public boolean addMember (User user, int accessLevel){ return true; }
+    public boolean addMember(User user, int accessLevel) {
+        return true;
+    }
 
     public String getName() {
         return name;
@@ -53,14 +55,13 @@ public class Group {
         this.creationDate = creationDate;
     }
 
-    public String strMembers(){
+    public String strMembers() {
         String str = "";
-        for(User u : this.members){
-            str +=  u.getID();
+        for (User u : this.members) {
+            str += u.getID();
         }
         return str;
     }
-
 
 
 }

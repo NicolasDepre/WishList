@@ -17,6 +17,7 @@ import be.LaPireTeam.wishlist.R;
 public class NewWishActivity extends AppCompatActivity {
     public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
     int list_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,7 @@ public class NewWishActivity extends AppCompatActivity {
 
     }
 
-    public void createNewWish(View view){
+    public void createNewWish(View view) {
         EditText inputName = (EditText) findViewById(R.id.new_wish_name_inputfield);
         String name = inputName.getText().toString();
         EditText inputPriority = (EditText) findViewById(R.id.new_wish_priority_inputfield);
@@ -36,7 +37,7 @@ public class NewWishActivity extends AppCompatActivity {
         EditText inputProduct = (EditText) findViewById(R.id.new_wish_product_inputfield);
         String product = inputName.getText().toString();
         Wish w = new Wish(IDUtility.getNewWishID(new DAO(this)), name, priority, comments, product);
-        DAOFactory.WishDAO(this).insert_wish(w,list_id);
+        DAOFactory.WishDAO(this).insert_wish(w, list_id);
         Intent intent = new Intent(this, SeeWishesActivity.class);
         intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(intent);

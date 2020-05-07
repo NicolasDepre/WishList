@@ -24,7 +24,7 @@ public class NewListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_list);
     }
 
-    public void createNewList(View view){
+    public void createNewList(View view) {
         EditText inputName = (EditText) findViewById(R.id.new_list_name_inputfield);
         String name = inputName.getText().toString();
         EditText inputFriends = (EditText) findViewById(R.id.new_list_share_inputfield);
@@ -36,7 +36,7 @@ public class NewListActivity extends AppCompatActivity {
         DAOFactory.listDAO(this).insert_list(l);
         for (String username : friendsUsernames) {
             User friend = DAOFactory.userDAO(this).getUserFromID(username);
-            if(friend != null) {
+            if (friend != null) {
                 Log.i("ADD USER", "ADD user with username " + friend.getID());
                 if (DAOFactory.userDAO(this).areFriends(user, friend)) {
                     DAOFactory.listDAO(this).shareListWithUser(l, friend, 1);

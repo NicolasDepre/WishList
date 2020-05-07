@@ -10,26 +10,26 @@ public class DAO {
     public SQLiteDatabase db;
     private static DAO instance;
 
-    public DAO(Context c){
+    public DAO(Context c) {
 
         this.openHelper = new DataBaseOpenHelper(c);
         this.db = openHelper.getWritableDatabase();
     }
-    public SQLiteDatabase getDB(){
+
+    public SQLiteDatabase getDB() {
         return this.db;
     }
 
-    public void close(){
-        if(this.db != null){
+    public void close() {
+        if (this.db != null) {
             this.db.close();
         }
     }
 
     public static DAO getInstance(Context c) {
-        if(instance == null) instance = new DAO(c);
+        if (instance == null) instance = new DAO(c);
         return instance;
     }
-
 
 
 }

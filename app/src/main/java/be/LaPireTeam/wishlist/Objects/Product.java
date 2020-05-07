@@ -2,7 +2,7 @@ package be.LaPireTeam.wishlist.Objects;
 
 public class Product {
 
-    public  int ID;
+    public int ID;
     private String name, link, picture;
     private float price, note;
     private int counterNotes, counterWish;
@@ -11,6 +11,6 @@ public class Product {
     }
 
 
-    public void updateNote(){
+    public void updateNote() {
     }
 }
