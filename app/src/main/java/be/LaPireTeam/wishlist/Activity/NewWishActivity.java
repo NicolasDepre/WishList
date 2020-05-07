@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import be.LaPireTeam.wishlist.DAO.DAO;
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
+import be.LaPireTeam.wishlist.DAO.IDUtility;
 import be.LaPireTeam.wishlist.Objects.Product;
 import be.LaPireTeam.wishlist.Objects.Wish;
 import be.LaPireTeam.wishlist.R;
@@ -34,7 +35,7 @@ public class NewWishActivity extends AppCompatActivity {
         String comments = inputComments.getText().toString();
         EditText inputProduct = (EditText) findViewById(R.id.new_wish_product_inputfield);
         String product = inputName.getText().toString();
-        Wish w = new Wish(-1, name, priority, comments, product);
+        Wish w = new Wish(IDUtility.getNewWishID(new DAO(this)), name, priority, comments, product);
         DAOFactory.WishDAO(this).insert_wish(w,list_id);
         //TODO add wish to database when created
         Intent intent = new Intent(this, SeeWishesActivity.class);
