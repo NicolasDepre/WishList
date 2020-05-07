@@ -14,34 +14,35 @@ public class ListDao {
 
     public DAO dao;
 
-    public ListDao(Context c){
+    public ListDao(Context c) {
         dao = DAO.getInstance(c);
     }
 
-    public boolean insert_list(List l){
+    public boolean insert_list(List l) {
 
         SQLiteDatabase db = dao.getDB();
         ContentValues wishValues = new ContentValues();
 
-        wishValues.put("ListID",l.ID);
-        wishValues.put("Name",l.getName());
+        wishValues.put("ListID", l.ID);
+        wishValues.put("Name", l.getName());
 
         ContentValues userList = new ContentValues();
         User u = Session.getInstance().getU();
         userList.put("Pseudo", u.getID());
         userList.put("ListID", l.ID);
-        userList.put("Access", 0);
 
-        try{
-            db.insert("List",null, wishValues);
-            db.insert("UserList", null,userList);
-        }catch (Exception e) {return false;}
+        try {
+            db.insert("List", null, wishValues);
+            db.insert("UserList", null, userList);
+        } catch (Exception e) {
+            return false;
+        }
 
         return true;
     }
 
 
-    public List[] getLists(User u){
+    public List[] getLists(User u) {
 
         SQLiteDatabase db = dao.getDB();
 
@@ -54,41 +55,41 @@ public class ListDao {
 
     }
 
-    public List getListFromListID(int id){
+    public List getListFromListID(int id) {
         SQLiteDatabase db = dao.getDB();
-        String request = "SELECT * FROM List WHERE List.ListID = " + id ;
-        Cursor c = db.rawQuery(request,null);
-        if(c.getCount() ==0){
+        String request = "SELECT * FROM List WHERE List.ListID = " + id;
+        Cursor c = db.rawQuery(request, null);
+        if (c.getCount() == 0) {
             return null;
         }
         List[] lists = cursorToList(c);
         return lists[0];
     }
 
-    private List[] cursorToList(Cursor c){
+    private List[] cursorToList(Cursor c) {
         List[] lists = new List[c.getCount()];
         int counter = 0;
-        while(c.moveToNext()){
+        while (c.moveToNext()) {
             List l = new List(c.getInt(c.getColumnIndex("ListID")));
             //l.setCreationDate(); //TODO Gestion la date
             l.setName(c.getString(c.getColumnIndex("Name")));
             //TODO ajouter le bon ID a la liste
-            lists[counter]  = l;
+            lists[counter] = l;
             counter++;
         }
         return lists;
     }
 
-    public boolean shareListWithUser(List list, User user, int acces){
+    public boolean shareListWithUser(List list, User user, int acces) {
         SQLiteDatabase db = dao.getDB();
         ContentValues values = new ContentValues();
         values.put("Pseudo", user.getID());
         values.put("ListID", list.ID);
         values.put("Access", acces);
-        try{
+        try {
             db.insert("UserList", null, values);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
@@ -121,25 +122,25 @@ public class ListDao {
         }
     }
 
-    public boolean removeList(Context c, List list){
+    public boolean removeList(Context c, List list) {
         SQLiteDatabase db = dao.getDB();
         User user = Session.getInstance().getU();
-        if (!owns_list(list, user)){
+        if (!owns_list(list, user)) {
             try {
                 db.delete("UserList", "ListID = " + list.ID + " and Pseudo = '" + user.getID() + "'", null);
                 return true;
-            }catch (Exception e){
+            } catch (Exception e) {
                 return false;
             }
         }
-        try{
+        try {
             db.delete("UserList", "ListID = " + list.ID, null);
-            for (Wish wish : DAOFactory.WishDAO(c).getWishes(list)){
+            for (Wish wish : DAOFactory.WishDAO(c).getWishes(list)) {
                 DAOFactory.WishDAO(c).removeWish(wish);
             }
             db.delete("List", "ListID = " + list.ID, null);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }

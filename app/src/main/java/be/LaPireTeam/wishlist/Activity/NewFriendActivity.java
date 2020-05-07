@@ -22,18 +22,17 @@ public class NewFriendActivity extends AppCompatActivity {
 
     }
 
-    public void addFriendButton(View view){
+    public void addFriendButton(View view) {
         EditText usernameInput = (EditText) findViewById(R.id.new_friends_username_inputfield);
         String username = usernameInput.getText().toString();
         User u = DAOFactory.userDAO(this).getUserFromID(username);
         TextView alert = (TextView) findViewById(R.id.alerteTextNewFriend);
-        if(u == null){
+        if (u == null) {
             alert.setText("No user with that username found\n please retry");
-        }
-        else{
-            if(DAOFactory.userDAO(this).areFriends(Session.getInstance().getU(), u)){
+        } else {
+            if (DAOFactory.userDAO(this).areFriends(Session.getInstance().getU(), u)) {
                 alert.setText("You are already friends");
-            }else {
+            } else {
                 DAOFactory.userDAO(this).addNewFriend(u);
                 Intent intent = new Intent(this, AmisActivity.class);
                 startActivity(intent);

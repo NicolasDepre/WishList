@@ -38,10 +38,11 @@ public class MyListsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("INFO","CREATION NOUVELLE LIST");
+                Log.i("INFO", "CREATION NOUVELLE LIST");
                 openNewListActivity();
             }
         });
+
 
         listView = (ListView)findViewById(R.id.mylists);
 
@@ -74,12 +75,14 @@ public class MyListsActivity extends AppCompatActivity {
             }
         });
     }
-    public void openSeeWishesActivity(View view, int id){
+
+    public void openSeeWishesActivity(View view, int id) {
         Intent intent = new Intent(this, SeeWishesActivity.class);
         intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
         startActivity(intent);
     }
-    public void openNewListActivity(){
+
+    public void openNewListActivity() {
         Intent newListIntent = new Intent(this, NewListActivity.class);
         startActivity(newListIntent);
     }

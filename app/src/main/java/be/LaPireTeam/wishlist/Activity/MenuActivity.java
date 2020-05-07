@@ -17,7 +17,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void openProfilButton(View view) {
         /*
-        *   Lance l'activity profil.
+         *   Lance l'activity profil.
          */
         Intent intent = new Intent(this, ProfilActivity.class);
         startActivity(intent);

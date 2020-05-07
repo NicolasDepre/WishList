@@ -39,13 +39,13 @@ public class AmisActivity extends AppCompatActivity {
             }
         });
 
-        listView = (ListView)findViewById(R.id.listview_friends);
+        listView = (ListView) findViewById(R.id.listview_friends);
         User user = Session.getInstance().getU();
 
         final User[] friends = DAOFactory.userDAO(this).getFriends(user);
 
         ArrayList<String> myFriendsNames = new ArrayList<>();
-        if(friends != null) {
+        if (friends != null) {
             for (User friend : friends) {
                 myFriendsNames.add(friend.getID());
             }
@@ -67,7 +67,7 @@ public class AmisActivity extends AppCompatActivity {
     }
 
     public void addNewFriendButton() {
-        Intent newFriendIntent = new Intent(this,NewFriendActivity.class);
+        Intent newFriendIntent = new Intent(this, NewFriendActivity.class);
         startActivity(newFriendIntent);
     }
 

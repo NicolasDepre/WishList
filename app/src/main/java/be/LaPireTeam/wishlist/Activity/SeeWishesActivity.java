@@ -25,6 +25,7 @@ public class SeeWishesActivity extends AppCompatActivity {
     public static final String EXTRA_ARGUMENT_WISH_ID = "be.LaPireTeam.wishlist.EXTRA_WISH_ID";
     ListView listView;
     int list_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,20 +51,19 @@ public class SeeWishesActivity extends AppCompatActivity {
             }
         });
 
-        listView = (ListView)findViewById(R.id.see_my_wishes);
-
+        listView = (ListView) findViewById(R.id.see_my_wishes);
 
 
         //Wish[] wishes = List.getWishesFromListID(this, list_id);
         final Wish[] wishes;
-        if(list_id != -1) {
+        if (list_id != -1) {
             List l = List.getListFromID(this, list_id);
             wishes = DAOFactory.WishDAO(this).getWishes(l);
-        }else {
+        } else {
             wishes = null;
         }
         ArrayList<String> myWishesNames = new ArrayList<>();
-        if(wishes != null) {
+        if (wishes != null) {
             for (Wish w : wishes) {
                 myWishesNames.add(w.getName());
             }
@@ -83,20 +83,20 @@ public class SeeWishesActivity extends AppCompatActivity {
         });
     }
 
-    private void openNewWishActivity(int list_id){
+    private void openNewWishActivity(int list_id) {
         Intent newWishIntent = new Intent(this, NewWishActivity.class);
         newWishIntent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(newWishIntent);
     }
 
-    private void openSeeDetailsWishActivity(int wish_id, int list_id){
+    private void openSeeDetailsWishActivity(int wish_id, int list_id) {
         Intent intent = new Intent(this, SeeDetailsWish.class);
         intent.putExtra(EXTRA_ARGUMENT_WISH_ID, wish_id);
         intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(intent);
     }
 
-    private void deleteList(){
+    private void deleteList() {
         List l = DAOFactory.listDAO(this).getListFromListID(list_id);
         DAOFactory.listDAO(this).removeList(this, l);
         Intent intent = new Intent(this, MyListsActivity.class);

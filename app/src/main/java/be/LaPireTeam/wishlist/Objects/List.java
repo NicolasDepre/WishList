@@ -33,41 +33,41 @@ public class List {
         this.creationDate = creationDate;
     }
 
-    public Wish addNewWish(Wish w){
+    public Wish addNewWish(Wish w) {
         return null;
     }
 
-    public boolean deleteWish(Wish w){
+    public boolean deleteWish(Wish w) {
         return false;
     }
 
-    public boolean share(User u){
+    public boolean share(User u) {
         return false;
     }
 
-    public boolean unShare(User u){
+    public boolean unShare(User u) {
         return false;
     }
 
-    public boolean setGrade(User u, int grade){
+    public boolean setGrade(User u, int grade) {
         return false;
     }
 
-    public boolean hasAccess(User u){
+    public boolean hasAccess(User u) {
         return false;
     }
 
-    public Wish[] getWishes(Context context){
+    public Wish[] getWishes(Context context) {
         //retourne la liste des wish dans la liste
         //fait appel au DAO qui récupère les donnée dans la base de données
         return DAOFactory.WishDAO(context).getWishes(this);
     }
 
-    public static List getListFromID(Context context, int id){
+    public static List getListFromID(Context context, int id) {
         return DAOFactory.listDAO(context).getListFromListID(id);
     }
 
-    public static Wish[] getWishesFromListID(Context context, int id){
+    public static Wish[] getWishesFromListID(Context context, int id) {
         return getListFromID(context, id).getWishes(context);
     }
 

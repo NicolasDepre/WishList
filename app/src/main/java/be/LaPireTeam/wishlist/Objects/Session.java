@@ -13,8 +13,8 @@ public class Session {
         this.u = u;
     }
 
-    public static Session getInstance(){
-        if(instance == null){
+    public static Session getInstance() {
+        if (instance == null) {
             instance = new Session();
         }
         return instance;

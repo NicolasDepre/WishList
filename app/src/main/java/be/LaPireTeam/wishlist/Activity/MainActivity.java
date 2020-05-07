@@ -21,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.login_page);
     }
 
-    public void gotoRegisterView(View view) { setContentView(R.layout.register); }
+    public void gotoRegisterView(View view) {
+        setContentView(R.layout.register);
+    }
 
     public void gotoLoginView(View view) {
         setContentView(R.layout.login_page);
@@ -33,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
          *   Et termine l'activity en cour.
          */
         User user = registerUser(view);
-        if (user == null) {return;}
+        if (user == null) {
+            return;
+        }
         Intent intent = new Intent(this, ProfilActivity.class);
         Intent intentParent = new Intent(this, MenuActivity.class);
         startActivity(intentParent);
@@ -47,14 +51,16 @@ public class MainActivity extends AppCompatActivity {
          *   Et termine l'activity en cour;
          */
         User user = loginUser(view);
-        if (user == null) {return;}
+        if (user == null) {
+            return;
+        }
         Session.getInstance().setU(user);
         Intent intent = new Intent(MainActivity.this, MenuActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private User loginUser(View view){
+    private User loginUser(View view) {
         /*
          *   Vérifie que l'utilisateur existe et que le mot de passe est exacte.
          *   Return l'utilisateur si les informations sont bonne sinon null.
@@ -64,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         String username = usernameTxt.getText().toString();
         String password = passwordTxt.getText().toString();
 
-        User user = DAOFactory.userDAO(this).login(username,password);
+        User user = DAOFactory.userDAO(this).login(username, password);
 
         TextView alerteText = (TextView) findViewById(R.id.alerteTextLogin);
         if (user == null) {
@@ -75,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
         return user;
     }
 
-    private User registerUser(View view){
+    private User registerUser(View view) {
         /*
-        *   Enregistre le nouvelle utilisateur si tout les paremetres sont exactes
-        *   sinon retourne null et affiche une erreur.
+         *   Enregistre le nouvelle utilisateur si tout les paremetres sont exactes
+         *   sinon retourne null et affiche une erreur.
          */
         EditText usernameInput = (EditText) findViewById(R.id.username_field_registerpage);
         EditText password1Input = (EditText) findViewById(R.id.password_field1_registerpage);
@@ -88,11 +94,11 @@ public class MainActivity extends AppCompatActivity {
         String password2 = password2Input.getText().toString();
         TextView msgAlert = (TextView) findViewById(R.id.alerteTextRegister);
 
-        if(DAOFactory.userDAO(this).idAlreadyExists(username)){
+        if (DAOFactory.userDAO(this).idAlreadyExists(username)) {
             msgAlert.setText("Username already in use");
             return null;
         }
-        if(!password1.equals(password2)){
+        if (!password1.equals(password2)) {
             msgAlert.setText("2 passwords aren't the same");
             return null;
         }

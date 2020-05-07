@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class User {
 
-    private String lastName, ID,firstName, address, picture, password, preferences;
-    private Date Birthday;
+    private String lastName, ID, firstName, address, picture, password, preferences;
+    private Date birthday;
 
     // Constructeur à faire
     public User(String pseudo) {
@@ -69,33 +69,33 @@ public class User {
     }
 
     public Date getBirthday() {
-        return Birthday;
+        return birthday;
     }
 
     public void setBirthday(Date birthday) {
-        Birthday = birthday;
+        this.birthday = birthday;
     }
 
     //TODO Changer dans le diagramme de Classe le return value de la fonction
-    public boolean addFriend(User u){
+    public boolean addFriend(User u) {
         return true;
     }
 
-    public boolean unFriend(User u){
+    public boolean unFriend(User u) {
         return true;
     }
 
     //TODO change attribute
 
-    public boolean deleteAccount(){
+    public boolean deleteAccount() {
         return true;
     }
 
-    public boolean createGroup(String name){
+    public boolean createGroup(String name) {
         return true;
     }
 
-    public User[] loadFriends(){
+    public User[] loadFriends() {
         return null;
     }
 
