@@ -25,7 +25,6 @@ public class FriendsListsActivity extends AppCompatActivity {
     String pseudoFriend;
     ArrayList<List> showedLists;
 
-    //public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +34,7 @@ public class FriendsListsActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.listViewFriendsLists);
         User user = Session.getInstance().getU();
 
-        /*
-        Intent intent = getIntent();
-        pseudoFriend = intent.getStringExtra(AmisActivity.EXTRA_ARGUMENT_FRIEND_ID);
-        User friend = DAOFactory.userDAO(this).getUserFromID(pseudoFriend);
-         */
+
         User friend = Session.getInstance().getLastClickedFriend();
         TextView title = (TextView) findViewById(R.id.title_friends_lists);
         title.setText("Lists of " + friend.getID());
@@ -67,7 +62,6 @@ public class FriendsListsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //i représente l'index de l'élément clické dans la view
                 //lancer activité see_list particulière
-                //int list_id = listIDs.get(position);
                 Session.getInstance().setLastClickedList(showedLists.get(position));
                 openSeeWishesActivity();
             }
@@ -76,7 +70,6 @@ public class FriendsListsActivity extends AppCompatActivity {
 
     public void openSeeWishesActivity(){
         Intent intent = new Intent(this, SeeWishesActivity.class);
-        //intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
         startActivity(intent);
     }
 }

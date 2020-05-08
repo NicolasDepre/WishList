@@ -23,7 +23,6 @@ import be.LaPireTeam.wishlist.R;
 public class AmisActivity extends AppCompatActivity {
 
     ListView listView;
-    //public static final String EXTRA_ARGUMENT_FRIEND_ID = "be.LaPireTeam.wishlist.EXTRA_FRIEND_ID";
 
 
     @Override
@@ -74,7 +73,6 @@ public class AmisActivity extends AppCompatActivity {
 
     private void openSeeListsFriend(){
         Intent intent = new Intent(this, FriendsListsActivity.class);
-        //intent.putExtra(EXTRA_ARGUMENT_FRIEND_ID, pseudoFriend);
         startActivity(intent);
     }
 

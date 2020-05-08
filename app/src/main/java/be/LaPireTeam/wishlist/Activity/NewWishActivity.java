@@ -17,17 +17,12 @@ import be.LaPireTeam.wishlist.Objects.Wish;
 import be.LaPireTeam.wishlist.R;
 
 public class NewWishActivity extends AppCompatActivity {
-    //public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
-    //int list_id;
+
     List currentList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_wish);
-        /*
-        Intent intent = getIntent();
-        list_id = intent.getIntExtra(SeeWishesActivity.EXTRA_ARGUMENT_LIST_ID, -1);
-         */
         currentList = Session.getInstance().getLastClickedList();
 
     }
@@ -59,7 +54,6 @@ public class NewWishActivity extends AppCompatActivity {
         Wish w = new Wish(IDUtility.getNewWishID(new DAO(this)), name, priority, comments, product);
         DAOFactory.wishDAO(this).insert_wish(w, currentList.ID);
         Intent intent = new Intent(this, SeeWishesActivity.class);
-        //intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(intent);
     }
 }

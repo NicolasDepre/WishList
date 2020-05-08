@@ -24,19 +24,13 @@ import be.LaPireTeam.wishlist.Objects.Wish;
 
 public class SeeWishesActivity extends AppCompatActivity {
 
-    //public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
-    //public static final String EXTRA_ARGUMENT_WISH_ID = "be.LaPireTeam.wishlist.EXTRA_WISH_ID";
+
     ListView listView;
-    //int list_id;
     List currentList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_wishes_in_list);
-
-        //Intent intent = getIntent();
-        //int list_id = Integer.parseInt( intent.getStringExtra(MyListsActivity.EXTRA_ARGUMENT_LIST_ID) );
-        //list_id = intent.getIntExtra(EXTRA_ARGUMENT_LIST_ID, -1);
 
         currentList = Session.getInstance().getLastClickedList();
 
@@ -66,17 +60,8 @@ public class SeeWishesActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.see_my_wishes);
 
-        //Wish[] wishes = List.getWishesFromListID(this, list_id);
         final Wish[] wishes = DAOFactory.wishDAO(this).getWishes(currentList);
-        /*
-        if (currentList != null) {
-            List l = List.getListFromID(this, list_id);
-            wishes = DAOFactory.WishDAO(this).getWishes(l);
-        } else {
-            wishes = null;
-        }
 
-         */
         ArrayList<String> myWishesNames = new ArrayList<>();
         if (wishes != null) {
             for (Wish w : wishes) {
@@ -101,14 +86,11 @@ public class SeeWishesActivity extends AppCompatActivity {
 
     private void openNewWishActivity() {
         Intent newWishIntent = new Intent(this, NewWishActivity.class);
-        //newWishIntent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(newWishIntent);
     }
 
     private void openSeeDetailsWishActivity() {
         Intent intent = new Intent(this, SeeDetailsWish.class);
-        //intent.putExtra(EXTRA_ARGUMENT_WISH_ID, wish_id);
-        //intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(intent);
     }
 

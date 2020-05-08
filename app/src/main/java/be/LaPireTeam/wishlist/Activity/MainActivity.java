@@ -116,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
         }
         User user = new User(username);
         user.setPassword(password1);
-        //DAOFactory.userDAO(this).addUserToDB(user);
         Session.getInstance().setU(user);
         return user;
     }

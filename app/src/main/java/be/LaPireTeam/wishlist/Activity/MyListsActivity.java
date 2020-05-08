@@ -24,7 +24,6 @@ import be.LaPireTeam.wishlist.Objects.User;
 
 public class MyListsActivity extends AppCompatActivity {
 
-    //public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
 
     ListView listView;
     ArrayList<Integer> listIDs;
@@ -52,7 +51,6 @@ public class MyListsActivity extends AppCompatActivity {
 
         final List[] lists = DAOFactory.listDAO(this).getLists(user);
         ArrayList<String> myListsNames = new ArrayList<>();
-        //listIDs = new ArrayList<>();
         showedLists = new ArrayList<>();
         if(lists != null) {
             for (List l : lists) {
@@ -73,7 +71,6 @@ public class MyListsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //i représente l'index de l'élément clické dans la view
                 //lancer activité see_list particulière
-                //int list_id = listIDs.get(position);
                 Session.getInstance().setLastClickedList(showedLists.get(position));
                 openSeeWishesActivity(view);
             }
@@ -82,7 +79,6 @@ public class MyListsActivity extends AppCompatActivity {
 
     public void openSeeWishesActivity(View view) {
         Intent intent = new Intent(this, SeeWishesActivity.class);
-        //intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
         startActivity(intent);
     }
 

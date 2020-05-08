@@ -7,7 +7,6 @@ public class User {
     private String lastName, ID, firstName, address, picture, password, preferences;
     private Date birthday;
 
-    // Constructeur à faire
     public User(String pseudo) {
         this.ID = pseudo;
     }
@@ -76,7 +75,6 @@ public class User {
         this.birthday = birthday;
     }
 
-    //TODO Changer dans le diagramme de Classe le return value de la fonction
     public boolean addFriend(User u) {
         return true;
     }
@@ -85,7 +83,7 @@ public class User {
         return true;
     }
 
-    //TODO change attribute
+
 
     public boolean deleteAccount() {
         return true;
