@@ -17,6 +17,9 @@ import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.R;
 
+/**
+ * Activité permettant de créer une nouvelle liste
+ */
 public class NewListActivity extends AppCompatActivity {
 
     @Override
