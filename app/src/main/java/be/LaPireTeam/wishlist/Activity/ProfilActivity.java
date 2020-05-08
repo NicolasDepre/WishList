@@ -20,25 +20,25 @@ public class ProfilActivity extends AppCompatActivity {
 
         User u = Session.getInstance().getU();
 
-        EditText firstName = (EditText) findViewById(R.id.profile_first_name);
+        EditText firstName = findViewById(R.id.profile_first_name);
         if (u.getFirstName() != null) {
             firstName.setText(u.getFirstName());
         } else {
             firstName.setHint("First name");
         }
-        EditText lastName = (EditText) findViewById(R.id.profile_last_name);
+        EditText lastName = findViewById(R.id.profile_last_name);
         if (u.getLastName() != null) {
             lastName.setText(u.getLastName());
         } else {
             lastName.setHint("Last name");
         }
-        EditText adress = (EditText) findViewById(R.id.profile_adress);
+        EditText adress = findViewById(R.id.profile_adress);
         if (u.getAddress() != null) {
             adress.setText(u.getAddress());
         } else {
             adress.setHint("Adress");
         }
-        EditText prefs = (EditText) findViewById(R.id.profile_preferences);
+        EditText prefs = findViewById(R.id.profile_preferences);
         if (u.getPreferences() != null) {
             prefs.setText(u.getPreferences());
         } else {
@@ -67,11 +67,5 @@ public class ProfilActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    public void changePictureProfile() {
-    }
-
-    public void changeAdresse() {
     }
 }

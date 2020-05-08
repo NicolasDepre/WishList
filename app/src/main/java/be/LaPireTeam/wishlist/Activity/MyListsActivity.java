@@ -24,8 +24,6 @@ import be.LaPireTeam.wishlist.Objects.User;
 
 public class MyListsActivity extends AppCompatActivity {
 
-    //public static final String EXTRA_ARGUMENT_LIST_ID = "be.LaPireTeam.wishlist.EXTRA_LIST_ID";
-
     ListView listView;
     ArrayList<Integer> listIDs;
     ArrayList<List> showedLists;
@@ -62,7 +60,7 @@ public class MyListsActivity extends AppCompatActivity {
                 }
             }
         }
-        //récupérer un arraylist de la base de données
+
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myListsNames);
 
         listView.setAdapter(arrayAdapter);
@@ -71,9 +69,6 @@ public class MyListsActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //i représente l'index de l'élément clické dans la view
-                //lancer activité see_list particulière
-                //int list_id = listIDs.get(position);
                 Session.getInstance().setLastClickedList(showedLists.get(position));
                 openSeeWishesActivity(view);
             }
@@ -82,7 +77,6 @@ public class MyListsActivity extends AppCompatActivity {
 
     public void openSeeWishesActivity(View view) {
         Intent intent = new Intent(this, SeeWishesActivity.class);
-        //intent.putExtra(EXTRA_ARGUMENT_LIST_ID, id);
         startActivity(intent);
     }
 

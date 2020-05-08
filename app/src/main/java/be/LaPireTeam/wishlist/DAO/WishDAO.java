@@ -20,7 +20,6 @@ public class WishDAO {
 
         SQLiteDatabase db = dao.getDB();
 
-        //String request = "SELECT * FROM Whishes, ListWish WHERE List.ListID == '"+l.getID+"' and  = UserList.ListID";
         String request = "SELECT * FROM Wishs, ListWish WHERE ListWish.ListID == '" + l.ID + "'and Wishs.WishID == ListWish.WishID";
         Cursor c = db.rawQuery(request, null);
         if (c.getCount() == 0) {
@@ -94,14 +93,6 @@ public class WishDAO {
         ContentValues vals = new ContentValues();
         vals.put("Status", status);
         String whereString = "WishID = " + wish_id;
-        /*
-        if(status){
-            request = "UPDATE Wishs SET Status = " + 1 + " WHERE WishID = " + wish_id;
-        }else {
-            request = "UPDATE Wishs SET Status = " + 0 + " WHERE WishID = " + wish_id;
-        }
-
-         */
         try {
             db.update("Wishs", vals, whereString, null);
             return true;

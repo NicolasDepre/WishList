@@ -33,16 +33,8 @@ public class Wish {
         return priority;
     }
 
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-
     public String getComment() {
         return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 
     public boolean getBookingStatus() {
@@ -57,7 +49,4 @@ public class Wish {
         return product;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
-    }
 }

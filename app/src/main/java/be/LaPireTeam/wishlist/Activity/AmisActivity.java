@@ -23,8 +23,6 @@ import be.LaPireTeam.wishlist.R;
 public class AmisActivity extends AppCompatActivity {
 
     ListView listView;
-    //public static final String EXTRA_ARGUMENT_FRIEND_ID = "be.LaPireTeam.wishlist.EXTRA_FRIEND_ID";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +37,7 @@ public class AmisActivity extends AppCompatActivity {
             }
         });
 
-        listView = (ListView) findViewById(R.id.listview_friends);
+        listView = findViewById(R.id.listview_friends);
         User user = Session.getInstance().getU();
 
         final User[] friends = DAOFactory.userDAO(this).getFriends(user);
@@ -50,7 +48,6 @@ public class AmisActivity extends AppCompatActivity {
                 myFriendsNames.add(friend.getID());
             }
         }
-        //récupérer un arraylist de la base de données
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myFriendsNames);
 
         listView.setAdapter(arrayAdapter);
@@ -59,7 +56,6 @@ public class AmisActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //position représente l'index de l'élément clické dans la view
                 Session.getInstance().setLastClickedFriend( friends[position] );
                 openSeeListsFriend();
             }
@@ -74,7 +70,6 @@ public class AmisActivity extends AppCompatActivity {
 
     private void openSeeListsFriend(){
         Intent intent = new Intent(this, FriendsListsActivity.class);
-        //intent.putExtra(EXTRA_ARGUMENT_FRIEND_ID, pseudoFriend);
         startActivity(intent);
     }
 

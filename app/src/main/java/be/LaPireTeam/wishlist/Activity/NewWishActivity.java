@@ -24,31 +24,28 @@ public class NewWishActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_wish);
-        /*
-        Intent intent = getIntent();
-        list_id = intent.getIntExtra(SeeWishesActivity.EXTRA_ARGUMENT_LIST_ID, -1);
-         */
+
         currentList = Session.getInstance().getLastClickedList();
 
     }
 
     public void createNewWish(View view) {
-        EditText inputName = (EditText) findViewById(R.id.new_wish_name_inputfield);
+        EditText inputName = findViewById(R.id.new_wish_name_inputfield);
         String name = inputName.getText().toString();
-        EditText inputPriority = (EditText) findViewById(R.id.new_wish_priority_inputfield);
+        EditText inputPriority = findViewById(R.id.new_wish_priority_inputfield);
         Integer priority;
         try {
             priority = Integer.parseInt(inputPriority.getText().toString());
         }catch (Exception e){
             priority = null;
         }
-        EditText inputComments = (EditText) findViewById(R.id.new_wish_comments_inputfield);
+        EditText inputComments = findViewById(R.id.new_wish_comments_inputfield);
         String comments = inputComments.getText().toString();
-        EditText inputProduct = (EditText) findViewById(R.id.new_wish_product_inputfield);
+        EditText inputProduct = findViewById(R.id.new_wish_product_inputfield);
         String product = inputProduct.getText().toString();
 
         if(name.length() == 0){
-            TextView alert = (TextView) findViewById(R.id.alerteNewWish);
+            TextView alert = findViewById(R.id.alerteNewWish);
             alert.setText("Please fill a name");
             alert.setVisibility(View.VISIBLE);
             return;

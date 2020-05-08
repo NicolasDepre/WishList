@@ -69,7 +69,6 @@ public class UserDAO {
                 u.setLastName(c.getString(c.getColumnIndex("LastName")));
                 u.setFirstName(c.getString(c.getColumnIndex("FirstName")));
                 u.setPassword(c.getString(c.getColumnIndex("Password")));
-                //u.setBirthday((Date) c.getString(c.getColumnIndex("DateOfBirth"))); TODO Gestion de la date
                 u.setAddress(c.getString(c.getColumnIndex("Address")));
                 u.setPicture(c.getColumnName(c.getColumnIndex("ProfilePicture")));
                 u.setPreferences(c.getString(c.getColumnIndex("Preferences")));
