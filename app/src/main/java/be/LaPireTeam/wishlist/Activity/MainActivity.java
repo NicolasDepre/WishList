@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         User user = DAOFactory.userDAO(this).login(username, password);
 
         TextView alerteText = (TextView) findViewById(R.id.alerteTextLogin);
+        alerteText.setVisibility(View.VISIBLE);
         if (user == null) {
             alerteText.setText("ERREUR UTILISATEUR INVALIDE");
             return null;
