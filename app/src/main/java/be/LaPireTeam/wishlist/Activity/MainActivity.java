@@ -13,6 +13,9 @@ import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.R;
 
+/**
+ * Activité permettant la connexion et l'enregistrement des utilisateurs
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -29,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.login_page);
     }
 
+    /**
+     *   Lance l'activity profil si il y l'utilisateur est bien créé.
+     *   Et termine l'activity en cours.
+     */
     public void registerButton(View view) {
-        /*
-         *   Lance l'activity profil si il y l'utilisateur est bien créé.
-         *   Et termine l'activity en cour.
-         */
         User user = registerUser(view);
         if (user == null) {
             return;
@@ -44,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     *   Lance l'activity menu si il y un user, sinon met un message d'erreur.
+     *   Et termine l'activity en cours;
+     */
     public void loginButton(View view) {
-        /*
-         *   Lance l'activity menu si il y un user, sinon met un message d'erreur.
-         *   Et termine l'activity en cour;
-         */
         User user = loginUser(view);
         if (user == null) {
             return;
@@ -58,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     *   Vérifie que l'utilisateur existe et que le mot de passe est exacte.
+     *   Return l'utilisateur si les informations sont bonnes sinon null.
+     */
     private User loginUser(View view) {
-        /*
-         *   Vérifie que l'utilisateur existe et que le mot de passe est exacte.
-         *   Return l'utilisateur si les informations sont bonne sinon null.
-         */
         EditText usernameTxt = (EditText) findViewById(R.id.username_field_loginpage);
         EditText passwordTxt = (EditText) findViewById(R.id.password_field_loginpage);
         String username = usernameTxt.getText().toString();
@@ -80,11 +83,11 @@ public class MainActivity extends AppCompatActivity {
         return user;
     }
 
+    /**
+     *   Enregistre le nouvelle utilisateur si tout les paremetres sont exactes
+     *   sinon retourne null et affiche une erreur.
+     */
     private User registerUser(View view) {
-        /*
-         *   Enregistre le nouvelle utilisateur si tout les paremetres sont exactes
-         *   sinon retourne null et affiche une erreur.
-         */
         EditText usernameInput = (EditText) findViewById(R.id.username_field_registerpage);
         EditText password1Input = (EditText) findViewById(R.id.password_field1_registerpage);
         EditText password2Input = (EditText) findViewById(R.id.password_field2_registerpage);
