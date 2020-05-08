@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -68,7 +67,7 @@ public class SeeWishesActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.see_my_wishes);
 
         //Wish[] wishes = List.getWishesFromListID(this, list_id);
-        final Wish[] wishes = DAOFactory.WishDAO(this).getWishes(currentList);
+        final Wish[] wishes = DAOFactory.wishDAO(this).getWishes(currentList);
         /*
         if (currentList != null) {
             List l = List.getListFromID(this, list_id);

@@ -10,11 +10,11 @@ import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.Objects.Wish;
 
-public class ListDao {
+public class ListDAO {
 
     public DAO dao;
 
-    public ListDao(Context c) {
+    public ListDAO(Context c) {
         dao = DAO.getInstance(c);
     }
 
@@ -135,8 +135,8 @@ public class ListDao {
         }
         try {
             db.delete("UserList", "ListID = " + list.ID, null);
-            for (Wish wish : DAOFactory.WishDAO(c).getWishes(list)) {
-                DAOFactory.WishDAO(c).removeWish(wish);
+            for (Wish wish : DAOFactory.wishDAO(c).getWishes(list)) {
+                DAOFactory.wishDAO(c).removeWish(wish);
             }
             db.delete("List", "ListID = " + list.ID, null);
             return true;

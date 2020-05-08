@@ -9,11 +9,11 @@ public class DAOFactory {
         return new UserDAO(c);
     }
 
-    public static ListDao listDAO(Context c) {
-        return new ListDao(c);
+    public static ListDAO listDAO(Context c) {
+        return new ListDAO(c);
     }
 
-    public static WishDAO WishDAO(Context c) {
+    public static WishDAO wishDAO(Context c) {
         return new WishDAO(c);
     }
 
