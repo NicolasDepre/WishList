@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/title_activity_new_wish"
         android:textAlignment="center"
         android:textSize="28dp" />
@@ -59,7 +59,7 @@
         android:id="@+id/new_wish_comments_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name of the wish"
+        android:text="Comments about the wish"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/new_wish_priority_inputfield" />
     <EditText
