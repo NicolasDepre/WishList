@@ -18,6 +18,9 @@ import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.R;
 
+/**
+Activité permettant d'afficher la liste des amis de l'utilisateur connecté
+*/
 public class AmisActivity extends AppCompatActivity {
 
     ListView listView;
@@ -60,11 +63,17 @@ public class AmisActivity extends AppCompatActivity {
         });
     }
 
+    /**
+    fonction lancée par le bouton d'action "+" pour se diriger vers la page "ajouter un ami"
+     */
     public void addNewFriendButton() {
         Intent newFriendIntent = new Intent(this, NewFriendActivity.class);
         startActivity(newFriendIntent);
     }
 
+    /**
+    fonction lancée quand on clique sur la liste d'un ami afin de visualiser les wish dans cette liste
+     */
     private void openSeeListsFriend() {
         Intent intent = new Intent(this, FriendsListsActivity.class);
         startActivity(intent);
