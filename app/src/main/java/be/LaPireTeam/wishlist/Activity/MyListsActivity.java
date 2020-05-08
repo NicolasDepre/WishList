@@ -20,6 +20,9 @@ import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.R;
 
+/**
+ * Activité permettant d'afficher les listes de l'utilisateur connecté
+ */
 public class MyListsActivity extends AppCompatActivity {
 
     ListView listView;
@@ -65,16 +68,22 @@ public class MyListsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Session.getInstance().setLastClickedList(showedLists.get(position));
-                openSeeWishesActivity(view);
+                openSeeWishesActivity();
             }
         });
     }
 
-    public void openSeeWishesActivity(View view) {
+    /**
+     * lance l'activité pour afficher les wish d'une liste sélectionée
+     */
+    public void openSeeWishesActivity() {
         Intent intent = new Intent(this, SeeWishesActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * lance l'activité pour créer une nouvelle liste
+     */
     public void openNewListActivity() {
         Intent newListIntent = new Intent(this, NewListActivity.class);
         startActivity(newListIntent);
