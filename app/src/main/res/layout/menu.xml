@@ -2,23 +2,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background = "@drawable/background"
-    >
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/title_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="136dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="0dp"
         android:layout_marginBottom="30dp"
         android:text="@string/app_name"
         android:textSize="36sp" />
 
-       <Button
+    <Button
         android:id="@+id/lists_button_menu"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="160dp"
@@ -34,11 +34,10 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="160dp"
         android:layout_height="60dp"
+        android:layout_below="@id/lists_button_menu"
         android:layout_centerHorizontal="true"
         android:onClick="openAmisButton"
-        android:text="@string/amis"
-        android:layout_below="@id/lists_button_menu"
-         />
+        android:text="@string/amis" />
 
 
     <Button
@@ -46,11 +45,10 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="160dp"
         android:layout_height="60dp"
+        android:layout_below="@id/amis_button_menu"
         android:layout_centerHorizontal="true"
         android:onClick="openProfilButton"
-        android:text="@string/profil"
-        android:layout_below="@id/amis_button_menu"
-        />
+        android:text="@string/profil" />
 
 
 </RelativeLayout>
