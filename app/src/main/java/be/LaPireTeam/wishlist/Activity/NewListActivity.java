@@ -28,6 +28,9 @@ public class NewListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_list);
     }
 
+    /**
+     * crée une nouvelle liste et l'ajoute à la base de données avec les informations renseignées
+     */
     public void createNewList(View view) {
         EditText inputName = (EditText) findViewById(R.id.new_list_name_inputfield);
         String name = inputName.getText().toString();
