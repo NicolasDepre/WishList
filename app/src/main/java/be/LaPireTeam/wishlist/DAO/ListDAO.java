@@ -71,9 +71,7 @@ public class ListDAO {
         int counter = 0;
         while (c.moveToNext()) {
             List l = new List(c.getInt(c.getColumnIndex("ListID")));
-            //l.setCreationDate(); //TODO Gestion la date
             l.setName(c.getString(c.getColumnIndex("Name")));
-            //TODO ajouter le bon ID a la liste
             lists[counter] = l;
             counter++;
         }
