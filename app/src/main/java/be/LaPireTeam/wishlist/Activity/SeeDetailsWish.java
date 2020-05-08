@@ -14,6 +14,9 @@ import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.Wish;
 import be.LaPireTeam.wishlist.R;
 
+/**
+ * Activité qui affiche les détails d'un wish sélectionné
+ */
 public class SeeDetailsWish extends AppCompatActivity {
 
     List currentList;
@@ -46,6 +49,9 @@ public class SeeDetailsWish extends AppCompatActivity {
         }
     }
 
+    /**
+     * Change le statut de reservation d'un wish
+     */
     public void bookingButton(View view) {
 
         if (currentWish.getBookingStatus()) {
@@ -61,6 +67,9 @@ public class SeeDetailsWish extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Supprime un wish
+     */
     public void deleteWish(View view) {
         DAOFactory.wishDAO(this).removeWish(currentWish);
 

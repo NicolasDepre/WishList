@@ -22,6 +22,9 @@ import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.Objects.Wish;
 import be.LaPireTeam.wishlist.R;
 
+/**
+ * Activité qui affiche les wishs d'une liste sélectionné et permet de partager une liste
+ */
 public class SeeWishesActivity extends AppCompatActivity {
 
     ListView listView;
@@ -79,17 +82,25 @@ public class SeeWishesActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Lance l'activité pour créer un nouveau wish
+     */
     private void openNewWishActivity() {
         Intent newWishIntent = new Intent(this, NewWishActivity.class);
-        //newWishIntent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
         startActivity(newWishIntent);
     }
 
+    /**
+     * lance l'activité pour voir les détails d'un wish
+     */
     private void openSeeDetailsWishActivity() {
         Intent intent = new Intent(this, SeeDetailsWish.class);
         startActivity(intent);
     }
 
+    /**
+     * Supprime une liste
+     */
     private void deleteList() {
         if (Session.getInstance().getLastClickedFriend() == null) {
             DAOFactory.listDAO(this).removeList(this, currentList);
@@ -106,6 +117,9 @@ public class SeeWishesActivity extends AppCompatActivity {
         setContentView(R.layout.share_list);
     }
 
+    /**
+     * Pour tous les pseudo donnés va trouver les utilisateurs qui existent et qui sont amis pour leur partager une liste
+     */
     public void shareListButton(View view) {
         User user = Session.getInstance().getU();
         EditText inputFriends = (EditText) findViewById(R.id.share_list_inputfield);
