@@ -95,17 +95,19 @@ public class MainActivity extends AppCompatActivity {
         String password1 = password1Input.getText().toString();
         String password2 = password2Input.getText().toString();
         TextView msgAlert = (TextView) findViewById(R.id.alerteTextRegister);
-        msgAlert.setVisibility(View.VISIBLE);
         if(username.length() == 0){
             msgAlert.setText("Empty Username");
+            msgAlert.setVisibility(View.VISIBLE);
             return null;
         }
         if (DAOFactory.userDAO(this).idAlreadyExists(username)) {
             msgAlert.setText("Username already in use");
+            msgAlert.setVisibility(View.VISIBLE);
             return null;
         }
         if (!password1.equals(password2)) {
             msgAlert.setText("2 passwords aren't the same");
+            msgAlert.setVisibility(View.VISIBLE);
             return null;
         }
         if(password1.length() == 0 || password2.length() == 0){
