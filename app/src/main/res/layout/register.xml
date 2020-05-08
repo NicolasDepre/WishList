@@ -69,6 +69,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="login_succes / Login_failed"
+        android:visibility="invisible"
         android:layout_below="@id/password_field2_registerpage"
         />
 

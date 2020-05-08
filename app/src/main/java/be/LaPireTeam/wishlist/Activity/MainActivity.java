@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         String password1 = password1Input.getText().toString();
         String password2 = password2Input.getText().toString();
         TextView msgAlert = (TextView) findViewById(R.id.alerteTextRegister);
+        msgAlert.setVisibility(View.VISIBLE);
 
         if (DAOFactory.userDAO(this).idAlreadyExists(username)) {
             msgAlert.setText("Username already in use");
