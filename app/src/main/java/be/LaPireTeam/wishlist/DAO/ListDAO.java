@@ -55,17 +55,6 @@ public class ListDAO {
 
     }
 
-    public List getListFromListID(int id) {
-        SQLiteDatabase db = dao.getDB();
-        String request = "SELECT * FROM List WHERE List.ListID = " + id;
-        Cursor c = db.rawQuery(request, null);
-        if (c.getCount() == 0) {
-            return null;
-        }
-        List[] lists = cursorToList(c);
-        return lists[0];
-    }
-
     private List[] cursorToList(Cursor c) {
         List[] lists = new List[c.getCount()];
         int counter = 0;
@@ -98,14 +87,6 @@ public class ListDAO {
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
         return c.getInt(c.getColumnIndex("Access")) == 0;
-    }
-
-    public boolean can_edit(List list, User user) {
-        SQLiteDatabase db = dao.getDB();
-        String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
-        Cursor c = db.rawQuery(query, null);
-        c.moveToFirst();
-        return c.getInt(c.getColumnIndex("Access")) <= 1;
     }
 
     public boolean can_see(List list, User user) {
@@ -142,5 +123,4 @@ public class ListDAO {
             return false;
         }
     }
-
 }

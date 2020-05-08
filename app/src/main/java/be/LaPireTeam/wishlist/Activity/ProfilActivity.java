@@ -8,9 +8,9 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
-import be.LaPireTeam.wishlist.R;
 import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
+import be.LaPireTeam.wishlist.R;
 
 public class ProfilActivity extends AppCompatActivity {
     @Override
@@ -44,8 +44,6 @@ public class ProfilActivity extends AppCompatActivity {
         } else {
             prefs.setHint("Preferences");
         }
-
-
     }
 
     public void saveButton(View view) {

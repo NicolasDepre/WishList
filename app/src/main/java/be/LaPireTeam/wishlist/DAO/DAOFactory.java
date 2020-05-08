@@ -4,7 +4,6 @@ import android.content.Context;
 
 public class DAOFactory {
 
-
     public static UserDAO userDAO(Context c) {
         return new UserDAO(c);
     }

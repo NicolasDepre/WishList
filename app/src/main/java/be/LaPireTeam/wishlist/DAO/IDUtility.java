@@ -20,11 +20,9 @@ public class IDUtility {
         values.put("GroupID", c.getInt(c.getColumnIndex("GroupID")));
         db.update("MaxID", values, "ID = 'True'", null);
         return wishID;
-
     }
 
     public static int getNewListID(DAO dao) {
-
         SQLiteDatabase db = dao.getDB();
         Cursor c = getIDCursor(db);
         c.moveToFirst();
@@ -37,12 +35,10 @@ public class IDUtility {
         db.update("MaxID", values, "ID = 'True'", null);
         Log.i("INFO", String.valueOf(listID));
         return listID;
-
     }
 
 
     private static Cursor getIDCursor(SQLiteDatabase db) {
-
         String query = "SELECT * FROM MaxID";
         return db.rawQuery(query, null);
     }

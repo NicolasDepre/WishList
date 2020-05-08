@@ -1,12 +1,8 @@
 package be.LaPireTeam.wishlist.Objects;
 
-import java.util.Date;
-
 public class User {
 
     private String lastName, ID, firstName, address, picture, password, preferences;
-    private Date birthday;
-
 
     public User(String pseudo) {
         this.ID = pseudo;
@@ -67,6 +63,4 @@ public class User {
     public void setPreferences(String preferences) {
         this.preferences = preferences;
     }
-
-
 }

@@ -26,7 +26,6 @@ public class WishDAO {
             return null;
         }
         return cursorToList(c);
-
     }
 
     public boolean insert_wish(Wish w, int listID) {
@@ -35,10 +34,18 @@ public class WishDAO {
         ContentValues wishValues = new ContentValues();
 
         wishValues.put("WishID", w.ID);
-        if(w.getName() != null) {wishValues.put("Name", w.getName());}
-        if(w.getPriority() != null) {wishValues.put("Priority", w.getPriority()) ;}
-        if(w.getComment() != null) { wishValues.put("Comments", w.getComment()); }
-        if(w.getProduct() != null){ wishValues.put("ProductID", w.getProduct()) ;}
+        if (w.getName() != null) {
+            wishValues.put("Name", w.getName());
+        }
+        if (w.getPriority() != null) {
+            wishValues.put("Priority", w.getPriority());
+        }
+        if (w.getComment() != null) {
+            wishValues.put("Comments", w.getComment());
+        }
+        if (w.getProduct() != null) {
+            wishValues.put("ProductID", w.getProduct());
+        }
 
         wishValues.put("Status", w.getBookingStatus());
 

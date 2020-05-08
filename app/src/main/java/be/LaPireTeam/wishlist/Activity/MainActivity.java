@@ -9,9 +9,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
-import be.LaPireTeam.wishlist.R;
 import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
+import be.LaPireTeam.wishlist.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-
     }
 
     public void gotoRegisterView(View view) {
@@ -119,5 +118,4 @@ public class MainActivity extends AppCompatActivity {
         Session.getInstance().setU(user);
         return user;
     }
-
 }

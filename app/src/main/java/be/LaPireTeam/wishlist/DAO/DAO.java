@@ -6,29 +6,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DAO {
 
+    private static DAO instance;
     public SQLiteOpenHelper openHelper;
     public SQLiteDatabase db;
-    private static DAO instance;
 
     public DAO(Context c) {
-
         this.openHelper = new DataBaseOpenHelper(c);
         this.db = openHelper.getWritableDatabase();
-    }
-
-    public SQLiteDatabase getDB() {
-        return this.db;
-    }
-
-    public void close() {
-        if (this.db != null) {
-            this.db.close();
-        }
     }
 
     public static DAO getInstance(Context c) {
         if (instance == null) instance = new DAO(c);
         return instance;
+    }
+
+    public SQLiteDatabase getDB() {
+        return this.db;
     }
 
 

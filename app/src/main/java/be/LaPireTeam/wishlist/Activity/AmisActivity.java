@@ -2,7 +2,6 @@ package be.LaPireTeam.wishlist.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +14,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
-import be.LaPireTeam.wishlist.Objects.List;
 import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.R;
@@ -56,11 +54,10 @@ public class AmisActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Session.getInstance().setLastClickedFriend( friends[position] );
+                Session.getInstance().setLastClickedFriend(friends[position]);
                 openSeeListsFriend();
             }
         });
-
     }
 
     public void addNewFriendButton() {
@@ -68,11 +65,8 @@ public class AmisActivity extends AppCompatActivity {
         startActivity(newFriendIntent);
     }
 
-    private void openSeeListsFriend(){
+    private void openSeeListsFriend() {
         Intent intent = new Intent(this, FriendsListsActivity.class);
         startActivity(intent);
     }
-
-
-
 }

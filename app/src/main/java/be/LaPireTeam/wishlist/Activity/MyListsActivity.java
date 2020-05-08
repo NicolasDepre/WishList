@@ -1,33 +1,29 @@
 package be.LaPireTeam.wishlist.Activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
 import be.LaPireTeam.wishlist.Objects.List;
-import be.LaPireTeam.wishlist.R;
 import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
+import be.LaPireTeam.wishlist.R;
 
 public class MyListsActivity extends AppCompatActivity {
 
     ListView listView;
-    ArrayList<Integer> listIDs;
     ArrayList<List> showedLists;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +39,7 @@ public class MyListsActivity extends AppCompatActivity {
             }
         });
 
-
-        listView = (ListView)findViewById(R.id.mylists);
+        listView = (ListView) findViewById(R.id.mylists);
 
         User user = Session.getInstance().getU();
 
@@ -52,9 +47,9 @@ public class MyListsActivity extends AppCompatActivity {
         ArrayList<String> myListsNames = new ArrayList<>();
         //listIDs = new ArrayList<>();
         showedLists = new ArrayList<>();
-        if(lists != null) {
+        if (lists != null) {
             for (List l : lists) {
-                if(DAOFactory.listDAO(this).owns_list(l, user)) {
+                if (DAOFactory.listDAO(this).owns_list(l, user)) {
                     myListsNames.add(l.getName());
                     showedLists.add(l);
                 }
@@ -84,5 +79,4 @@ public class MyListsActivity extends AppCompatActivity {
         Intent newListIntent = new Intent(this, NewListActivity.class);
         startActivity(newListIntent);
     }
-
 }

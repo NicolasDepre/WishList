@@ -10,7 +10,6 @@ public class DataBaseOpenHelper extends SQLiteAssetHelper {
     private final static int DB_VERSION = 1;
 
     public DataBaseOpenHelper(Context c) {
-
         super(c, DB_NAME, null, DB_VERSION);
     }
 }

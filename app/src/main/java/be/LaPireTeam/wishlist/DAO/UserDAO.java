@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.security.MessageDigest;
 
@@ -17,6 +16,21 @@ public class UserDAO {
 
     public UserDAO(Context c) {
         dao = DAO.getInstance(c);
+    }
+
+    public static String hashedPassword(String password) {
+        try {
+            MessageDigest diggest = MessageDigest.getInstance("MD5");
+            diggest.update(password.getBytes());
+            byte[] bytes = diggest.digest();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < bytes.length; i++) {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            return sb.toString();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public User getUserFromID(String pseudo) {
@@ -41,24 +55,7 @@ public class UserDAO {
             return null;
         }
         return users[0];
-
     }
-
-    public static String hashedPassword(String password) {
-        try {
-            MessageDigest diggest = MessageDigest.getInstance("MD5");
-            diggest.update(password.getBytes());
-            byte[] bytes = diggest.digest();
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < bytes.length; i++) {
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-            }
-            return sb.toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
 
     public User[] cursor_to_user(Cursor c) {
         User[] users = new User[c.getCount()];
@@ -180,5 +177,4 @@ public class UserDAO {
         Cursor c = db.rawQuery(query, null);
         return c.getCount() > 0;
     }
-
 }

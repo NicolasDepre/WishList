@@ -13,7 +13,7 @@
         <!-- Activity -->
         <activity
             android:name=".Activity.NewFriendActivity"
-            android:parentActivityName=".Activity.AmisActivity"/>
+            android:parentActivityName=".Activity.AmisActivity" />
         <activity
             android:name=".Activity.SeeDetailsWish"
             android:parentActivityName=".Activity.SeeWishesActivity" />

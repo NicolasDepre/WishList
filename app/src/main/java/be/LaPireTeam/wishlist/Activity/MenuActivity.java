@@ -40,5 +40,4 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MyListsActivity.class);
         startActivity(intent);
     }
-
 }

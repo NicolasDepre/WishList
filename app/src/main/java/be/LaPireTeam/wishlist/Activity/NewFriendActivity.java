@@ -19,7 +19,6 @@ public class NewFriendActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_friend);
-
     }
 
     public void addFriendButton(View view) {
@@ -39,5 +38,4 @@ public class NewFriendActivity extends AppCompatActivity {
             }
         }
     }
-
 }

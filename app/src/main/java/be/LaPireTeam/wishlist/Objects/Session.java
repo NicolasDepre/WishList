@@ -8,6 +8,12 @@ public class Session {
     private Wish lastClickedWish;
     private User lastClickedFriend;
 
+    public static Session getInstance() {
+        if (instance == null) {
+            instance = new Session();
+        }
+        return instance;
+    }
 
     public User getU() {
         return u;
@@ -16,14 +22,6 @@ public class Session {
     public void setU(User u) {
         this.u = u;
     }
-
-    public static Session getInstance() {
-        if (instance == null) {
-            instance = new Session();
-        }
-        return instance;
-    }
-
 
     public List getLastClickedList() {
         return lastClickedList;

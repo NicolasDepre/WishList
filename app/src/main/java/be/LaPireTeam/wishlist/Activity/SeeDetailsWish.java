@@ -1,12 +1,12 @@
 package be.LaPireTeam.wishlist.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
 import be.LaPireTeam.wishlist.Objects.List;
@@ -48,11 +48,11 @@ public class SeeDetailsWish extends AppCompatActivity {
 
     public void bookingButton(View view) {
 
-        if(currentWish.getBookingStatus()){
+        if (currentWish.getBookingStatus()) {
             DAOFactory.wishDAO(this).changeBookingStatus(currentWish.ID, false);
             currentWish.setBookingStatus(false);
             Session.getInstance().setLastClickedWish(currentWish);
-        }else{
+        } else {
             DAOFactory.wishDAO(this).changeBookingStatus(currentWish.ID, true);
             currentWish.setBookingStatus(true);
             Session.getInstance().setLastClickedWish(currentWish);
@@ -67,5 +67,4 @@ public class SeeDetailsWish extends AppCompatActivity {
         Intent intent = new Intent(this, SeeWishesActivity.class);
         startActivity(intent);
     }
-
 }
