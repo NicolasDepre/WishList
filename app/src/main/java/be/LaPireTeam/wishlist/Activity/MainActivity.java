@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         EditText usernameInput = (EditText) findViewById(R.id.username_field_registerpage);
         EditText password1Input = (EditText) findViewById(R.id.password_field1_registerpage);
         EditText password2Input = (EditText) findViewById(R.id.password_field2_registerpage);
-        String username = usernameInput.getText().toString();
+        String username = usernameInput.getText().toString().trim();
         String password1 = password1Input.getText().toString();
         String password2 = password2Input.getText().toString();
         TextView msgAlert = (TextView) findViewById(R.id.alerteTextRegister);
