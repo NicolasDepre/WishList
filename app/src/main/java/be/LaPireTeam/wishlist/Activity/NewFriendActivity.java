@@ -13,6 +13,9 @@ import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.R;
 
+/**
+ * Activité pour ajouter des amis
+ */
 public class NewFriendActivity extends AppCompatActivity {
 
     @Override
@@ -21,6 +24,9 @@ public class NewFriendActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_friend);
     }
 
+    /**
+     * Ajoute les amis pour tous les pseudos qui existent
+     */
     public void addFriendButton(View view) {
         EditText usernameInput = (EditText) findViewById(R.id.new_friends_username_inputfield);
         String username = usernameInput.getText().toString();
