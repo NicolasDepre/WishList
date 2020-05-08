@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import be.LaPireTeam.wishlist.DAO.DAO;
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
@@ -27,6 +28,12 @@ public class NewListActivity extends AppCompatActivity {
     public void createNewList(View view) {
         EditText inputName = (EditText) findViewById(R.id.new_list_name_inputfield);
         String name = inputName.getText().toString();
+        if(name.length() == 0){
+            TextView alert = (TextView) findViewById(R.id.alerteNewList);
+            alert.setText("Please fill in a name");
+            alert.setVisibility(View.VISIBLE);
+            return;
+        }
         EditText inputFriends = (EditText) findViewById(R.id.new_list_share_inputfield);
         String friendsInput = inputFriends.getText().toString();
         String[] friendsUsernames = friendsInput.split(" ");
