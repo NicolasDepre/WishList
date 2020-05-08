@@ -46,9 +46,9 @@ public class ListDAO {
 
         SQLiteDatabase db = dao.getDB();
 
-        String request = "SELECT * FROM UserList, List WHERE UserList.Pseudo == '"+ u.getID() +"' and List.ListID = UserList.ListID";
-        Cursor c = db.rawQuery(request,null);
-        if(c.getCount() ==0){
+        String request = "SELECT * FROM UserList, List WHERE UserList.Pseudo == '" + u.getID() + "' and List.ListID = UserList.ListID";
+        Cursor c = db.rawQuery(request, null);
+        if (c.getCount() == 0) {
             return null;
         }
         return cursorToList(c);
@@ -92,7 +92,7 @@ public class ListDAO {
         }
     }
 
-    public boolean owns_list(List list, User user){
+    public boolean owns_list(List list, User user) {
         SQLiteDatabase db = dao.getDB();
         String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
         Cursor c = db.rawQuery(query, null);
@@ -100,7 +100,7 @@ public class ListDAO {
         return c.getInt(c.getColumnIndex("Access")) == 0;
     }
 
-    public boolean can_edit(List list, User user){
+    public boolean can_edit(List list, User user) {
         SQLiteDatabase db = dao.getDB();
         String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
         Cursor c = db.rawQuery(query, null);
@@ -108,14 +108,14 @@ public class ListDAO {
         return c.getInt(c.getColumnIndex("Access")) <= 1;
     }
 
-    public boolean can_see(List list, User user){
+    public boolean can_see(List list, User user) {
         SQLiteDatabase db = dao.getDB();
         String query = "SELECT * FROM UserList WHERE Pseudo = '" + user.getID() + "' and ListID = " + list.ID;
         Cursor c = db.rawQuery(query, null);
         try {
             c.moveToFirst();
             return c.getInt(c.getColumnIndex("Access")) <= 2;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }

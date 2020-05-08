@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Activity.AmisActivity"
-    android:background="@drawable/background">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Activity.AmisActivity">
 
     <TextView
         android:id="@+id/title_fiends"
@@ -31,9 +31,8 @@
         android:id="@+id/listview_friends"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="120dp"
         android:layout_marginLeft="80dp"
-        />
+        android:layout_marginTop="120dp" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

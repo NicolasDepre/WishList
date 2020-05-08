@@ -28,7 +28,7 @@ public class NewListActivity extends AppCompatActivity {
     public void createNewList(View view) {
         EditText inputName = (EditText) findViewById(R.id.new_list_name_inputfield);
         String name = inputName.getText().toString();
-        if(name.length() == 0){
+        if (name.length() == 0) {
             TextView alert = (TextView) findViewById(R.id.alerteNewList);
             alert.setText("Please fill in a name");
             alert.setVisibility(View.VISIBLE);

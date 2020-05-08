@@ -59,7 +59,7 @@ public class AmisActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //position représente l'index de l'élément clické dans la view
-                Session.getInstance().setLastClickedFriend( friends[position] );
+                Session.getInstance().setLastClickedFriend(friends[position]);
                 openSeeListsFriend();
             }
         });
@@ -71,11 +71,10 @@ public class AmisActivity extends AppCompatActivity {
         startActivity(newFriendIntent);
     }
 
-    private void openSeeListsFriend(){
+    private void openSeeListsFriend() {
         Intent intent = new Intent(this, FriendsListsActivity.class);
         startActivity(intent);
     }
-
 
 
 }

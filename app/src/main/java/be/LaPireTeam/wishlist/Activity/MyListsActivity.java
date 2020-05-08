@@ -45,16 +45,16 @@ public class MyListsActivity extends AppCompatActivity {
         });
 
 
-        listView = (ListView)findViewById(R.id.mylists);
+        listView = (ListView) findViewById(R.id.mylists);
 
         User user = Session.getInstance().getU();
 
         final List[] lists = DAOFactory.listDAO(this).getLists(user);
         ArrayList<String> myListsNames = new ArrayList<>();
         showedLists = new ArrayList<>();
-        if(lists != null) {
+        if (lists != null) {
             for (List l : lists) {
-                if(DAOFactory.listDAO(this).owns_list(l, user)) {
+                if (DAOFactory.listDAO(this).owns_list(l, user)) {
                     myListsNames.add(l.getName());
                     showedLists.add(l);
                 }

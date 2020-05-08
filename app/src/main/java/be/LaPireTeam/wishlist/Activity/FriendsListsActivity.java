@@ -31,7 +31,7 @@ public class FriendsListsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends_lists);
 
-        listView = (ListView)findViewById(R.id.listViewFriendsLists);
+        listView = (ListView) findViewById(R.id.listViewFriendsLists);
         User user = Session.getInstance().getU();
 
 
@@ -43,9 +43,9 @@ public class FriendsListsActivity extends AppCompatActivity {
 
         ArrayList<String> listsNames = new ArrayList<>();
         showedLists = new ArrayList<>();
-        if(lists != null) {
+        if (lists != null) {
             for (List l : lists) {
-                if(DAOFactory.listDAO(this).can_see(l, user)) {
+                if (DAOFactory.listDAO(this).can_see(l, user)) {
                     listsNames.add(l.getName());
                     showedLists.add(l);
                 }
@@ -68,7 +68,7 @@ public class FriendsListsActivity extends AppCompatActivity {
         });
     }
 
-    public void openSeeWishesActivity(){
+    public void openSeeWishesActivity() {
         Intent intent = new Intent(this, SeeWishesActivity.class);
         startActivity(intent);
     }

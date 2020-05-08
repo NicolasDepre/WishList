@@ -50,11 +50,11 @@ public class SeeDetailsWish extends AppCompatActivity {
 
     public void bookingButton(View view) {
 
-        if(currentWish.getBookingStatus()){
+        if (currentWish.getBookingStatus()) {
             DAOFactory.wishDAO(this).changeBookingStatus(currentWish.ID, false);
             currentWish.setBookingStatus(false);
             Session.getInstance().setLastClickedWish(currentWish);
-        }else{
+        } else {
             DAOFactory.wishDAO(this).changeBookingStatus(currentWish.ID, true);
             currentWish.setBookingStatus(true);
             Session.getInstance().setLastClickedWish(currentWish);

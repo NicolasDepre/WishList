@@ -27,6 +27,7 @@ public class SeeWishesActivity extends AppCompatActivity {
 
     ListView listView;
     List currentList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,22 +96,22 @@ public class SeeWishesActivity extends AppCompatActivity {
     }
 
     private void deleteList() {
-        if(Session.getInstance().getLastClickedFriend() == null) {
+        if (Session.getInstance().getLastClickedFriend() == null) {
             DAOFactory.listDAO(this).removeList(this, currentList);
             Intent intent = new Intent(this, MyListsActivity.class);
             startActivity(intent);
-        }else {
+        } else {
             DAOFactory.listDAO(this).removeList(this, currentList);
             Intent intent = new Intent(this, FriendsListsActivity.class);
             startActivity(intent);
         }
     }
 
-    private void goToShareListView(){
+    private void goToShareListView() {
         setContentView(R.layout.share_list);
     }
 
-    public void shareListButton(View view){
+    public void shareListButton(View view) {
         User user = Session.getInstance().getU();
         EditText inputFriends = (EditText) findViewById(R.id.share_list_inputfield);
         String friendsInput = inputFriends.getText().toString();

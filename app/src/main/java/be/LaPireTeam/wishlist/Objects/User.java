@@ -84,7 +84,6 @@ public class User {
     }
 
 
-
     public boolean deleteAccount() {
         return true;
     }

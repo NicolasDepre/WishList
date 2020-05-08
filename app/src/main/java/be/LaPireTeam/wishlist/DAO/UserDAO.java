@@ -44,17 +44,17 @@ public class UserDAO {
 
     }
 
-    public static String hashedPassword(String password){
-        try{
+    public static String hashedPassword(String password) {
+        try {
             MessageDigest diggest = MessageDigest.getInstance("MD5");
             diggest.update(password.getBytes());
             byte[] bytes = diggest.digest();
             StringBuilder sb = new StringBuilder();
-            for(int i = 0; i<bytes.length;i++){
+            for (int i = 0; i < bytes.length; i++) {
                 sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
             }
             return sb.toString();
-        }catch(Exception e) {
+        } catch (Exception e) {
             return null;
         }
     }

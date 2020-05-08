@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "@drawable/background"
-    >
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/title_registerpage"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="98dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="80dp"
-        android:layout_centerHorizontal="true"
         android:hint="@string/app_name"
         android:textAlignment="center"
         android:textSize="36sp"
@@ -26,52 +25,48 @@
     <EditText
         android:id="@+id/username_field_registerpage"
         android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_height="45dp"
+        android:layout_below="@id/title_registerpage"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="99dp"
         android:layout_marginEnd="99dp"
         android:ems="10"
         android:hint="@string/username"
-        android:inputType="textPersonName"
-        android:layout_below="@id/title_registerpage"
-        />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/password_field1_registerpage"
         android:layout_width="213dp"
         android:layout_height="45dp"
+        android:layout_below="@id/username_field_registerpage"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="99dp"
         android:layout_marginEnd="99dp"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPassword"
-        android:layout_below="@id/username_field_registerpage"
-        />
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/password_field2_registerpage"
         android:layout_width="213dp"
         android:layout_height="45dp"
+        android:layout_below="@id/password_field1_registerpage"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="99dp"
         android:layout_marginEnd="99dp"
         android:ems="10"
         android:hint="@string/password_confirmation"
-        android:inputType="textPassword"
-        android:layout_below="@id/password_field1_registerpage"
-        />
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/alerteTextRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/password_field2_registerpage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="login_succes / Login_failed"
-        android:visibility="invisible"
-        android:layout_below="@id/password_field2_registerpage"
-        />
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/signup_button_registerpage"
@@ -86,12 +81,11 @@
         android:id="@+id/login_button_registerpage"
         android:layout_width="129dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/signup_button_registerpage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
-        android:text="@string/log_in"
         android:onClick="gotoLoginView"
-        android:layout_below="@id/signup_button_registerpage"
-        />
+        android:text="@string/log_in" />
 
 </RelativeLayout>

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.NewListActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".Activity.NewListActivity">
 
     <TextView
         android:id="@+id/title_see_wish"
@@ -21,18 +21,18 @@
         android:id="@+id/wish_name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name of the wish"
+        android:layout_below="@id/title_see_wish"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/title_see_wish"/>
+        android:text="Name of the wish" />
 
     <TextView
         android:id="@+id/wish_name_detail_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
         android:layout_below="@id/wish_name_textview"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         android:text="Name of the wish"
         android:textSize="18dp"
         android:textStyle="bold" />
@@ -41,112 +41,103 @@
         android:id="@+id/wish_priority_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Priority of the wish"
+        android:layout_below="@id/wish_name_detail_textview"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/wish_name_detail_textview"/>
+        android:text="Priority of the wish" />
 
     <TextView
         android:id="@+id/new_wish_priority_detail_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/wish_priority_textview"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:text="Priority of the wish"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/wish_priority_textview"
         android:textSize="18dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
 
     <TextView
         android:id="@+id/wish_comments_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Comments about the wish"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/new_wish_priority_detail_textview"
-        />
+        android:layout_centerHorizontal="true"
+        android:text="Comments about the wish" />
 
     <TextView
         android:id="@+id/wish_comments_detail_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/wish_comments_textview"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:text="Comments about the wish"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/wish_comments_textview"
         android:textSize="18dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
 
     <TextView
         android:id="@+id/wish_product_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Product"
+        android:layout_below="@id/wish_comments_detail_textview"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/wish_comments_detail_textview" />
+        android:text="Product" />
 
     <TextView
         android:id="@+id/wish_product_detail_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/wish_product_textview"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:text="Product"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/wish_product_textview"
         android:textSize="18dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/wish_status_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reservation"
+        android:layout_below="@id/wish_product_detail_textview"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/wish_product_detail_textview" />
+        android:text="Reservation" />
 
     <TextView
         android:id="@+id/wish_status_detail_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/wish_status_textview"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:text="Not yet reserved"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/wish_status_textview"
         android:textSize="18dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/bookingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Book wish"
+        android:layout_below="@id/wish_status_detail_textview"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:layout_below="@id/wish_status_detail_textview"
         android:onClick="bookingButton"
-        />
+        android:text="Book wish" />
 
     <Button
         android:id="@+id/deleteWishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete Wish"
+        android:layout_below="@id/bookingButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:layout_below="@id/bookingButton"
         android:onClick="deleteWish"
-        />
-
-
+        android:text="Delete Wish" />
 
 
 </RelativeLayout>

@@ -19,6 +19,7 @@ import be.LaPireTeam.wishlist.R;
 public class NewWishActivity extends AppCompatActivity {
 
     List currentList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class NewWishActivity extends AppCompatActivity {
         Integer priority;
         try {
             priority = Integer.parseInt(inputPriority.getText().toString());
-        }catch (Exception e){
+        } catch (Exception e) {
             priority = null;
         }
         EditText inputComments = (EditText) findViewById(R.id.new_wish_comments_inputfield);
@@ -42,13 +43,12 @@ public class NewWishActivity extends AppCompatActivity {
         EditText inputProduct = (EditText) findViewById(R.id.new_wish_product_inputfield);
         String product = inputProduct.getText().toString();
 
-        if(name.length() == 0){
+        if (name.length() == 0) {
             TextView alert = (TextView) findViewById(R.id.alerteNewWish);
             alert.setText("Please fill a name");
             alert.setVisibility(View.VISIBLE);
             return;
         }
-
 
 
         Wish w = new Wish(IDUtility.getNewWishID(new DAO(this)), name, priority, comments, product);
