@@ -18,6 +18,9 @@ import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.R;
 
+/**
+ * Activité permettant de voir les listes qu'un amis a partagé avec vous
+ */
 public class FriendsListsActivity extends AppCompatActivity {
 
     ListView listView;
@@ -64,6 +67,9 @@ public class FriendsListsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * fontion appelée pour lancer l'activité pour afficher les wish d'une liste sélectionée
+     */
     public void openSeeWishesActivity() {
         Intent intent = new Intent(this, SeeWishesActivity.class);
         startActivity(intent);
