@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.security.MessageDigest;
+
 import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 
@@ -31,20 +33,36 @@ public class UserDAO {
         SQLiteDatabase db = dao.getDB();
         username = username.trim();
         password = password.trim();
-        Log.i("INFO", username + password);
+        password = hashedPassword(password);
         String query = "SELECT * FROM User WHERE User.Pseudo == '" + username + "' AND User.Password == '" + password + "'";
         Cursor c = db.rawQuery(query, null);
         User[] users = cursor_to_user(c);
-        if (users.length == 0) return null;
+        if (users.length == 0) {
+            return null;
+        }
         return users[0];
 
+    }
+
+    public static String hashedPassword(String password){
+        try{
+            MessageDigest diggest = MessageDigest.getInstance("MD5");
+            diggest.update(password.getBytes());
+            byte[] bytes = diggest.digest();
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i<bytes.length;i++){
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            return sb.toString();
+        }catch(Exception e) {
+            return null;
+        }
     }
 
 
     public User[] cursor_to_user(Cursor c) {
         User[] users = new User[c.getCount()];
         int index = 0;
-        Log.i("INFO", String.format("SIZE REQUEST %d", users.length));
         try {
             while (c.moveToNext()) {
                 User u = new User(c.getString(c.getColumnIndex("Pseudo")));
@@ -74,10 +92,9 @@ public class UserDAO {
         vals.put("FirstName", u.getFirstName());
         vals.put("LastName", u.getLastName());
         vals.put("Pseudo", u.getID());
-        vals.put("Password", u.getPassword());
+        vals.put("Password", hashedPassword(u.getPassword()));
         vals.put("Address", u.getAddress());
         vals.put("Preferences", u.getPreferences().toString());
-
         try {
             db.insert("User", null, vals);
         } catch (Exception e) {

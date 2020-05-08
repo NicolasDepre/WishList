@@ -30,6 +30,7 @@ public class MyListsActivity extends AppCompatActivity {
     ArrayList<Integer> listIDs;
     ArrayList<List> showedLists;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
