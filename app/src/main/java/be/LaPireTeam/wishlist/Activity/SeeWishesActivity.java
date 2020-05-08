@@ -2,9 +2,11 @@ package be.LaPireTeam.wishlist.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
 import be.LaPireTeam.wishlist.Objects.List;
 import be.LaPireTeam.wishlist.Objects.Session;
+import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.R;
 import be.LaPireTeam.wishlist.Objects.Wish;
 
@@ -51,6 +54,14 @@ public class SeeWishesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 deleteList();
+            }
+        });
+
+        FloatingActionButton shareListButton = findViewById(R.id.shareListButton);
+        shareListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToShareListView();
             }
         });
 
@@ -112,5 +123,28 @@ public class SeeWishesActivity extends AppCompatActivity {
             Intent intent = new Intent(this, FriendsListsActivity.class);
             startActivity(intent);
         }
+    }
+
+    private void goToShareListView(){
+        setContentView(R.layout.share_list);
+    }
+
+    public void shareListButton(View view){
+        User user = Session.getInstance().getU();
+        EditText inputFriends = (EditText) findViewById(R.id.share_list_inputfield);
+        String friendsInput = inputFriends.getText().toString();
+        String[] friendsUsernames = friendsInput.split(" ");
+
+        for (String username : friendsUsernames) {
+            User friend = DAOFactory.userDAO(this).getUserFromID(username);
+            if (friend != null) {
+                if (DAOFactory.userDAO(this).areFriends(user, friend)) {
+                    DAOFactory.listDAO(this).shareListWithUser(currentList, friend, 1);
+                }
+            }
+        }
+        Log.d("SHARING LIST", "END SHARING LIST");
+        Intent intent = new Intent(this, SeeWishesActivity.class);
+        startActivity(intent);
     }
 }
