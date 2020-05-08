@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
+
     }
 
     public void gotoRegisterView(View view) {
@@ -95,7 +96,10 @@ public class MainActivity extends AppCompatActivity {
         String password2 = password2Input.getText().toString();
         TextView msgAlert = (TextView) findViewById(R.id.alerteTextRegister);
         msgAlert.setVisibility(View.VISIBLE);
-
+        if(username.length() == 0){
+            msgAlert.setText("Empty Username");
+            return null;
+        }
         if (DAOFactory.userDAO(this).idAlreadyExists(username)) {
             msgAlert.setText("Username already in use");
             return null;
@@ -104,7 +108,10 @@ public class MainActivity extends AppCompatActivity {
             msgAlert.setText("2 passwords aren't the same");
             return null;
         }
-
+        if(password1.length() == 0 || password2.length() == 0){
+            msgAlert.setText("Empty Password");
+            return null;
+        }
         User user = new User(username);
         user.setPassword(password1);
         //DAOFactory.userDAO(this).addUserToDB(user);
