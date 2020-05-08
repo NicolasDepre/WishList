@@ -5,7 +5,6 @@ import android.content.Context;
 import java.util.Date;
 
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
-import be.LaPireTeam.wishlist.DAO.IDUtility;
 
 public class List {
     private String name;
@@ -60,7 +59,7 @@ public class List {
     public Wish[] getWishes(Context context) {
         //retourne la liste des wish dans la liste
         //fait appel au DAO qui récupère les donnée dans la base de données
-        return DAOFactory.WishDAO(context).getWishes(this);
+        return DAOFactory.wishDAO(context).getWishes(this);
     }
 
     public static List getListFromID(Context context, int id) {

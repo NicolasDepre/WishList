@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -87,11 +86,11 @@ public class SeeDetailsWish extends AppCompatActivity {
          */
 
         if(currentWish.getBookingStatus()){
-            DAOFactory.WishDAO(this).changeBookingStatus(currentWish.ID, false);
+            DAOFactory.wishDAO(this).changeBookingStatus(currentWish.ID, false);
             currentWish.setBookingStatus(false);
             Session.getInstance().setLastClickedWish(currentWish);
         }else{
-            DAOFactory.WishDAO(this).changeBookingStatus(currentWish.ID, true);
+            DAOFactory.wishDAO(this).changeBookingStatus(currentWish.ID, true);
             currentWish.setBookingStatus(true);
             Session.getInstance().setLastClickedWish(currentWish);
         }
@@ -102,7 +101,7 @@ public class SeeDetailsWish extends AppCompatActivity {
 
     public void deleteWish(View view) {
         //Wish wish = DAOFactory.WishDAO(this).getWishFromWishID(wish_id);
-        DAOFactory.WishDAO(this).removeWish(currentWish);
+        DAOFactory.wishDAO(this).removeWish(currentWish);
 
         Intent intent = new Intent(this, SeeWishesActivity.class);
         //intent.putExtra(EXTRA_ARGUMENT_LIST_ID, list_id);
