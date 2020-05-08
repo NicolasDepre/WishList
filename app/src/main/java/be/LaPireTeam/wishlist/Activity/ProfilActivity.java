@@ -12,6 +12,9 @@ import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.User;
 import be.LaPireTeam.wishlist.R;
 
+/**
+ * Activité pour afficher et modifier son profil
+ */
 public class ProfilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,9 @@ public class ProfilActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * enregistre les modification apportées dans la base de données
+     */
     public void saveButton(View view) {
         EditText first_name = (EditText) findViewById(R.id.profile_first_name);
         String fn = first_name.getText().toString();
