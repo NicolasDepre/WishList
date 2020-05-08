@@ -16,6 +16,9 @@ import be.LaPireTeam.wishlist.Objects.Session;
 import be.LaPireTeam.wishlist.Objects.Wish;
 import be.LaPireTeam.wishlist.R;
 
+/**
+ * Activité permettant de créer un nouveau wish
+ */
 public class NewWishActivity extends AppCompatActivity {
     List currentList;
 
@@ -27,6 +30,9 @@ public class NewWishActivity extends AppCompatActivity {
         currentList = Session.getInstance().getLastClickedList();
     }
 
+    /**
+     * crée un nouveau wish et l'ajoute à la base de données avec les informations renseignées
+     */
     public void createNewWish(View view) {
         EditText inputName = findViewById(R.id.new_wish_name_inputfield);
         String name = inputName.getText().toString();
