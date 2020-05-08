@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         String password1 = password1Input.getText().toString();
         String password2 = password2Input.getText().toString();
         TextView msgAlert = (TextView) findViewById(R.id.alerteTextRegister);
-        if(username.length() == 0){
+        if (username.length() == 0) {
             msgAlert.setText("Empty Username");
             msgAlert.setVisibility(View.VISIBLE);
             return null;
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             msgAlert.setVisibility(View.VISIBLE);
             return null;
         }
-        if(password1.length() == 0 || password2.length() == 0){
+        if (password1.length() == 0 || password2.length() == 0) {
             msgAlert.setText("Empty Password");
             return null;
         }

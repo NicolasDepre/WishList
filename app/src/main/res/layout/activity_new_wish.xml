@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.NewListActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".Activity.NewListActivity">
 
     <TextView
         android:id="@+id/title_new_wish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/title_activity_new_wish"
         android:textAlignment="center"
         android:textSize="28dp" />
@@ -21,99 +21,96 @@
         android:id="@+id/new_wish_name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name of the wish"
+        android:layout_below="@id/title_new_wish"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/title_new_wish"/>
+        android:text="Name of the wish" />
+
     <EditText
         android:id="@+id/new_wish_name_inputfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/new_wish_name_textview"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/new_wish_name_textview"
         android:hint="Name"
-        />
+        android:inputType="textPersonName" />
+
     <TextView
         android:id="@+id/new_wish_priority_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Priority of the wish"
+        android:layout_below="@id/new_wish_name_inputfield"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/new_wish_name_inputfield"/>
+        android:text="Priority of the wish" />
 
     <EditText
         android:id="@+id/new_wish_priority_inputfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/new_wish_priority_textview"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:ems="10"
-        android:inputType="number"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/new_wish_priority_textview"
         android:hint="Priority"
-        />
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/new_wish_comments_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name of the wish"
+        android:layout_below="@id/new_wish_priority_inputfield"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/new_wish_priority_inputfield" />
+        android:text="Comments about the wish" />
+
     <EditText
         android:id="@+id/new_wish_comments_inputfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/new_wish_comments_textview"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:ems="10"
-        android:inputType="textMultiLine"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/new_wish_comments_textview"
         android:hint="Commentaires"
-        />
+        android:inputType="textMultiLine" />
 
     <TextView
         android:id="@+id/new_wish_product_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Product"
+        android:layout_below="@id/new_wish_comments_inputfield"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/new_wish_comments_inputfield" />
+        android:text="Product" />
+
     <EditText
         android:id="@+id/new_wish_product_inputfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/new_wish_product_textview"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
         android:hint="Product"
-        />
+        android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create"
+        android:layout_below="@id/new_wish_product_inputfield"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:layout_below="@id/new_wish_product_inputfield"
         android:onClick="createNewWish"
-        />
+        android:text="Create" />
 
     <TextView
         android:id="@+id/alerteNewWish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/button"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Alert text new wish"
-        android:visibility="invisible"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/button"
-        />
-
+        android:visibility="invisible" />
 
 
 </RelativeLayout>

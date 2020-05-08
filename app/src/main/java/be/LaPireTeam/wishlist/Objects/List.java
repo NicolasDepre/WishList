@@ -11,7 +11,6 @@ public class List {
     private Date creationDate;
     public final int ID;
 
-    //TODO generate other ID than 0
     public List(int id) {
         this.ID = id;
     }

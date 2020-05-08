@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "@drawable/background"
-    >
+    android:background="@drawable/background">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         app:srcCompat="@drawable/ic_launcher_foreground"
-        android:layout_centerHorizontal="true"
         tools:layout_editor_absoluteX="151dp"
         tools:layout_editor_absoluteY="88dp" />
 
@@ -21,8 +20,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/imageView2"
+        android:layout_centerHorizontal="true"
         android:text="Name"
         android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
@@ -32,11 +31,11 @@
         android:id="@+id/profile_first_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/textView2"
+        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="first name"
+        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="280dp" />
 
@@ -44,12 +43,12 @@
         android:id="@+id/profile_last_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/profile_first_name"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="last name"
+        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="280dp" />
 
@@ -57,8 +56,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/profile_last_name"
+        android:layout_centerHorizontal="true"
         android:text="Adress"
         android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
@@ -69,12 +68,12 @@
         android:id="@+id/profile_adress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Adress"
+        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="355dp" />
 
@@ -82,8 +81,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/profile_adress"
+        android:layout_centerHorizontal="true"
         android:text="Préférences"
         android:textSize="18dp"
         tools:layout_editor_absoluteX="108dp"
@@ -93,11 +92,11 @@
         android:id="@+id/profile_preferences"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/textView3"
+        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Preferences"
+        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="424dp" />
 
@@ -105,12 +104,11 @@
         android:id="@+id/save_profile_button"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:layout_below="@id/profile_preferences"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/profile_preferences"
-        android:text="Save"
         android:onClick="saveButton"
-        />
+        android:text="Save" />
 
 
 </RelativeLayout>

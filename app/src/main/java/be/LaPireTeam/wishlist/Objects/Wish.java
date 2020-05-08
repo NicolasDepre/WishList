@@ -10,7 +10,7 @@ public class Wish {
 
     public Wish(int id, String name, Integer priority, String comment, String product) {
         if (id == -1) {
-            this.ID = -1; //TODO generate number
+            this.ID = -1;
         } else {
             this.ID = id;
         }
