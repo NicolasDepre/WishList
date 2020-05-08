@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import be.LaPireTeam.wishlist.DAO.DAO;
 import be.LaPireTeam.wishlist.DAO.DAOFactory;
@@ -35,11 +39,26 @@ public class NewWishActivity extends AppCompatActivity {
         EditText inputName = (EditText) findViewById(R.id.new_wish_name_inputfield);
         String name = inputName.getText().toString();
         EditText inputPriority = (EditText) findViewById(R.id.new_wish_priority_inputfield);
-        int priority = Integer.parseInt(inputPriority.getText().toString());
+        Integer priority;
+        try {
+            priority = Integer.parseInt(inputPriority.getText().toString());
+        }catch (Exception e){
+            priority = null;
+        }
         EditText inputComments = (EditText) findViewById(R.id.new_wish_comments_inputfield);
         String comments = inputComments.getText().toString();
         EditText inputProduct = (EditText) findViewById(R.id.new_wish_product_inputfield);
-        String product = inputName.getText().toString();
+        String product = inputProduct.getText().toString();
+
+        if(name.length() == 0){
+            TextView alert = (TextView) findViewById(R.id.alerteNewWish);
+            alert.setText("Please fill a name");
+            alert.setVisibility(View.VISIBLE);
+            return;
+        }
+
+
+
         Wish w = new Wish(IDUtility.getNewWishID(new DAO(this)), name, priority, comments, product);
         DAOFactory.WishDAO(this).insert_wish(w, currentList.ID);
         Intent intent = new Intent(this, SeeWishesActivity.class);

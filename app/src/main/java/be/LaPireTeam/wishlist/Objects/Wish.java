@@ -3,12 +3,12 @@ package be.LaPireTeam.wishlist.Objects;
 public class Wish {
     public final int ID;
     private String name;
-    private int priority;
+    private Integer priority;
     private String comment;
     private boolean bookingStatus;
     private String product;
 
-    public Wish(int id, String name, int priority, String comment, String product) {
+    public Wish(int id, String name, Integer priority, String comment, String product) {
         if (id == -1) {
             this.ID = -1; //TODO generate number
         } else {
@@ -29,7 +29,7 @@ public class Wish {
         this.name = name;
     }
 
-    public int getPriority() {
+    public Integer getPriority() {
         return priority;
     }
 

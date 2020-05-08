@@ -36,10 +36,11 @@ public class WishDAO {
         ContentValues wishValues = new ContentValues();
 
         wishValues.put("WishID", w.ID);
-        wishValues.put("ProductID", w.getProduct());
-        wishValues.put("Name", w.getName());
-        wishValues.put("Priority", w.getPriority());
-        wishValues.put("Comments", w.getComment());
+        if(w.getName() != null) {wishValues.put("Name", w.getName());}
+        if(w.getPriority() != null) {wishValues.put("Priority", w.getPriority()) ;}
+        if(w.getComment() != null) { wishValues.put("Comments", w.getComment()); }
+        if(w.getProduct() != null){ wishValues.put("ProductID", w.getProduct()) ;}
+
         wishValues.put("Status", w.getBookingStatus());
 
         ContentValues listValues = new ContentValues();
