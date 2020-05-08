@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intentParent = new Intent(this, MenuActivity.class);
         startActivity(intentParent);
         startActivity(intent);
-        finish();
     }
 
     public void loginButton(View view) {
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         Session.getInstance().setU(user);
         Intent intent = new Intent(MainActivity.this, MenuActivity.class);
         startActivity(intent);
-        finish();
     }
 
     private User loginUser(View view) {
